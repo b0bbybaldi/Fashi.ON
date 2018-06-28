@@ -1,29 +1,52 @@
-# Create React Express App
+## Fashi.On
 
-## About This Boilerplate
+We all know event planning is stressful, and often times the last thing we think of
+is "What am I going to wear?". Fashi.On is an online based app that is here
+to help make all those fashion troubles go away, for not only women but men too!
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+This is a full stack app using React.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Launch The App:
 
-## Starting the app locally
+* **Work in progress, Coming soon**
+[Try it out here]("url")
+![img]("url")
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Built With:
+- Node.js
+- React.js
+- MongoDB
+- Express
+
+## Packages:
+-  Node:
+    - Body-Parser
+    - Express
+
+- React:
+    - Yarn
+    - React-Dom
+    - React-Script
+
+## Code Samples:
 
 ```
-yarn install
-``
-
-This should install node modules within the server and the client folder.
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
 ```
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+  COMING SOON
 
-## Deployment (Heroku)
+```
+```
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Install the app:
+** Directions coming soon **
+
+
+## Authors:
+* **Lena Martinson** [Github]("https://github.com/Blonded")
+* **Gustavo Gibo** [Github]("https://github.com/gustavogibo")
+* **Sarah Khosravinasr** [Github]("https://github.com/saranasr83")
+* **Mridula Shankar** [Github]("https://github.com/MridulaUdayaShankar")
+
+## Acknowledgements:
+** COMING SOON **
