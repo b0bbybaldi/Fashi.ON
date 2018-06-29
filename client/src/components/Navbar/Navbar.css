@@ -1,0 +1,10 @@
+/* navbar */
+.navbar {
+  background-color: #white;
+}
+
+/* navbar links */
+.navbar-brand{
+  align-items: left;
+  color: #777;
+}
