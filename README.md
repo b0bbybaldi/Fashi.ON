@@ -30,9 +30,7 @@ This is a full stack app using React.
     - React-Dom
     - React-Script
 
-- Material-UI:
-    - @material-ui/core
-    - @material-ui/icons
+- Material-UI
 
 
 ## Code Samples:
