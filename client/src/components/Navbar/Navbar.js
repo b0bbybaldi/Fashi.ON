@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./Navbar.css";
 
 const Navbar = props => (
@@ -8,7 +9,7 @@ const Navbar = props => (
   <a className="navbar-brand" href="/">Fashi.On</a>
   <a className="navbar-brand" href="/login">Log-in</a>
   <a className="navbar-brand" href="/signup">Sign up!</a>
-
+  
 </nav>
 
 
