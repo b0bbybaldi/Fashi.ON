@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Signup.css";
 import Header from '../../components/Header/Header.js';
 import Paper from '@material-ui/core/Paper';
@@ -7,14 +7,22 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import FormControl from '@material-ui/core/FormControl';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import classNames from 'classnames';
 
 
+class Signup extends Component {
 
-const Signup = () => (
-  <div>
+render(){
+  document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1485518882345-15568b007407?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9de002b94630e160d9e33c36decc06f3&auto=format&fit=crop&w=681&q=80")`
+  return (
+  <div className= "signup-page">
   <Header />
-<div>
-      <Paper className= "" elevation={1}>
+  <div className="signup-form">
         <Typography variant="headline" component="h3">
           Were happy to have you here.
         </Typography>
@@ -23,66 +31,41 @@ const Signup = () => (
           profile.
         </Typography>
 
-<TextField
-          id="firstName"
-          label="First Name"
-          //className={classes.textField}
-          //value={this.state.name}
-          //onChange={this.handleChange('name')}
-          //margin="normal"
-        />
-
-  <TextField
-            id="lastName"
-            label="Last Name"
-            //className={classes.textField}
+        <TextField
+            id="firstName"
+            label="First Name"
+            //className={}
             //value={this.state.name}
             //onChange={this.handleChange('name')}
             //margin="normal"
           />
 
-  <TextField
-            id="userName"
-            label="User Name"
-                    //className={classes.textField}
-                    //value={this.state.name}
-                    //onChange={this.handleChange('name')}
-                    //margin="normal"
-                  />
-
-
-          <FormControl className={classNames(classes.margin, classes.textField)}>
-          <InputLabel htmlFor="adornment-password">Password</InputLabel>
-          <Input
-            id="adornment-password"
-            type={this.state.showPassword ? 'text' : 'password'}
-            value={this.state.password}
-            onChange={this.handleChange('password')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="Toggle password visibility"
-                  onClick={this.handleClickShowPassword}
-                  onMouseDown={this.handleMouseDownPassword}
-                >
-                  {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
+        <TextField
+            id="lastName"
+            label="Last Name"
+            //className={}
+            //value={this.state.name}
+            //onChange={this.handleChange('name')}
+            //margin="normal"
           />
-        </FormControl>
 
+          <TextField
+              id="userName"
+              label="User Name"
+              //className={}
+              //value={this.state.name}
+              //onChange={this.handleChange('name')}
+              //margin="normal"
+          />
 
-
-
-
-      </Paper>
+          <FormControl className={classNames()}>
+          <InputLabel htmlFor="adornment-password">Password</InputLabel>
+          </FormControl>
+        </div>
     </div>
 
-
-  </div>
-
 );
+}}
 
 
 export default Signup;

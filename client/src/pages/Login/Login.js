@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Login.css";
 import Header from '../../components/Header/Header.js';
 import classNames from 'classnames';
@@ -20,74 +20,51 @@ import Typography from '@material-ui/core/Typography';
 
 
 
-const Login = () => (
-    <div>
-    <Header />
-     <Card
-        id = "login-content"
-        >
-       <CardMedia
-         image=""
-         title="LoginPhoto"
-       />
-       <CardContent>
-         <Typography gutterBottom variant="headline" component="h2">
-           Glad to have you back!
-         </Typography>
-         <Typography component="p">
-           Please, log-in.
-         </Typography>
+class Login extends Component {
 
-         <div id = "login-field">
-         <TextField
-             required
-             id="required"
-             label="Required"
-             defaultValue="Username"
-             //className={classes.textField}
-             margin="normal"
-           />
+render(){
+  document.body.style.backgroundImage = `url("http://r.ddmcdn.com/w_830/s_f/o_1/cx_0/cy_66/cw_288/ch_162/APL/uploads/2014/10/cat_5-1.jpg")`
+  return (
+  <div className="login-page">
+      <Header />
+      <div className="login-card">
+        <Card>
+         <CardMedia
+           image=""
+           title="LoginPhoto"
+         />
+         <CardContent>
+           <Typography gutterBottom variant="headline" component="h2">
+             Glad to have you back!
+           </Typography>
+           <Typography component="p">
+             Please, log-in.
+           </Typography>
+           <div id = "login-field">
+             <TextField
+                 required
+                 id="required"
+                 label="Required"
+                 defaultValue="Username"
+                 margin="normal"
+               />
+               <FormControl>
+                 <InputLabel htmlFor="adornment-password">Password</InputLabel>
+                 <Input
+                   id="adornment-password"
+                   type={'password'}
+                 />
+               </FormControl>
+          </div>
+          </CardContent>
+        </Card>
+    </div>
+  </div>
 
-         <FormControl>
-           <InputLabel htmlFor="adornment-password">Password</InputLabel>
-           <Input
-             id="adornment-password"
-             type={'password'}
-             //value={}
-             //onChange={}
-             endAdornment={
-               <InputAdornment position="end">
-                 <IconButton
-                   aria-label="Toggle password visibility"
-                   onClick={this.handleClickShowPassword}
-                   onMouseDown={this.handleMouseDownPassword}
-                 >
-                   {/*this.state.showPassword ? <VisibilityOff /> : <Visibility />*/}
-                 </IconButton>
-               </InputAdornment>
-             }
-           />
-         </FormControl>
-
- </div>
-       </CardContent>
+)
 
 
-    //
-    // <CardActions>
-    //          <Button size="small" color="primary">
-    //            Share
-    //          </Button>
-    //          <Button size="small" color="primary">
-    //            Learn More
-    //          </Button>
-    //        </CardActions>
-    //      </Card>
-    //    </div>
-
-
-
-);
+}}
 
 
 export default Login;
