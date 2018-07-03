@@ -4,12 +4,8 @@ import Footer from "../../components/Footer";
 import "./Signup.css";
 
 const Signup = () => (
-    
-    <div>
-        <Navbar />
-        <h2>This is the Signup Page</h2>
-        <Footer />
-    </div>
+
+  <h1> Sign up!!</h1>
 
 );
 

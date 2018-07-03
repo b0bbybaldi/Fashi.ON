@@ -1,13 +1,15 @@
-import React from "react";
-import Navbar from "../../components/Navbar";
+import React, { Component } from "react";
+import Navbar from "../../components/Navbar/"
 import Footer from "../../components/Footer";
-import "./Home.css";
+import "../../App.css";
 
 var dt = new Date();
-dt = (dt.getYear() + 1900) ; 
+dt = (dt.getYear() + 1900) ;
 
-const Home = () => (
-      
+class Home extends Component {
+  render() {
+    return (
+
       <div>
       <Navbar />
       <div className="App">
@@ -20,7 +22,9 @@ const Home = () => (
       </div>
       <Footer year={dt}/>
       </div>
-);
+    );
+  }
+}
 
 
 export default Home;
