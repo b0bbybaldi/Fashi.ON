@@ -1,5 +1,5 @@
 module.exports = {
-    User: require("./user"),
-    Occasion: require("./occasion")
+  Occasion: require("./occasion"),
+  User: require("./user")
   };
   
