@@ -1,26 +1,23 @@
 import React, { Component } from "react";
-import Navbar from "./components/Navbar/"
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
+import Login from "./pages/Login/Login.js";
+import Signup from "./pages/Signup/Signup.js";
+import Home from "./pages/Home/Home.js";
 
-var dt = new Date();
-dt = (dt.getYear() + 1900) ; 
+
+
 
 class App extends Component {
   render() {
     return (
-      <div>
-      <Navbar />
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to Fashi.On</h2>
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
         </div>
-        <p className="App-intro">
-          Get started with us today!
-        </p>
-      </div>
-      <Footer year={dt}/>
-      </div>
+      </Router>
     );
   }
 }
