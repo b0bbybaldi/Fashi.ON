@@ -8,7 +8,7 @@ const Signup = () => (
   <Header />
   <h1> Sign up!!</h1>
   </div>
-  
+
 );
 
 
