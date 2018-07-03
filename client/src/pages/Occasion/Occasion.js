@@ -1,17 +1,17 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import "./UserProfile.css";
+import "./Occasion.css";
 
-const UserProfile = () => (
+const Occasion = () => (
     
     <div>
         <Navbar />
-        <h2>This is the UserProfile Page</h2>
+        <h2>This is the Occasion Page</h2>
         <Footer />
     </div>
 
 );
 
 
-export default UserProfile;
+export default Occasion;
