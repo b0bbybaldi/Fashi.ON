@@ -7,7 +7,7 @@ router.route("/api/occasion")
 router.route("/api/occasion/:id")
 .get(occasionController.findById)
 .put(occasionController.update)
-.delete(occasionController.delete);
+.delete(occasionController.remove);
 
 module.exports = router;
 

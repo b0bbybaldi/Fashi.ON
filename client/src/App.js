@@ -1,28 +1,34 @@
 import React, { Component } from "react";
-import Navbar from "./components/Navbar/"
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Login from "./pages/Login/Login.js";
+import Signup from "./pages/Signup/Signup.js";
+import Home from "./pages/Home/Home.js";
+import UserProfile from "./pages/UserProfile/UserProfile.js";
+import Dashboard from "./pages/Dashboard/Dashboard.js";
+import Occasion from "./pages/Occasion/Occasion.js";
+import NoMatch from "./pages/NoMatch/NoMatch.js";
 
-var dt = new Date();
-dt = (dt.getYear() + 1900) ; 
+
+
 
 class App extends Component {
   render() {
     return (
-      <div>
-      <Navbar />
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to Fashi.On</h2>
-        </div>
-        <p className="App-intro">
-          Get started with us today!
-        </p>
-      </div>
-      <Footer year={dt}/>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/userprofile" component={UserProfile} />
+          <Route exact path="/occasion/:id" component={Occasion} />
+          <Route component={NoMatch} />
+        </Switch>
+      </Router>
     );
   }
 }
+
 
 export default App;
