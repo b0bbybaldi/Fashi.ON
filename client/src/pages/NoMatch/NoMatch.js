@@ -1,17 +1,16 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import "./UserProfile.css";
 
-const UserProfile = () => (
+const NoMatch = () => (
     
     <div>
         <Navbar />
-        <h2>This is the UserProfile Page</h2>
+        <h2>This is the No Match Page</h2>
         <Footer />
     </div>
 
 );
 
 
-export default UserProfile;
+export default NoMatch;

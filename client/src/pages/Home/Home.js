@@ -9,6 +9,7 @@ dt = (dt.getYear() + 1900) ;
 class Home extends Component {
   render() {
     return (
+
       <div>
       <Navbar />
       <div className="App">
@@ -24,5 +25,6 @@ class Home extends Component {
     );
   }
 }
+
 
 export default Home;
