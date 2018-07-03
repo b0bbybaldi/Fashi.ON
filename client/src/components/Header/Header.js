@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css";
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,7 +10,7 @@ const Header = () => (
     <AppBar position="static" color="default">
        <Toolbar>
          <Typography variant="title" color="inherit">
-           Title
+           Fashi.On
          </Typography>
        </Toolbar>
      </AppBar>
