@@ -13,9 +13,42 @@ import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import classNames from 'classnames';
+import {Button as signUpBtn} from '../../components/Button';
 
 
 class Signup extends Component {
+
+  state = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
+
+  }
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password) {
+    //   //write function inside of API for loadSurvey
+    //   API.({
+    //     firstName: this.state.firstName,
+    //     lastName: this.state.lastName,
+    //     email: this.state.email,
+    //     password: this.state.password
+    //   })
+    //     .then(res => this.loadSurvey())
+    //     .catch(err => console.log(err));
+    // }
+  };
+
 
 render(){
   document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1485518882345-15568b007407?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9de002b94630e160d9e33c36decc06f3&auto=format&fit=crop&w=681&q=80")`
@@ -33,35 +66,53 @@ render(){
 
         <TextField
             id="firstName"
-            label="First Name"
-            //className={}
-            //value={this.state.name}
-            //onChange={this.handleChange('name')}
-            //margin="normal"
+            label="firstName"
+            name = "firstName"
+            value={this.state.firstName}
+            onChange={this.handleChange}
           />
 
         <TextField
             id="lastName"
             label="Last Name"
-            //className={}
-            //value={this.state.name}
-            //onChange={this.handleChange('name')}
-            //margin="normal"
+            name = "lastName"
+            value={this.state.lastName}
+            onChange={this.handleChange}
           />
 
           <TextField
-              id="userName"
-              label="User Name"
-              //className={}
-              //value={this.state.name}
-              //onChange={this.handleChange('name')}
-              //margin="normal"
+              id="email"
+              label="Email"
+              name= "email"
+              value={this.state.email}
+              onChange={this.handleChange}
           />
 
           <FormControl className={classNames()}>
-          <InputLabel htmlFor="adornment-password">Password</InputLabel>
-          </FormControl>
+               <InputLabel htmlFor="adornment-password">Password</InputLabel>
+               <Input
+                 id="adornment-password"
+                 name="password"
+                 type={this.state.showPassword ? 'text' : 'password'}
+                 value={this.state.password}
+                 onChange={this.handleChange}
+                 endAdornment={
+                   <InputAdornment position="end">
+                     <IconButton
+                       aria-label="Toggle password visibility"
+                       onClick={this.handleClickShowPassword}
+                       onMouseDown={this.handleMouseDownPassword}
+                     >
+                       {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                     </IconButton>
+                   </InputAdornment>
+                 }
+               />
+             </FormControl>
         </div>
+
+// onclick of this button will create a new users account
+      //  <signUpBtn onClick={ () => this.createUser(article.headline.main, article.web_url)} children='Save' />
     </div>
 
 );
