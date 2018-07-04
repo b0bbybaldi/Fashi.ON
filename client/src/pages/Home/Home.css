@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+    background: rgba(0, 0, 0, 0.5);
   }
   
   .App-header {
@@ -13,4 +14,27 @@
   .App-intro {
     font-size: large;
   }
+
+  #background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 55px 0px;
+}
   
