@@ -2,26 +2,28 @@ const db = require('../models');
 
 
 module.exports = {
-    findById:  passport.authenticate("local", function(req, res){
+    findById: function (req, res) {
         db.User
-        .findById(req.params.id)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    }),
-    create: passport.authenticate ("local", function(req,res) {
+            .findById(req.params.id)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    create: function (req, res) {
         db.User
-        .create({
-            email: req.body.email,
-            password: req.body.password
-        })
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-    }),
-    update: function(req,res){
+            .create({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                password: req.body.password
+            })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+    update: function (req, res) {
         db.User
-        .findOneAndUpdate({ _id: req.params.id } ,req.body)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
     }
 };
 
