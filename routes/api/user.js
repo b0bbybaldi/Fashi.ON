@@ -2,19 +2,20 @@ const router = require("express").Router();
 const userController = require('../../controllers/userController');
 
 //require passport
-var passport = require("../passport/passport.js");
+var passport = require("../../passport/passport");
 var path = require("path");
 // Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../passport/isAuthenticated.js");
+var isAuthenticated = require("../../passport/isAuthenticated.js");
 
 //signup route
 
 router.route('/api/newuser')
-    .post(userController.create);
+    // .post(userController.create);
+    console.log("Hit user routes");
 
 //login route
 router.route('/login')
-.get(userController.findById);
+    .get(userController.findById);
 
 //logout route
 // router.route("/logout")
