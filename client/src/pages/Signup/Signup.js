@@ -102,6 +102,7 @@ class Signup extends Component {
             onChange={this.handleChange}
           />
 
+
           {/* <FormControl className={classNames()}> */}
           <InputLabel htmlFor="adornment-password">Password</InputLabel>
           <Input
@@ -128,6 +129,38 @@ class Signup extends Component {
         {/* onclick of this button will create a new users account */}
         <Button onClick={this.handleFormSubmit} children='Sign Up' />
       </div>
+
+          <FormControl className={classNames()}>
+               <InputLabel htmlFor="adornment-password">Password</InputLabel>
+               <Input
+                 id="adornment-password"
+                 name="password"
+                 type={this.state.showPassword ? 'text' : 'password'}
+                 value={this.state.password}
+                 onChange={this.handleChange}
+                 endAdornment={
+                   <InputAdornment position="end">
+                     <IconButton
+                       aria-label="Toggle password visibility"
+                       onClick={this.handleClickShowPassword}
+                       onMouseDown={this.handleMouseDownPassword}
+                     >
+                       {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                     </IconButton>
+                   </InputAdornment>
+                 }
+               />
+             </FormControl>
+        </div> 
+
+// onclick of this button will create a new users account
+      {/* //  <signUpBtn onClick={ () => this.createUser(article.headline.main, article.web_url)} children='Save' /> */}
+    </div>
+
+);
+}}
+
+
 
     );
   }
