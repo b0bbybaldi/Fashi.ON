@@ -8,12 +8,12 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-// import FormControl from '@material-ui/core/FormControl';
+import FormControl from '@material-ui/core/FormControl';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-// import classNames from 'classnames';
+import classNames from 'classnames';
 import Button from '../../components/Button';
 
 
@@ -103,7 +103,7 @@ class Signup extends Component {
           />
 
 
-          {/* <FormControl className={classNames()}> */}
+          <FormControl className={classNames()}>
           <InputLabel htmlFor="adornment-password">Password</InputLabel>
           <Input
             id="adornment-password"
@@ -123,44 +123,11 @@ class Signup extends Component {
               </InputAdornment>
             }
           />
-          {/* </FormControl> */}
-        </div>
-
+        </FormControl>
         {/* onclick of this button will create a new users account */}
         <Button onClick={this.handleFormSubmit} children='Sign Up' />
       </div>
-
-          <FormControl className={classNames()}>
-               <InputLabel htmlFor="adornment-password">Password</InputLabel>
-               <Input
-                 id="adornment-password"
-                 name="password"
-                 type={this.state.showPassword ? 'text' : 'password'}
-                 value={this.state.password}
-                 onChange={this.handleChange}
-                 endAdornment={
-                   <InputAdornment position="end">
-                     <IconButton
-                       aria-label="Toggle password visibility"
-                       onClick={this.handleClickShowPassword}
-                       onMouseDown={this.handleMouseDownPassword}
-                     >
-                       {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                     </IconButton>
-                   </InputAdornment>
-                 }
-               />
-             </FormControl>
-        </div> 
-
-// onclick of this button will create a new users account
-      {/* //  <signUpBtn onClick={ () => this.createUser(article.headline.main, article.web_url)} children='Save' /> */}
-    </div>
-
-);
-}}
-
-
+      </div>
 
     );
   }
