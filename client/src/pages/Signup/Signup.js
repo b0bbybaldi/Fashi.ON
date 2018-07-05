@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./Signup.css";
+import API from '../../utils/API';
 import Header from '../../components/Header/Header.js';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -36,17 +37,17 @@ class Signup extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password) {
-    //   //write function inside of API for loadSurvey
-    //   API.({
-    //     firstName: this.state.firstName,
-    //     lastName: this.state.lastName,
-    //     email: this.state.email,
-    //     password: this.state.password
-    //   })
-    //     .then(res => this.loadSurvey())
-    //     .catch(err => console.log(err));
-    // }
+    if (this.state.firstName && this.state.lastName && this.state.email && this.state.password) {
+      //write function inside of API for loadSurvey
+      API.createUser({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        password: this.state.password
+      })
+        .then(res => res.redirect('/'))
+        .catch(err => console.log(err));
+    }
   };
 
 
