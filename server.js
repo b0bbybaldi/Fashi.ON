@@ -1,10 +1,18 @@
 const express = require("express");
+var session = require("express-session");
 const path = require("path");
 const routes = require("./routes");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
+//require passport
+var passport = require("./passport/passport.js");
+
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
