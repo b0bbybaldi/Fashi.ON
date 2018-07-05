@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "./Signup.css";
-import API from "../../utils/API";
 import Header from '../../components/Header/Header.js';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -25,19 +24,7 @@ class Signup extends Component {
     email: "",
     password: ""
 
-  };
-  // componentDidMount() {
-  //   this.loadSurvey();
-  // }
-
-  // loadSurvey = () => {
-  //   API.getSurvey()
-  //     .then(res =>
-  //       this.setState({})
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
+  }
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -49,58 +36,58 @@ class Signup extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.email && this.state.password) {
-      //write function inside of API for loadSurvey
-      API.createUser({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        email: this.state.email,
-        password: this.state.password
-      })
-        // .then(res.redirect("/survey"))
-        .then(res => res.redirect('/'))
-        .catch(err => console.log(err));
-    }
+    // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password) {
+    //   //write function inside of API for loadSurvey
+    //   API.({
+    //     firstName: this.state.firstName,
+    //     lastName: this.state.lastName,
+    //     email: this.state.email,
+    //     password: this.state.password
+    //   })
+    //     .then(res => this.loadSurvey())
+    //     .catch(err => console.log(err));
+    // }
   };
 
 
-  render() {
-    document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1485518882345-15568b007407?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9de002b94630e160d9e33c36decc06f3&auto=format&fit=crop&w=681&q=80")`
-    return (
-      <div className="signup-page">
-        <Header />
-        <div className="signup-form">
-          <Typography variant="headline" component="h3">
-            Were happy to have you here.
+render(){
+  document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1485518882345-15568b007407?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9de002b94630e160d9e33c36decc06f3&auto=format&fit=crop&w=681&q=80")`
+  return (
+  <div className= "signup-page">
+  <Header />
+  <div className="signup-form">
+        <Typography variant="headline" component="h3">
+          Were happy to have you here.
         </Typography>
-          <Typography component="p">
-            Please fill out the form below in order to continue to your personalized
-            profile.
+        <Typography component="p">
+          Please fill out the form below in order to continue to your personalized
+          profile.
         </Typography>
 
-          <TextField
+        <TextField
             id="firstName"
             label="firstName"
-            name="firstName"
+            name = "firstName"
             value={this.state.firstName}
             onChange={this.handleChange}
           />
 
-          <TextField
+        <TextField
             id="lastName"
             label="Last Name"
-            name="lastName"
+            name = "lastName"
             value={this.state.lastName}
             onChange={this.handleChange}
           />
 
           <TextField
-            id="email"
-            label="Email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange}
+              id="email"
+              label="Email"
+              name= "email"
+              value={this.state.email}
+              onChange={this.handleChange}
           />
+
 
 
           <FormControl className={classNames()}>
@@ -132,4 +119,5 @@ class Signup extends Component {
     );
   }
 }
+
 export default Signup;

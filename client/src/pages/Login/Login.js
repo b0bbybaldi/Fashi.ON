@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import "./Login.css";
-
-import Header from '../../components/Header/Header.js';
-// import classNames from 'classnames';
-
 import Navbar from '../../components/Navbar/Navbar.js';
 import classNames from 'classnames';
-
 import IconButton from '@material-ui/core/IconButton';
 import Background from './signup-background.jpg';
 import Input from '@material-ui/core/Input';
@@ -31,7 +26,7 @@ class Login extends Component {
   state = {
     email: "",
     password: ""
-  };
+  }
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -54,59 +49,6 @@ class Login extends Component {
   };
 
   render() {
-
-    document.body.style.backgroundImage = `url("http://r.ddmcdn.com/w_830/s_f/o_1/cx_0/cy_66/cw_288/ch_162/APL/uploads/2014/10/cat_5-1.jpg")`
-    return (
-      <div className="login-page">
-        <Header />
-        <div className="login-card">
-          <Card>
-            <CardMedia
-              image=""
-              title="LoginPhoto"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="headline" component="h2">
-                Glad to have you back!
-           </Typography>
-              <Typography component="p">
-                Please, log-in.
-           </Typography>
-              <div id="login-field">
-                <TextField
-                  required
-                  id="required"
-                  name="email"
-                  onChange={this.handleChange}
-                  label="Required"
-                  defaultValue="Username"
-                  margin="normal"
-                />
-
-
-                <FormControl>
-                  <InputLabel htmlFor="adornment-password">Password</InputLabel>
-                  <Input
-                    id="adornment-password"
-                    name="password"
-                    onChange={this.handleChange}
-                    type={'password'}
-                  />
-                </FormControl>
-                <Button
-                  onClick={this.handleFormSubmit}
-                  color="primary"
-                  variant="contained"
-                >
-                  Submit
-               </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-
-    );
     document.body.style.backgroundImage = `url(${Background})`
     return (
       <div className="login-page">
@@ -158,6 +100,7 @@ class Login extends Component {
       </div>
 
     )
+
 
   }
 }

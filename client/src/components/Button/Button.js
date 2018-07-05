@@ -3,7 +3,7 @@ import "./Button.css";
 
 const Button = props => (
 
-<button {...props} className="btn btn-primary">
+<button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
   {props.children}
 </button>
 
