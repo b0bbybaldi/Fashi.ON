@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Login.css";
+import API from '../../utils/API';
 import Navbar from '../../components/Navbar/Navbar.js';
 import classNames from 'classnames';
 import IconButton from '@material-ui/core/IconButton';
@@ -36,15 +37,14 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.email && this.state.password) {
-    //   API.saveBook({
-    //     title: this.state.title,
-    //     author: this.state.author,
-    //     synopsis: this.state.synopsis
-    //   })
-    //     .then(res => this.loadBooks())
-    //     .catch(err => console.log(err));
-    // } 
+    if (this.state.email && this.state.password) {
+      API.getUser({
+        email: this.state.email,
+        password: this.state.password
+      })
+        .then(res => res.render('/'))
+        .catch(err => console.log(err));
+    } 
   };
 
   render() {
@@ -58,7 +58,7 @@ class Login extends Component {
               <Card>
                 <CardMedia
                   image=""
-                  title="LoginPhoto"
+                  email="LoginPhoto"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="headline" component="h2">
