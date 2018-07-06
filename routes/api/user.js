@@ -9,8 +9,8 @@ var isAuthenticated = require("../../passport/isAuthenticated.js");
 
 //signup route
 
-router.route('/api/newuser')
-    // .post(userController.create);
+router.route('/newuser')
+    .post(userController.create);
     console.log("Hit user routes");
 
 //login route
@@ -28,9 +28,8 @@ router.route('/login')
 // } else
 // res.redirect("/login")
 
-
 //login specific to the user by id for profile page
-router.route('/api/user/:id')
+router.route('/user/:id')
     .get(userController.findById)
     .put(userController.update);
 
