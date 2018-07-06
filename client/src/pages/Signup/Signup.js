@@ -76,6 +76,7 @@ class Signup extends Component {
     const {classes} = this.props;
     document.body.style.backgroundImage = `url(${Background})`
     return (
+      
       <div className="signup-page">
         <Navbar />
         <div className="d-flex justify-content-center">
@@ -150,7 +151,6 @@ class Signup extends Component {
           </div>
           </div>
         </div>
-
         );
       }
     }

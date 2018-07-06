@@ -9,7 +9,7 @@ Header{
   padding: 20px;
 }
 
-
 .signup-page{
-  
+  background-image: url(./signup-bg.jpg);
+  background-size: cover;
 }
