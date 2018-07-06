@@ -57,7 +57,7 @@ class Signup extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.email && this.state.password) {
+    if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
       //write function inside of API for loadSurvey
       API.createUser({
         firstName: this.state.firstName,
@@ -66,7 +66,7 @@ class Signup extends Component {
         password: this.state.password,
         gender: this.state.gender
       })
-        .then(res => res.redirect('/'))
+        .then(res => res.redirect('/dashboard'))
         .catch(err => console.log(err));
     }
   };
