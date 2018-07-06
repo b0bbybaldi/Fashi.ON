@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-    //user related functions  
-    //login 
+    //user related functions
+    //login
     logIn: function () {
         return axios.get("/login");
     },
@@ -10,7 +10,7 @@ export default {
     getUser: function (id) {
         return axios.get("/api/user/" + id);
     },
-    //update email and password for a user 
+    //update email and password for a user
     updateUser: function (id) {
         return axios.put("/api/user/" + id);
     },
@@ -23,11 +23,11 @@ export default {
 
 
     //occasion related functions
-    //create new occasion 
+    //create new occasion
     createOccasion: function () {
         return axios.post("/api/occasion");
     },
-    //get occasion by id  
+    //get occasion by id
     getOccasion: function (id) {
         return axios.get("/api/occasion/" + id);
     },
