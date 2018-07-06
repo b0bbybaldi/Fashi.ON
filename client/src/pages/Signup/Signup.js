@@ -66,7 +66,8 @@ class Signup extends Component {
         password: this.state.password,
         gender: this.state.gender
       })
-        .then(res => res.redirect('/dashboard'))
+        .then(res => res.redirect('/survey'))
+
         .catch(err => console.log(err));
     }
   };

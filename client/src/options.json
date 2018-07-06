@@ -1,0 +1,19 @@
+[
+    {
+        "id" : 1,
+        "name": "question1",
+        "option1": "Formal",
+        "option2": "Casual",
+        "option3": "Semi-Casual",
+        "option4": "Cocktail"
+    },
+    {
+        "id" : 2,
+        "name": "question2",
+        "option1": "Spring",
+        "option2": "Summer",
+        "option3": "Fall",
+        "option4": "Winter"
+    }
+]
+
