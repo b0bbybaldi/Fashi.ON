@@ -17,7 +17,7 @@ export default {
     // Saves a new user to the database- Sign up
     createUser: function (userData) {
         console.log(userData);
-        return axios.post("/api/newuser", userData);
+        return axios.post("/api/user/newuser", userData);
     },
 
 
