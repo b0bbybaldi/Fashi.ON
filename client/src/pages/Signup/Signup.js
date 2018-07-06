@@ -1,11 +1,13 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Signup.css";
 import API from '../../utils/API';
-import Header from '../../components/Header/Header.js';
+import Navbar from '../../components/Navbar/Navbar.js';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import PropTypes from 'prop-types';
+import Background from './signup-bg.jpg';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import FormControl from '@material-ui/core/FormControl';
@@ -16,6 +18,21 @@ import InputLabel from '@material-ui/core/InputLabel';
 import classNames from 'classnames';
 import Button from '../../components/Button';
 
+const gender = [
+  {
+    value: 'Male',
+    label: 'Male',
+  },
+  {
+    value: 'Female',
+    label: 'Female',
+  },
+  {
+    value: 'Other',
+    label: 'Other',
+  }
+];
+
 
 class Signup extends Component {
 
@@ -23,7 +40,8 @@ class Signup extends Component {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
+    gender: ""
 
   }
 
@@ -32,7 +50,9 @@ class Signup extends Component {
     this.setState({
       [name]: value
     });
+
   };
+
 
 
   handleFormSubmit = event => {
@@ -43,7 +63,8 @@ class Signup extends Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
+        gender: this.state.gender
       })
         .then(res => res.redirect('/'))
         .catch(err => console.log(err));
@@ -51,74 +72,91 @@ class Signup extends Component {
   };
 
 
-render(){
-  document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1485518882345-15568b007407?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9de002b94630e160d9e33c36decc06f3&auto=format&fit=crop&w=681&q=80")`
-  return (
-  <div className= "signup-page">
-  <Header />
-  <div className="signup-form">
-        <Typography variant="headline" component="h3">
-          Were happy to have you here.
-        </Typography>
-        <Typography component="p">
-          Please fill out the form below in order to continue to your personalized
-          profile.
-        </Typography>
+  render() {
+    const {classes} = this.props;
+    document.body.style.backgroundImage = `url(${Background})`
+    return (
+      <div className="signup-page">
+        <Navbar />
+        <div className="d-flex justify-content-center">
+          <div className="form-signup">
+            <Typography variant="headline" component="h3">
+              Were happy to have you here.
+          </Typography>
+            <Typography component="p">
+              Please fill out the form below in order to continue to your personalized
+              profile.
+          </Typography>
 
-        <TextField
-            id="firstName"
-            label="firstName"
-            name = "firstName"
-            value={this.state.firstName}
-            onChange={this.handleChange}
-          />
-
-        <TextField
-            id="lastName"
-            label="Last Name"
-            name = "lastName"
-            value={this.state.lastName}
-            onChange={this.handleChange}
-          />
-
-          <TextField
+            <TextField
+              fullWidth
+              id="firstName"
+              label="First Name"
+              name="firstName"
+              value={this.state.firstName}
+              onChange={this.handleChange}
+            />
+            <br />
+            <TextField
+              fullWidth
+              id="lastName"
+              label="Last Name"
+              name="lastName"
+              value={this.state.lastName}
+              onChange={this.handleChange}
+            />
+            <br />
+            <TextField
+              fullWidth
               id="email"
               label="Email"
-              name= "email"
+              name="email"
               value={this.state.email}
               onChange={this.handleChange}
-          />
+            />
+            <br />
+            <TextField
+              fullWidth
+              id="gender"
+              name="gender"
+              select
+              label="Gender"
+              value={this.state.gender}
+              margin="normal"
+              onChange={this.handleChange}
+            >
+            {gender.map(option => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+            </TextField>
+              <br />
+              <TextField
+                fullWidth
+                id="password-input"
+                name="password"
+                label="Password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                type="password"
+                autoComplete="current-password"
+                margin="normal"
+              />
+              <br />
+              <br />
+              {/* onclick of this button will create a new users account */}
+              <Button onClick={this.handleFormSubmit} children='Sign Up' />
+          </div>
+          </div>
+        </div>
 
+        );
+      }
+    }
 
-
-          <FormControl className={classNames()}>
-          <InputLabel htmlFor="adornment-password">Password</InputLabel>
-          <Input
-            id="adornment-password"
-            name="password"
-            type={this.state.showPassword ? 'text' : 'password'}
-            value={this.state.password}
-            onChange={this.handleChange}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="Toggle password visibility"
-                  onClick={this.handleClickShowPassword}
-                  onMouseDown={this.handleMouseDownPassword}
-                >
-                  {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-        </FormControl>
-        {/* onclick of this button will create a new users account */}
-        <Button onClick={this.handleFormSubmit} children='Sign Up' />
-      </div>
-      </div>
-
-    );
-  }
-}
-
-export default Signup;
+    Signup.propTypes = {
+      classes: PropTypes.object.isRequired,
+    };
+    
+    export default Signup;

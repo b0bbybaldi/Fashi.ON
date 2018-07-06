@@ -2,9 +2,11 @@ Header{
   padding-bottom: 20px;
 }
 
-.signup-form{
+.form-signup{
   background-color: white;
   margin-top:50px;
+  display: inline-block;
+  padding: 20px;
 }
 
 
