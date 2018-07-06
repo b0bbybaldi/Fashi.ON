@@ -4,7 +4,7 @@ import Questions from "../../components/Questions";
 import options from "../../options.json";
 import Navbar from "../../components/Navbar";
 import Button from "../../components/Button";
-
+// import Form from "../../components/Form";
 class Survey extends Component {
 
     state = {
@@ -27,7 +27,7 @@ class Survey extends Component {
         return (
             <div>
                 <Navbar />
-                {this.state.options.map((options, key) => (
+                {this.state.options.map((options, key)=> ( 
                 <Questions
                     id={options.id}
                     key={key}
@@ -38,14 +38,13 @@ class Survey extends Component {
                     option4={options.option4}
                     value={this.state.options}
                     onChange={this.handleInputChange}
-
                 />
             ))}
-                <br />
-                {/* <Questions
+                {/* <br />
+                <Questions
                     
-                    id={options.id}
-                    key={key}
+                    id="2"
+                    // key={key}
                     name={options.name}
                     option1={options.option1}
                     option2={options.option2}
@@ -53,9 +52,9 @@ class Survey extends Component {
                     option4={options.option4}
                     value={this.state.options}
                     onChange={this.handleInputChange}
-                /> */}
+                />
                 <br />
-                {/* <Questions
+                <Questions
                     
                     id="question3"
                     name="question3"
