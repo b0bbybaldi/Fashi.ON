@@ -2,11 +2,11 @@ import React from "react";
 import "./Form.css";
 
 const Form = props => (
-    
-        <form {...props}>
+
+        <form>
             <div className="form-row align-items-center">
                 <div className="col-auto my-1">
-                    {/* <label className="mr-sm-2" for="inlineFormCustomSelect">Preference</label> */}
+                    <label className="mr-sm-2" for="inlineFormCustomSelect"></label>
                     <select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
                         <option selected>Choose...</option>
                         <option value="1">{props.option1}</option>
