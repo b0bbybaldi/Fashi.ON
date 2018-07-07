@@ -2,20 +2,11 @@ import React, { Component } from "react";
 import "./Signup.css";
 import API from '../../utils/API';
 import Navbar from '../../components/Navbar/Navbar.js';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
 import Background from './signup-bg.jpg';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import FormControl from '@material-ui/core/FormControl';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import classNames from 'classnames';
 import Button from '../../components/Button';
 import { BrowserRouter as Router, Route} from "react-router-dom"
 import Dashboard from "../Dashboard"
@@ -68,28 +59,63 @@ class Signup extends Component {
     });
 
   };
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
-      //write function inside of API for loadSurvey
-      API.createUser({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        email: this.state.email,
-        password: this.state.password,
-        gender: this.state.gender
-      })
-        .then(res => this.setState({ 
-          firstName: '',
-          lastName:'',
-          email: '',
-          password: '',
-          gender: ''
-        })) 
+  // handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
+  //     //write function inside of API for loadSurvey
+  //     API.createUser({
+  //       firstName: this.state.firstName,
+  //       lastName: this.state.lastName,
+  //       email: this.state.email,
+  //       password: this.state.password,
+  //       gender: this.state.gender
+  //     })
+  //       .then(res => this.setState({ 
+  //         firstName: '',
+  //         lastName:'',
+  //         email: '',
+  //         password: '',
+  //         gender: ''
+  //       })) 
 
-        .catch(err => console.log(err));
+  //       .catch(err => console.log(err));
+  //   }
+  // };
+
+    handleFormSubmit = event => {
+      event.preventDefault();
+      if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
+
+        //Use fetch here because it deals with cors more effectively than axios. This allows easy cookie storage
+        fetch("/auth/signup", {
+          method: "POST",
+          credentials: "include",
+          mode: "cors",
+          body: JSON.stringify({
+            firstName: this.state.firstName,
+            lastName:this.state.lastName,            
+            email: this.state.email,
+            password: this.state.password,
+            gender: this.state.gender
+          }),
+          headers: new Headers({
+            "Content-Type": "application/json"
+          })
+        }).then(response => {
+          console.log(response);
+    
+          // window.location.href = "/survey";
+        }).catch(err => console.log(err));
+    
+        this.setState({
+          userName: "",
+          email: "",
+          password: "",
+          password2: ""
+        });
+
+      }
     }
-  };
 
 
   render() {
