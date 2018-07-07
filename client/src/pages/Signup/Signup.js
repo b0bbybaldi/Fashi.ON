@@ -17,6 +17,8 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import classNames from 'classnames';
 import Button from '../../components/Button';
+import { BrowserRouter as Router, Route} from "react-router-dom"
+import Dashboard from "../Dashboard"
 
 const gender = [
   {
@@ -37,12 +39,26 @@ const gender = [
 class Signup extends Component {
 
   state = {
+    isLoggedIn: false,
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     gender: ""
 
+  }
+  componentWillMount() {
+    API.getUser()
+      .then(user => {
+        console.log(user)
+        this.setState({
+          isLoggedIn: user.data.loggedIn,
+          firstName: user.data.firstName,
+          lastName: user.data.lastName,
+          email: user.data.email,
+          gender: user.data.gender
+        });
+      })
   }
 
   handleChange = event => {
@@ -63,7 +79,13 @@ class Signup extends Component {
         password: this.state.password,
         gender: this.state.gender
       })
-        .then(res => res.redirect('/survey'))
+        .then(res => this.setState({ 
+          firstName: '',
+          lastName:'',
+          email: '',
+          password: '',
+          gender: ''
+        })) 
 
         .catch(err => console.log(err));
     }
@@ -71,65 +93,74 @@ class Signup extends Component {
 
 
   render() {
-    const {classes} = this.props;
+    const cookie = document.cookie.split(";");
+    const { classes } = this.props;
     document.body.style.backgroundImage = `url(${Background})`
-    return (
-      
-      <div className="signup-page">
-        <Navbar />
-        <div className="d-flex justify-content-center">
-          <div className="form-signup">
-            <Typography variant="headline" component="h3">
-              Were happy to have you here.
+    if (this.state.isLoggedIn) {
+      return (
+        <Router>
+          <div>
+              <Route exact path="/dashboard" component={Dashboard} firstName={this.state.firstName} lastName={this.state.lastName} />
+          </div>
+        </Router>
+      )
+    } else {
+      return (
+        <div className="signup-page">
+          <Navbar />
+          <div className="d-flex justify-content-center">
+            <div className="form-signup">
+              <Typography variant="headline" component="h3">
+                Were happy to have you here.
           </Typography>
-            <Typography component="p">
-              Please fill out the form below in order to continue to your personalized
-              profile.
+              <Typography component="p">
+                Please fill out the form below in order to continue to your personalized
+                profile.
           </Typography>
 
-            <TextField
-              fullWidth
-              id="firstName"
-              label="First Name"
-              name="firstName"
-              value={this.state.firstName}
-              onChange={this.handleChange}
-            />
-            <br />
-            <TextField
-              fullWidth
-              id="lastName"
-              label="Last Name"
-              name="lastName"
-              value={this.state.lastName}
-              onChange={this.handleChange}
-            />
-            <br />
-            <TextField
-              fullWidth
-              id="email"
-              label="Email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <br />
-            <TextField
-              fullWidth
-              id="gender"
-              name="gender"
-              select
-              label="Gender"
-              value={this.state.gender}
-              margin="normal"
-              onChange={this.handleChange}
-            >
-            {gender.map(option => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-            </TextField>
+              <TextField
+                fullWidth
+                id="firstName"
+                label="First Name"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+              />
+              <br />
+              <TextField
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleChange}
+              />
+              <br />
+              <TextField
+                fullWidth
+                id="email"
+                label="Email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <br />
+              <TextField
+                fullWidth
+                id="gender"
+                name="gender"
+                select
+                label="Gender"
+                value={this.state.gender}
+                margin="normal"
+                onChange={this.handleChange}
+              >
+                {gender.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
               <br />
               <TextField
                 fullWidth
@@ -146,15 +177,16 @@ class Signup extends Component {
               <br />
               {/* onclick of this button will create a new users account */}
               <Button onClick={this.handleFormSubmit} children='Sign Up' />
-          </div>
+            </div>
           </div>
         </div>
-        );
-      }
+      );
     }
+  }
+}
 
-    Signup.propTypes = {
-      classes: PropTypes.object.isRequired,
-    };
-    
-    export default Signup;
+Signup.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default Signup;
