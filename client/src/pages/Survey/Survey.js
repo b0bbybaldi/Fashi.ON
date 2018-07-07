@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Survey.css";
+import API from '../../utils/API';
 import Questions from "../../components/Questions";
 import CheckColors from "../../components/CheckColors";
 import options from "../../options.json";
@@ -10,7 +11,7 @@ import Background from './survey-bg.jpg';
 class Survey extends Component {
 
     state = {
-        dresscode:"",
+        dresscode: "",
         season: "",
         budget: 50,
         colors: "",
@@ -40,13 +41,22 @@ class Survey extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-
-        console.log(this.state);
-
-    }
+        if (this.state.dresscode && this.state.season && this.state.budget && this.state.color) {
+            API.createOccasion({
+                dresscode: this.state.dresscode,
+                season: this.state.season,
+                budget: this.state.budget,
+                color: this.state.color,
+                email: "email@email.com"
+            })
+                .then(res => this.setState({ dresscode: "", season: "", budget: "", color: "" }))
+                .catch(err => console.log(err));
+            console.log(this.state);
+        }
+    };
 
     handleClick = (e) => {
-        this.setState({checked: e.target.checked});
+        this.setState({ checked: e.target.checked });
     }
     render() {
         document.body.style.backgroundImage = `url(${Background})`
@@ -57,18 +67,18 @@ class Survey extends Component {
                     <form className="budget-form">
                         <h2 className="text-center">Let's get some information about your next occasion!</h2>
                         {options.map((op, key) => (
-                        <Questions
-                            question={op.question}
-                            id={op.id}
-                            key={key}
-                            name={op.name}
-                            option1={op.option1}
-                            option2={op.option2}
-                            option3={op.option3}
-                            option4={op.option4}
-                            value={this.state.op}
-                            change={this.handleInputChange}
-                        />
+                            <Questions
+                                question={op.question}
+                                id={op.id}
+                                key={key}
+                                name={op.name}
+                                option1={op.option1}
+                                option2={op.option2}
+                                option3={op.option3}
+                                option4={op.option4}
+                                value={this.state.op}
+                                change={this.handleInputChange}
+                            />
                         ))}
                         <CheckColors
                             change={this.handleInputChange}
@@ -79,11 +89,11 @@ class Survey extends Component {
                             <label for="formControlRange">What is your budget?</label>
                             <p id="budget-value">$ 50</p>
                             <input
-                                type="range" 
+                                type="range"
                                 className="form-control-range"
                                 name="budget"
                                 value={this.state.budget}
-                                id="formControlRange" 
+                                id="formControlRange"
                                 onChange={this.handleInputChangeRange}
                                 min="50"
                                 max="1000"
@@ -97,8 +107,5 @@ class Survey extends Component {
 
         );
     }
-
 }
-
-
 export default Survey;

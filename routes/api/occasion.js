@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const occasionController = require("../../controllers/occasionController")
 
-router.route("/api/occasion")
+router.route("/newoccasion")
 .post(occasionController.create);
 
 router.route("/api/occasion/:id")
@@ -10,7 +10,3 @@ router.route("/api/occasion/:id")
 .delete(occasionController.remove);
 
 module.exports = router;
-
-
-
-

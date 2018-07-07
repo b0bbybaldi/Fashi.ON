@@ -40,8 +40,6 @@ const userSchema = new Schema({
 
 });
 
-
-
 //This will check if an unhashed password entered by the 
 //user can be compared to the hashed password stored in our database
 userSchema.methods.validPassword = function (password) {
