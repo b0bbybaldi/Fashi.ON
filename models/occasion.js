@@ -11,7 +11,7 @@ const occasionSchema = new Schema({
         type: String,
         required: false
     },
-    color: {
+    colors: {
         type: String,
         required: true
     },
