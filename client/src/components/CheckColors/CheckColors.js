@@ -14,7 +14,7 @@ class CheckColors extends Component {
                                     type="checkbox" 
                                     id={op} 
                                     value={op}
-                                    name="color"
+                                    name="colors"
                                     onChange={this.props.change}
                                     onClick={this.props.click}
                                 />
