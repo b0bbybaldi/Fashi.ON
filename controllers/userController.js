@@ -20,11 +20,3 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     }
 };
-
-// if (req.user){
-//     req.session.destroy(function (err) {
-//         req.logout();
-//         res.redirect("/");
-//     })
-// } else
-// res.redirect("/login")
