@@ -1,18 +1,36 @@
 import React, { Component } from "react";
 import "./Survey.css";
 import Questions from "../../components/Questions";
+import CheckColors from "../../components/CheckColors";
 import options from "../../options.json";
 import Navbar from "../../components/Navbar";
 import Button from "../../components/Button";
-// import Form from "../../components/Form";
+import Background from './survey-bg.jpg';
+
 class Survey extends Component {
 
     state = {
-        options: options
+        options: options,
+        budget: 0,
+        colors: "",
+        checked: this.props.checked || false
     }
+
+    handleInputChangeRange = event => {
+        const { name, value } = event.target;
+
+        document.getElementById("budget-value").innerHTML = `$ ${value}`;
+
+        console.log(value);
+        this.setState({
+            [name]: value
+        });
+
+    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
+        console.log(value);
         this.setState({
             [name]: value
         });
@@ -23,56 +41,55 @@ class Survey extends Component {
         event.preventDefault();
 
     }
+
+    handleClick = (e) => {
+        this.setState({checked: e.target.checked});
+    }
     render() {
+        document.body.style.backgroundImage = `url(${Background})`
         return (
             <div>
                 <Navbar />
-                {this.state.options.map((options, key)=> ( 
-                <Questions
-                    id={options.id}
-                    key={key}
-                    name={options.name}
-                    option1={options.option1}
-                    option2={options.option2}
-                    option3={options.option3}
-                    option4={options.option4}
-                    value={this.state.options}
-                    onChange={this.handleInputChange}
-                />
-            ))}
-                {/* <br />
-                <Questions
-                    
-                    id="2"
-                    // key={key}
-                    name={options.name}
-                    option1={options.option1}
-                    option2={options.option2}
-                    option3={options.option3}
-                    option4={options.option4}
-                    value={this.state.options}
-                    onChange={this.handleInputChange}
-                />
-                <br />
-                <Questions
-                    
-                    id="question3"
-                    name="question3"
-                    value={this.state.question3}
-                    onChange={this.handleInputChange}
-                />
-                <br />
-                <Questions
-                    
-                    id="question4"
-                    name="question4"
-                    value={this.state.question4}
-                    onChange={this.handleInputChange}
-                /> */}
-                
-                <br />
-                {/* onclick of this button will create a new users account */}
-                <Button onClick={this.handleFormSubmit} children='Submit' />
+                <div className="d-flex justify-content-center bg-survey">
+                    <form className="budget-form">
+                        <h2 className="text-center">Let's get some information about your next occasion!</h2>
+                        {this.state.options.map((op, key) => (
+                        <Questions
+                            question={op.question}
+                            id={op.id}
+                            key={key}
+                            name={op.name}
+                            option1={op.option1}
+                            option2={op.option2}
+                            option3={op.option3}
+                            option4={op.option4}
+                            value={this.state.op}
+                            onChange={this.handleInputChange}
+                        />
+                        ))}
+                        <CheckColors
+                            change={this.handleInputChange}
+                            value={this.state.colors}
+                            click={this.handleClick}
+                        />
+                        <div className="form-group">
+                            <label for="formControlRange">What is your budget?</label>
+                            <p id="budget-value">$ 50</p>
+                            <input
+                                type="range" 
+                                className="form-control-range"
+                                name="budget"
+                                value={this.state.budget}
+                                id="formControlRange" 
+                                onChange={this.handleInputChangeRange}
+                                min="50"
+                                max="1000"
+                            />
+                        </div>
+                        {/* onclick of this button will create a new users account */}
+                        <Button onClick={this.handleFormSubmit} children='Submit' />
+                    </form>
+                </div>
             </div>
 
         );
