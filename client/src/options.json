@@ -2,7 +2,7 @@
     {
         "question": "Occasion type or Dresscode that I'm looking for:",
         "id" : 1,
-        "name": "question1",
+        "name": "dresscode",
         "option1": "Formal",
         "option2": "Casual",
         "option3": "Semi-Casual",
@@ -11,7 +11,7 @@
     {
         "question": "My event will be in:",
         "id" : 2,
-        "name": "question2",
+        "name": "season",
         "option1": "Spring",
         "option2": "Summer",
         "option3": "Fall",

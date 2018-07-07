@@ -10,8 +10,9 @@ import Background from './survey-bg.jpg';
 class Survey extends Component {
 
     state = {
-        options: options,
-        budget: 0,
+        dresscode:"",
+        season: "",
+        budget: 50,
         colors: "",
         checked: this.props.checked || false
     }
@@ -40,6 +41,8 @@ class Survey extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
 
+        console.log(this.state);
+
     }
 
     handleClick = (e) => {
@@ -53,7 +56,7 @@ class Survey extends Component {
                 <div className="d-flex justify-content-center bg-survey">
                     <form className="budget-form">
                         <h2 className="text-center">Let's get some information about your next occasion!</h2>
-                        {this.state.options.map((op, key) => (
+                        {options.map((op, key) => (
                         <Questions
                             question={op.question}
                             id={op.id}
@@ -64,7 +67,7 @@ class Survey extends Component {
                             option3={op.option3}
                             option4={op.option4}
                             value={this.state.op}
-                            onChange={this.handleInputChange}
+                            change={this.handleInputChange}
                         />
                         ))}
                         <CheckColors
