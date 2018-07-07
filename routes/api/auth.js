@@ -4,6 +4,7 @@ const path = require("path");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("../models/user.js");
+const authController = require('../../controllers/authController');
 
 
 router.get("/user", (req, res) => {
@@ -13,7 +14,8 @@ router.get("/user", (req, res) => {
         // call db and find user by currenUser which is user id
         // get username and email
         console.log("hellur", currentUser)
-        User.findOne({ _id: currentUser })
+        db.User
+        .findOne({ _id: currentUser })
             .then(dbUser => {
                 const user = {
                     loggedIn: true,
@@ -39,35 +41,37 @@ router.get("/user", (req, res) => {
 });
 
 //local auth signup
-router.post("/signup", (req, res, next) => {
-    passport.authenticate("local-signup", (err, user, info) => {
-        if (err) {
-            console.log(err)
-            return next(err);
-        }
-
-        if (!user) {
-            console.log("not a user")
-            return res.redirect("/");
-        }
-
-        req.login(user, (err) => {
-            if (err) {
-                console.log("auth error")
-                return next(err);
-            } else {
-                res.cookie("firstName", req.user.firstName);
-                res.cookie("lastName", req.user.lastName);
-                res.cookie("email", req.body.email);
-                res.cookie("gender", req.user.gender);
-                res.cookie("user_id", req.user.id);
-                console.log("confrim")
-                return res.redirect("/");
-            }
-
-        })
-    })(req, res, next);
-});
+router.route("/signup")
+    .post(authController.create);
+    // .post(function(req, res, next) {
+    //     passport.authenticate("local-signup", (err, user, info) => {
+    //         if (err) {
+    //             console.log(err)
+    //             return next(err);
+    //         }
+    
+    //         if (!user) {
+    //             console.log("not a user")
+    //             return res.redirect("/");
+    //         }
+    
+    //         req.login(user, (err) => {
+    //             if (err) {
+    //                 console.log("auth error")
+    //                 return next(err);
+    //             } else {
+    //                 res.cookie("firstName", req.user.firstName);
+    //                 res.cookie("lastName", req.user.lastName);
+    //                 res.cookie("email", req.body.email);
+    //                 res.cookie("gender", req.user.gender);
+    //                 res.cookie("user_id", req.user.id);
+    //                 console.log("confrim")
+    //                 return res.redirect("/");
+    //             }
+    
+    //         })
+    //     })(req, res, next);
+    // });
 
 
 
