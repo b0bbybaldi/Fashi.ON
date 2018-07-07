@@ -11,7 +11,7 @@ var isAuthenticated = require("../../passport/isAuthenticated.js");
 
 router.route('/newuser')
     .post(userController.create);
-    console.log("Hit user routes");
+    
 
 //login route
 router.route('/login')
