@@ -3,8 +3,8 @@ import axios from "axios";
 export default {
     //user related functions
     //login
-    logIn: function () {
-        return axios.get("/login");
+    signin: function () {
+        return axios.get("/signin");
     },
     // Gets the user with the given id
     getUser: function (id) {
@@ -20,16 +20,15 @@ export default {
         return axios.post("/api/user/newuser", userData);
     },
     authenticateUser: function (userData) {
-        return axios("auth/signup", {
+        return axios("api/auth/signup", {
             methos: "post",
             data: userData,
             withCredentials: true
         })
     },
     logout: function () {
-        return axios("/auth/logout")
+        return axios("api/auth/logout")
     },
-
 
     //occasion related functions
     //create new occasion
