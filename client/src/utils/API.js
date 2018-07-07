@@ -20,11 +20,7 @@ export default {
         return axios.post("/api/user/newuser", userData);
     },
     authenticateUser: function (userData) {
-        return axios("api/auth/signup", {
-            methos: "post",
-            data: userData,
-            withCredentials: true
-        })
+        return axios.post("/api/auth/signup", userData);
     },
     logout: function () {
         return axios("api/auth/logout")
