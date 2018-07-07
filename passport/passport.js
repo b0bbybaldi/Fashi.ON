@@ -1,5 +1,5 @@
 //encrypts Oauth keys
-require("dotenv").config();
+// require("dotenv").config();
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("../models/user.js");
