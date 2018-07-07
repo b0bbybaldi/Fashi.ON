@@ -17,6 +17,8 @@ This is a full stack app using React.
 - React.js
 - MongoDB
 - Express
+- Bootstrap
+- Material-UI
 
 ## Packages:
 -  Node:
@@ -27,6 +29,9 @@ This is a full stack app using React.
     - Yarn
     - React-Dom
     - React-Script
+
+- Material-UI
+
 
 ## Code Samples:
 
@@ -45,7 +50,7 @@ This is a full stack app using React.
 ## Authors:
 * **Lena Martinson** [Github]("https://github.com/Blonded")
 * **Gustavo Gibo** [Github]("https://github.com/gustavogibo")
-* **Sarah Khosravinasr** [Github]("https://github.com/saranasr83")
+* **Sara Khosravinasr** [Github]("https://github.com/saranasr83")
 * **Mridula Shankar** [Github]("https://github.com/MridulaUdayaShankar")
 
 ## Acknowledgements:

@@ -1,19 +1,43 @@
-import React from "react";
+import React, { Component } from "react";
+import Logo from './logo.png';
+
 import "./Navbar.css";
+import API from "../../utils/API"
 
-const Navbar = props => (
+class Navbar extends Component {
 
-<nav className="navbar sticky-top navbar-expand-lg">
+  state={
+    isLoggedIn: false
+  }
+  logout = () => {
+    API.logout().then(res => {
+    })
+  }
 
-  <a className="navbar-brand" href="/">Fashi.On</a>
-  <a className="navbar-brand" href="/login">Log-in</a>
-  <a className="navbar-brand" href="/signup">Sign up!</a>
+  render() {
+    return (
+      <header className="d-flex bd-highlight mb-3">
 
-</nav>
+        <a className="mr-auto p-2 bd-highlight align-self-center p-2 bd-highlight" href="/">
+          <img src={Logo} alt="Fashi.On" />
+        </a>
+        <div className="p-2 bd-highlight align-self-center">
+          <a className="btn btn-success" href="/login">Login</a>
+        </div>
+        <div className="p-2 bd-highlight align-self-center">
+          <a className="btn btn-primary" href="/signup">Sign up</a>
+        </div>
+        <div className="p-2 bd-highlight align-self-center">
+          <a className="btn btn-primary" href="/logout" onClick={this.logout}>Log out</a>
+        </div>
 
+      </header>
+    )
+  }
 
-
-)
-
+}
 
 export default Navbar;
+
+
+

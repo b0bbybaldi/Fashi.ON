@@ -1,0 +1,15 @@
+Header{
+  padding-bottom: 20px;
+}
+
+.form-signup{
+  background-color: white;
+  margin-top:50px;
+  display: inline-block;
+  padding: 20px;
+}
+
+.signup-page{
+  background-image: url(./signup-bg.jpg);
+  background-size: cover;
+}
