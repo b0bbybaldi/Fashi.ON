@@ -41,15 +41,15 @@ class Survey extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.dresscode && this.state.season && this.state.budget && this.state.color) {
+        if (this.state.dresscode && this.state.season && this.state.budget && this.state.colors) {
             API.createOccasion({
                 dresscode: this.state.dresscode,
                 season: this.state.season,
                 budget: this.state.budget,
-                color: this.state.color,
-                email: "email@email.com"
+                colors: this.state.color
+                // email: "gustavo.gibo@gmail.com"
             })
-                .then(res => this.setState({ dresscode: "", season: "", budget: "", color: "" }))
+                .then(res => this.setState({ dresscode: "", season: "", budget: "", colors: "" }))
                 .catch(err => console.log(err));
             console.log(this.state);
         }
