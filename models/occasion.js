@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Will add the Currency type to the Mongoose Schema types
-require('mongoose-currency').loadType(mongoose);
-var Currency = mongoose.Types.Currency;
+// require('mongoose-currency').loadType(mongoose);
+// var Currency = mongoose.Types.Currency;
 
 const occasionSchema = new Schema({
 
@@ -20,11 +20,7 @@ const occasionSchema = new Schema({
         required: true
     },
     budget: {
-        type: Currency,
-        required: true
-    },
-    fit: {
-        type: String,
+        type: Number,
         required: true
     }
 });

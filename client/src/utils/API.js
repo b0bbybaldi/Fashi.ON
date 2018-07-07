@@ -24,8 +24,8 @@ export default {
 
     //occasion related functions
     //create new occasion
-    createOccasion: function () {
-        return axios.post("/api/occasion");
+    createOccasion: function (occasionData) {
+        return axios.post("/api/occasion/newoccasion",occasionData);
     },
     //get occasion by id
     getOccasion: function (id) {
