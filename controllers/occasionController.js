@@ -8,12 +8,24 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     create: function(req,res){
-        console.log(req.body);
-        db.Occasion
-        .create(req.body)
-        .then(dbModel => res.json(dbModel))
+        console.log("11", req.body);
+        db.Occasion.create(req.body).then(function(dbOccasion) {
+
+            return db.User.findOneAndUpdate({email: req.body.email}, {$push: {occasion: dbOccasion._id} }, {new: true});
+        })
+        .then(function(dbUser) {
+
+            res.json(dbUser);
+        })
         .catch(err => res.status(422).json(err));
     },
+    // create: function(req,res){
+    //     console.log(req.body);
+    //     db.Occasion
+    //     .create(req.body)
+    //     .then(dbModel => res.json(dbModel))
+    //     .catch(err => res.status(422).json(err));
+    // },
     update: function(req,res){
         db.Occasion
         .findOneAndUpdate({ _id: req.params.id } ,req.body)

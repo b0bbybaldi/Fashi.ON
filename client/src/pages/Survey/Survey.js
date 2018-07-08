@@ -46,8 +46,8 @@ class Survey extends Component {
                 dresscode: this.state.dresscode,
                 season: this.state.season,
                 budget: this.state.budget,
-                colors: this.state.colors
-                // email: "gustavo.gibo@gmail.com"
+                colors: this.state.colors,
+                email: "gustavo.gibo@gmail.com"
             })
                 .then(res => this.setState({ dresscode: "", season: "", budget: "", colors: "" }))
                 .catch(err => console.log(err));
