@@ -11,34 +11,23 @@ import axios from "axios";
 class Dashboard extends Component {
 
   state = {
-
     occasions: [],
-    suggestions: [],
     email: "gustavo.gibo@gmail.com",
     firstName: ""
 
   };
 
   componentDidMount() {
-    // this.loadOccasions(this.state.email);
-   this.asosAjaxCall();
+    this.loadOccasions(this.state.email);
   }
 
-  // loadOccasions = (email) => {
-  //   API.getOccasions(email).then(res => {
-  //     this.setState({ occasions: res.data })
-  //     console.log(this.state.articles)
-  //   })
-  //     .catch(err => console.log(err));
-  // };
-  asosAjaxCall = () => {
-    API.getSuggestions()
-      .then(res => {
-        this.setState({ suggestions: res.data })
-        console.log(this.state.suggestions)
-      })
+  loadOccasions = (email) => {
+    API.getOccasions(email).then(res => {
+      this.setState({ occasions: res.data })
+      console.log(this.state.articles)
+    })
       .catch(err => console.log(err));
-  }
+  };
 
   render() {
     return (
