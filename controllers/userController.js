@@ -1,4 +1,5 @@
 const db = require('../models');
+const User = require('../models/user');
 const passport = require('passport')
 
 module.exports = {
@@ -14,9 +15,13 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     findOne: function(req, res) {
-        console.log("17", req.params.email)
-        db.User.findOne({email: req.params.email}).populate("occasion")
-            .then(dbUser => res.json(dbUser))
+
+        User.findOne({email: req.params.email})
+            .populate("occasion")
+            .then(function(dbUser) { 
+                console.log(dbUser);
+                res.json(dbUser);
+            })
             .catch(err => console.log(err));
     },
     authenticateUser: function (req, res, next) {
