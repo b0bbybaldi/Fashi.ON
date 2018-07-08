@@ -8,7 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import PropTypes from 'prop-types';
 import Background from './signup-bg.jpg';
 import Button from '../../components/Button';
-import { BrowserRouter as Router, Route} from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import Dashboard from "../Dashboard"
 
 const gender = [
@@ -82,9 +82,10 @@ class Signup extends Component {
   //   }
   // };
 
-    handleFormSubmit = event => {
-      event.preventDefault();
-      console.log(this.state);
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
+    if (this.state.email && this.state.password && this.state.firstName && this.state.lastName && this.state.gender) {
       fetch("/auth/signup", {
         method: "POST",
         credentials: "include",
@@ -93,63 +94,61 @@ class Signup extends Component {
           email: this.state.email,
           password: this.state.password,
           gender: this.state.gender,
-          firstname: this.state.firstName,
-          lastname: this.state.lastName
+          firstName: this.state.firstName,
+          lastName: this.state.lastName
         }),
         headers: new Headers({
           "Content-Type": "application/json"
         })
       }).then(response => {
+        // this.setState({
+        //   firstName: "",
+        //   email: "",
+        //   password: "",
+        //   lastName: "",
+        //   gender: ""
+        // });
         console.log(response);
-  
-        // window.location.href = "/";
+        // window.location.href = "/survey";
       }).catch(err => console.log(err));
-  
-      this.setState({
-        firstName: "",
-        email: "",
-        password: "",
-        lastName: "",
-        gender:""
-      });
-
-      // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
-
-      //   //Use fetch here because it deals with cors more effectively than axios. This allows easy cookie storage
-      //   API.authenticateUser({          
-      //       firstName: this.state.firstName,
-      //       lastName:this.state.lastName,            
-      //       email: this.state.email,
-      //       password: this.state.password,
-      //       gender: this.state.gender
-      //   })
-      //   .then(response => {
-      //     console.log(response);
-    
-      //     // window.location.href = "/survey";
-      //   }).catch(err => console.log(err));
-    
-      //   this.setState({
-      //     firstName: "",
-      //     email: "",
-      //     password: "",
-      //     lastName: "",
-      //     gender:""
-      //   });
-
-      // }
     }
+    // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
+
+    //   //Use fetch here because it deals with cors more effectively than axios. This allows easy cookie storage
+    //   API.authenticateUser({          
+    //       firstName: this.state.firstName,
+    //       lastName:this.state.lastName,            
+    //       email: this.state.email,
+    //       password: this.state.password,
+    //       gender: this.state.gender
+    //   })
+    //   .then(response => {
+    //     console.log(response);
+
+    //     // window.location.href = "/survey";
+    //   }).catch(err => console.log(err));
+
+    //   this.setState({
+    //     firstName: "",
+    //     email: "",
+    //     password: "",
+    //     lastName: "",
+    //     gender:""
+    //   });
+
+    // }
+  }
 
 
   render() {
     const cookie = document.cookie.split(";");
-    const { classes } = this.props;
+    // const { classes } = this.props;
     document.body.style.backgroundImage = `url(${Background})`
     if (this.state.isLoggedIn) {
       return (
         <Router>
           <div>
-              <Route exact path="/dashboard" component={Dashboard} firstName={this.state.firstName} lastName={this.state.lastName} />
+            <Route exact path="/dashboard" component={Dashboard} firstName={this.state.firstName} lastName={this.state.lastName} />
           </div>
         </Router>
       )
@@ -234,8 +233,8 @@ class Signup extends Component {
   }
 }
 
-Signup.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// Signup.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default Signup;

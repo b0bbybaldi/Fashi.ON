@@ -22,6 +22,7 @@ class Occasion extends Component {
             .then(res => {
                 this.setState({ suggestions: res.data })
                 console.log(this.state.suggestions)
+               
             })
             .catch(err => console.log(err));
     }
