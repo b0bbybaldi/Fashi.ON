@@ -38,19 +38,19 @@ class Signup extends Component {
     gender: ""
 
   }
-  componentWillMount() {
-    API.getUser()
-      .then(user => {
-        console.log(user)
-        this.setState({
-          isLoggedIn: this.state.isLoggedIn,
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
-          email: this.state.email,
-          gender: this.state.gender
-        });
-      })
-  }
+  // componentWillMount() {
+  //   API.getUser()
+  //     .then(user => {
+  //       console.log(user)
+  //       this.setState({
+  //         isLoggedIn: this.state.isLoggedIn,
+  //         firstName: this.state.firstName,
+  //         lastName: this.state.lastName,
+  //         email: this.state.email,
+  //         gender: this.state.gender
+  //       });
+  //     })
+  // }
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -84,31 +84,60 @@ class Signup extends Component {
 
     handleFormSubmit = event => {
       event.preventDefault();
-      if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
-
-        //Use fetch here because it deals with cors more effectively than axios. This allows easy cookie storage
-        API.authenticateUser({          
-            firstName: this.state.firstName,
-            lastName:this.state.lastName,            
-            email: this.state.email,
-            password: this.state.password,
-            gender: this.state.gender
+      console.log(this.state);
+      fetch("/auth/signup", {
+        method: "POST",
+        credentials: "include",
+        mode: "cors",
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+          gender: this.state.gender,
+          firstname: this.state.firstName,
+          lastname: this.state.lastName
+        }),
+        headers: new Headers({
+          "Content-Type": "application/json"
         })
-        .then(response => {
-          console.log(response);
-    
-          // window.location.href = "/survey";
-        }).catch(err => console.log(err));
-    
-        this.setState({
-          firstName: "",
-          email: "",
-          password: "",
-          lastName: "",
-          gender:""
-        });
+      }).then(response => {
+        console.log(response);
+  
+        // window.location.href = "/";
+      }).catch(err => console.log(err));
+  
+      this.setState({
+        firstName: "",
+        email: "",
+        password: "",
+        lastName: "",
+        gender:""
+      });
 
-      }
+      // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
+
+      //   //Use fetch here because it deals with cors more effectively than axios. This allows easy cookie storage
+      //   API.authenticateUser({          
+      //       firstName: this.state.firstName,
+      //       lastName:this.state.lastName,            
+      //       email: this.state.email,
+      //       password: this.state.password,
+      //       gender: this.state.gender
+      //   })
+      //   .then(response => {
+      //     console.log(response);
+    
+      //     // window.location.href = "/survey";
+      //   }).catch(err => console.log(err));
+    
+      //   this.setState({
+      //     firstName: "",
+      //     email: "",
+      //     password: "",
+      //     lastName: "",
+      //     gender:""
+      //   });
+
+      // }
     }
 
 
