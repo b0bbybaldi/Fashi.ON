@@ -13,6 +13,12 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
+    findOne: function(req, res) {
+        console.log("17", req.params.email)
+        db.User.findOne({email: req.params.email}).populate("occasion")
+            .then(dbUser => res.json(dbUser))
+            .catch(err => console.log(err));
+    },
     authenticateUser: function (req, res, next) {
         console.log("#################################");
         passport.authenticate("local-signup", (err, user, info) => {

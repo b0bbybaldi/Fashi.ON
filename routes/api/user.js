@@ -10,6 +10,8 @@ router.route('/newuser')
 //login route
 router.route('/signin')
     .get(userController.findById);
+router.route("/occasions/:email")
+    .get(userController.findOne);
     
 //login specific to the user by id for profile page
 router.route('/user/:id')
