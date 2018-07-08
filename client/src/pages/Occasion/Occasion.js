@@ -1,5 +1,4 @@
 import "./Occasion.css";
-export default Occasion;
 import React, { Component } from 'react';
 import Navbar from '../../components/Navbar/Navbar.js';
 import Footer from '../../components/Footer/Footer.js';
@@ -10,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import OccasionCard from "../../components/OccasionCard";
 import API from '../../utils/API';
 
-class Dashboard extends Component {
+class Occasion extends Component {
 
   state = {
     suggestions: []
@@ -49,4 +48,4 @@ class Dashboard extends Component {
     );
   }
 }
-export default Dashboard;
+export default Occasion;
