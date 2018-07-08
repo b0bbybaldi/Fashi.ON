@@ -1,6 +1,15 @@
 const db = require('../models');
+const request = require('request');
 
 module.exports = {
+    // getSuggestions: function (req, res) {
+    //     request.get("https://api.asos.com/product/search/v1/?q=jeans&store=2&lang=en-US&sizeschema=US&currency=USD&sort=relevancy&channel=mobile-app&offset=0&limit=10",
+    //     function(err, response, body){
+    //         body = JSON.parse(body);
+    //         console.log(body.searchTerm);
+    //         res.json(body.searchTerm);
+    //     })
+    // },
     findById: function(req, res){
         db.Occasion
         .findById(req.params.id)

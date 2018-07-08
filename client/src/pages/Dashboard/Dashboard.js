@@ -7,49 +7,58 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import OccasionCard from "../../components/OccasionCard";
 import API from '../../utils/API';
-
-
+import axios from "axios";
 class Dashboard extends Component {
 
   state = {
 
-    occasions : [],
-    email : "gustavo.gibo@gmail.com",
-    firstName : ""
+    occasions: [],
+    suggestions: [],
+    email: "gustavo.gibo@gmail.com",
+    firstName: ""
 
   };
 
   componentDidMount() {
-    this.loadOccasions(this.state.email);
+    // this.loadOccasions(this.state.email);
+   this.asosAjaxCall();
   }
 
-  loadOccasions = (email) => {
-    API.getOccasions(email).then(res => {
-            this.setState({ occasions: res.data })
-            console.log(this.state.articles)
-        })
-        .catch(err => console.log(err));
-};
+  // loadOccasions = (email) => {
+  //   API.getOccasions(email).then(res => {
+  //     this.setState({ occasions: res.data })
+  //     console.log(this.state.articles)
+  //   })
+  //     .catch(err => console.log(err));
+  // };
+  asosAjaxCall = () => {
+    API.getSuggestions()
+      .then(res => {
+        this.setState({ suggestions: res.data })
+        console.log(this.state.suggestions)
+      })
+      .catch(err => console.log(err));
+  }
 
   render() {
     return (
-    <div>
-      <Navbar />
+      <div>
+        <Navbar />
         <div className="paral paralsec3" id="paralsec3">
           <div className="container-fluid">
-              <div className="row d-flex justify-content-center">
-                <div className="col-12 text-center">
-                  <h3 className="display-3">Your Occasions</h3>
-                </div>
+            <div className="row d-flex justify-content-center">
+              <div className="col-12 text-center">
+                <h3 className="display-3">Your Occasions</h3>
               </div>
-              <div className="row d-flex justify-content-center">
+            </div>
+            <div className="row d-flex justify-content-center">
               <OccasionCard />
-              </div>
+            </div>
           </div>
         </div>
         <Footer />
-        </div>
-      );
-    }
+      </div>
+    );
   }
+}
 export default Dashboard;

@@ -34,6 +34,7 @@
     "mongoose-currency": "^0.2.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "request": "^2.87.0"
   }
 }

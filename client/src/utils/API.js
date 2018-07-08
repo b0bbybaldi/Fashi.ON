@@ -46,4 +46,9 @@ export default {
     deleteOccasion: function (id) {
         return axios.delete("/api/occasion/" + id);
     },
+    // Makes Ajax call to ASOS.com API and gets results for a searched item
+    getSuggestions: function(data){
+        return axios.get("https://api.asos.com/product/search/v1/?q=jeans&store=2&lang=en-US&sizeschema=US&currency=USD&sort=freshness&channel=mobile-app&offset=0&limit=10", data)
+        // return axios.get("/api/occasion/", data)
+    }
 };
