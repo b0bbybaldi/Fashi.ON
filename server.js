@@ -9,7 +9,7 @@ const passport = require('passport')
 , LocalStrategy = require('passport-local').Strategy;
 const app = express();
 const passportSetup = require("./passport/passport");
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 // // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -61,6 +61,9 @@ app.use((req, res, next) => {
 // Define API routes here
 app.use(routes);
 // Send every other request to the React app
+
+const authRoutes = require("./routes/auth");
+app.use("/auth", authRoutes);
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

@@ -16,5 +16,8 @@ router.route('/user/:id')
     .get(userController.findById)
     .put(userController.update);
 
+router.route('/signup')
+    .post(userController.authenticateUser);
+
 
 module.exports = router;

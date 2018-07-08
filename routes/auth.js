@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const db = require("../models");
+const User = require("../models/user.js");
 
 
 router.get("/user", (req, res) => {
@@ -39,6 +39,8 @@ router.get("/user", (req, res) => {
 
 //local auth signup
 router.post("/signup", (req, res, next) => {
+
+    console.log("43", req.body);
     
     passport.authenticate("local-signup", (err, user, info) => {
             if (err) {
@@ -46,10 +48,10 @@ router.post("/signup", (req, res, next) => {
                 return next(err);
             }
 
-            console.log("49");
+            console.log("49", info);
     
             if (!user) {
-                console.log("not a user")
+                console.log("not a userr")
                 return res.redirect("/");
             }
     

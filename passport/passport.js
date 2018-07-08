@@ -2,7 +2,8 @@
 // require("dotenv").config();
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const User = require("../models/user.js");
+// const User = require("../models");
+const db = require('../models');
 //middleware to encrypt passwords
 const bCrypt = require("bcrypt-nodejs");
 
@@ -16,7 +17,7 @@ passport.serializeUser(function(user, done) {
 // used to deserialize the user
 passport.deserializeUser(function(id, done) {
     console.log("deserialize" + id);
-    User.findById(id).then(function(user) {
+    db.User.findById(id).then(function(user) {
         if (user) {
             console.log("deserialize", user)
             done(null, user);
@@ -28,16 +29,16 @@ passport.deserializeUser(function(id, done) {
 
 //passport config for local signup
 passport.use('local-signup', new LocalStrategy({
-        usernameField: 'email',
+        emailField: 'email',
         passwordField: 'password',
         passReqToCallback: true
-
     },
     function(req, email, password, done) {
         process.nextTick(function() {
-            User.find({
+            db.User.find({
                 email: email
             }).then(function(user) {
+                console.log("44", hahaha);
                 if (user.length > 0) {
                     console.log('signupMessage', 'That email is already taken.');
                     
@@ -45,12 +46,14 @@ passport.use('local-signup', new LocalStrategy({
                 } else {
                     const userPassword = generateHash(req.body.password);
                     const newUser = {
-                        userName: req.body.userName,
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                        gender: req.body.gender,
                         email: req.body.email,
                         password: userPassword
                         
                     }
-                    User.create(newUser).then(function(dbUser, created) {
+                    db.User.create(newUser).then(function(dbUser, created) {
                         if (!dbUser) {
                             return done(null, false);
                         } else {
@@ -66,8 +69,11 @@ passport.use('local-signup', new LocalStrategy({
 
 //passport config for local signin
 passport.use('local-signin', new LocalStrategy({
-        usernameField: 'email',
+        firstnameField: 'firstName',
+        lastnameField: 'lastName',
+        emailField: 'email',
         passwordField: 'password',
+        genderField: 'gender',
         passReqToCallback: true // allows us to pass back the entire request to the callback
     },
     function(req, email, password, done) {
@@ -76,7 +82,7 @@ passport.use('local-signin', new LocalStrategy({
             return bCrypt.compareSync(password, userpass);
         }
 
-        User.find({
+        db.User.find({
                 email: email
         }).then(function(user) {
             console.log("user", user[0])
