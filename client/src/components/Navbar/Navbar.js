@@ -22,7 +22,7 @@ class Navbar extends Component {
           <img src={Logo} alt="Fashi.On" />
         </a>
         <div className="p-2 bd-highlight align-self-center">
-          <a className="btn btn-success" href="/login">Login</a>
+          <a className="btn btn-success" href="/signin">Login</a>
         </div>
         <div className="p-2 bd-highlight align-self-center">
           <a className="btn btn-primary" href="/signup">Sign up</a>

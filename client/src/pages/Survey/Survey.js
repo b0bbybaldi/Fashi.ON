@@ -49,12 +49,13 @@ class Survey extends Component {
                 colors: this.state.colors,
                 email: "gustavo.gibo@gmail.com"
             })
-                .then(res => this.setState({ dresscode: "", season: "", budget: "", colors: "" }))
+                .then(res => {
+                    this.setState({ dresscode: "", season: "", budget: "", colors: "" })
+                    window.location.href = "/dashboard";
+                })
                 .catch(err => console.log(err));
-            console.log(this.state);
         }
     };
-
     handleClick = (e) => {
         this.setState({ checked: e.target.checked });
     }

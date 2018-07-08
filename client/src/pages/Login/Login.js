@@ -42,66 +42,68 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password
       })
-        .then(res => res.render('/'))
-        .catch(err => console.log(err));
-    } 
+        .then(res => {
+          this.setState({ email: "", password: "" })
+          window.location.href = "/survey";
+        })
+        .catch(err => console.log(err))
+    }
   };
-
   render() {
     document.body.style.backgroundImage = `url(${Background})`
     return (
-    
-        <div className="login-page">
-          <Navbar />
-          <div className="d-flex justify-content-center">
-            <div className="login-card">
-              <Card>
-                <CardMedia
-                  image=""
-                  email="LoginPhoto"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="headline" component="h2">
-                    Glad to have you back!
+
+      <div className="login-page">
+        <Navbar />
+        <div className="d-flex justify-content-center">
+          <div className="login-card">
+            <Card>
+              <CardMedia
+                image=""
+                email="LoginPhoto"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="headline" component="h2">
+                  Glad to have you back!
             </Typography>
-                  <Typography component="p">
-                    Login to continue
+                <Typography component="p">
+                  Login to continue
             </Typography>
-                  <div id="login-field">
-                    <TextField
-                      id="email"
-                      label="Email"
-                      name="email"
-                      value={this.state.email}
+                <div id="login-field">
+                  <TextField
+                    id="email"
+                    label="Email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    margin="normal"
+                  />
+                  <FormControl>
+                    <InputLabel htmlFor="adornment-password">Password</InputLabel>
+                    <Input
+                      id="adornment-password"
+                      name="password"
+                      value={this.state.password}
                       onChange={this.handleChange}
-                      margin="normal"
+                      type={'password'}
                     />
-                    <FormControl>
-                      <InputLabel htmlFor="adornment-password">Password</InputLabel>
-                      <Input
-                        id="adornment-password"
-                        name="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        type={'password'}
-                      />
-                    </FormControl>
-                    <Button
-                      onClick={this.handleFormSubmit}
-                      color="primary"
-                      variant="contained"
-                    >
-                      Login
+                  </FormControl>
+                  <Button
+                    onClick={this.handleFormSubmit}
+                    color="primary"
+                    variant="contained"
+                  >
+                    Login
                 </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
+      </div>
     )
   }
-}
+};
 
 
 export default Login;

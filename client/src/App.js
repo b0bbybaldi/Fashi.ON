@@ -24,7 +24,7 @@ class App extends Component {
           <Route exact path="/survey" component={Survey} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/userprofile" component={UserProfile} />
-          <Route exact path="/occasion/:id" component={Occasion} />
+          <Route exact path="/occasion" component={Occasion} />
           <Route component={NoMatch} />
         </Switch>
       </Router>
