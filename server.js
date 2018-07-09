@@ -9,7 +9,7 @@ const session = require("express-session");
 // , LocalStrategy = require('passport-local').Strategy;
 const app = express();
 const passport = require("./passport/passport");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 // // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));
