@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Survey.css";
 import API from '../../utils/API';
 import Questions from "../../components/Questions";
-import CheckColors from "../../components/CheckColors";
+import CheckBoxes from "../../components/CheckBoxes";
 import options from "../../options.json";
 import Navbar from "../../components/Navbar";
 import Button from "../../components/Button";
@@ -13,8 +13,9 @@ class Survey extends Component {
     state = {
         dresscode: "",
         season: "",
-        budget: 50,
+        budget: 10,
         colors: [],
+        items: [],
         checked: this.props.checked || false
     }
 
@@ -42,32 +43,51 @@ class Survey extends Component {
     handleInputChangeCheckBox = event => {
 
         const { name, value } = event.target;
-        console.log("clicked", value);
-        if(this.state.colors.indexOf(value) === -1) {
-            
-            this.state.colors.push(value);
+        if (name === "colors") {
+            console.log("clicked", value);
+            if (this.state.colors.indexOf(value) === -1) {
 
+                this.state.colors.push(value);
+
+            } else {
+
+                this.state.colors.splice(this.state.colors.indexOf(value), 1);
+
+            }
+            console.log(this.state.colors);
+            this.setState({
+                [name]: this.state.colors
+            });
         } else {
+            console.log("clicked", value);
+            if (this.state.items.indexOf(value) === -1) {
 
-            this.state.colors.splice(this.state.colors.indexOf(value), 1);
+                this.state.items.push(value);
 
+            } else {
+
+                this.state.items.splice(this.state.items.indexOf(value), 1);
+
+            }
+            console.log(this.state.items);
+            this.setState({
+                [name]: this.state.items
+            });
         }
-        console.log(this.state.colors);
-        this.setState({
-            [name]: this.state.colors
-        });
+
 
     };
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.dresscode && this.state.season && this.state.budget && this.state.colors) {
+        if (this.state.dresscode && this.state.season && this.state.budget && this.state.colors && this.state.items) {
             API.createOccasion({
                 dresscode: this.state.dresscode,
                 season: this.state.season,
                 budget: this.state.budget,
                 colors: this.state.colors,
-                id: "5b43a6c06ae08e3dc4b9b315"
+                items: this.state.items,
+                id: "5b3fae866249ea09212c275f"
             })
                 .then(res => {
                     this.setState({ dresscode: "", season: "", budget: "", colors: "" })
@@ -101,14 +121,21 @@ class Survey extends Component {
                                 change={this.handleInputChange}
                             />
                         ))}
-                        <CheckColors
+                        <CheckBoxes
                             change={this.handleInputChangeCheckBox}
                             value={this.state.colors}
+                            type="colors"
+                            click={this.handleClick}
+                        />
+                        <CheckBoxes
+                            change={this.handleInputChangeCheckBox}
+                            value={this.state.items}
+                            type="items"
                             click={this.handleClick}
                         />
                         <div className="form-group">
-                            <label for="formControlRange">What is your budget?</label>
-                            <p id="budget-value">$ 50</p>
+                            <label for="formControlRange">My budget range:</label>
+                            <p id="budget-value">$ 10</p>
                             <input
                                 type="range"
                                 className="form-control-range"
@@ -116,7 +143,7 @@ class Survey extends Component {
                                 value={this.state.budget}
                                 id="formControlRange"
                                 onChange={this.handleInputChangeRange}
-                                min="50"
+                                min="10"
                                 max="1000"
                             />
                         </div>

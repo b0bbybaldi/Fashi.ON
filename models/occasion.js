@@ -9,7 +9,7 @@ const occasionSchema = new Schema({
 
     dresscode: {
         type: String,
-        required: false
+        required: true
     },
     colors: {
         type: String,
@@ -22,7 +22,12 @@ const occasionSchema = new Schema({
     budget: {
         type: Number,
         required: true
+    },
+    items: {
+        type: String,
+        required: true
     }
+
 });
 
 const Occasion = mongoose.model("Occasion", occasionSchema);
