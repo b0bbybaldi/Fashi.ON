@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import OccasionCard from "../../components/OccasionCard";
+import HowToCard from "../../components/HowToCard";
 import API from '../../utils/API';
 import axios from "axios";
 class Dashboard extends Component {
@@ -42,7 +43,12 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="row d-flex justify-content-center">
+
               <OccasionCard />
+              <OccasionCard />
+              <HowToCard />
+
+
             </div>
           </div>
         </div>

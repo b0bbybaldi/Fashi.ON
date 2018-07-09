@@ -1,0 +1,12 @@
+#occasion-card-img {
+    /* border-radius: 20%; */
+
+    /* width: 200px; */
+   /* height: 100px; /* as the half of the width */ */
+   background-color: gold;
+   border-bottom-left-radius: 150px;  /* 100px of height + 10px of border */
+   border-bottom-right-radius: 150px; /* 100px of height + 10px of border */
+  
+   /* border: 10px solid gray; */
+   border-bottom: 0;
+}
