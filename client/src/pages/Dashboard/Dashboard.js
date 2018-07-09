@@ -24,7 +24,7 @@ class Dashboard extends Component {
   loadOccasions = (email) => {
     API.getOccasions(email).then(res => {
       this.setState({ occasions: res.data })
-      console.log(this.state.occasions)
+      console.log(this.state.occasions );
       // window.location.href("/occasion")
     })
       .catch(err => console.log(err));

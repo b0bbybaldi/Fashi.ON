@@ -14,7 +14,7 @@ class Survey extends Component {
         dresscode: "",
         season: "",
         budget: 50,
-        colors: "",
+        colors: [],
         checked: this.props.checked || false
     }
 
@@ -39,6 +39,26 @@ class Survey extends Component {
 
     };
 
+    handleInputChangeCheckBox = event => {
+
+        const { name, value } = event.target;
+        console.log("clicked", value);
+        if(this.state.colors.indexOf(value) === -1) {
+            
+            this.state.colors.push(value);
+
+        } else {
+
+            this.state.colors.splice(this.state.colors.indexOf(value), 1);
+
+        }
+        console.log(this.state.colors);
+        this.setState({
+            [name]: this.state.colors
+        });
+
+    };
+
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.dresscode && this.state.season && this.state.budget && this.state.colors) {
@@ -47,7 +67,7 @@ class Survey extends Component {
                 season: this.state.season,
                 budget: this.state.budget,
                 colors: this.state.colors,
-                email: "gustavo.gibo@gmail.com"
+                id: "5b43a6c06ae08e3dc4b9b315"
             })
                 .then(res => {
                     this.setState({ dresscode: "", season: "", budget: "", colors: "" })
@@ -82,7 +102,7 @@ class Survey extends Component {
                             />
                         ))}
                         <CheckColors
-                            change={this.handleInputChange}
+                            change={this.handleInputChangeCheckBox}
                             value={this.state.colors}
                             click={this.handleClick}
                         />
