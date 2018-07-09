@@ -86,7 +86,7 @@ class Signup extends Component {
     event.preventDefault();
     console.log(this.state);
     if (this.state.email && this.state.password && this.state.firstName && this.state.lastName && this.state.gender) {
-      fetch("/auth/signup", {
+      fetch("auth/signup", {
         method: "POST",
         credentials: "include",
         mode: "cors",

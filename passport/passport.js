@@ -15,8 +15,7 @@ const bCrypt = require("bcrypt-nodejs");
 // Passport session setup
 passport.serializeUser(function (user, done) {
     console.log("user", user, "done", done)
-    done(null, user[0]._id);
-    console.log("serialize" + user[0]._id);
+    done(null, user._id);
 });
 
 // used to deserialize the user
