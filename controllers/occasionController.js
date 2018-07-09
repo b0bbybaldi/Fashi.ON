@@ -19,8 +19,11 @@ module.exports = {
     create: function(req,res){
         console.log("11", req.body);
         db.Occasion.create(req.body).then(function(dbOccasion) {
-
-            return db.User.findOneAndUpdate({email: req.body.email}, {$push: {occasion: dbOccasion._id} }, {new: true});
+            console.log("22", dbOccasion);
+            return db.User.findOneAndUpdate(
+                {firstName: "Gustavo"},
+                {$push: {occasions: dbOccasion._id} }, 
+                {new: true});
         })
         .then(function(dbUser) {
 

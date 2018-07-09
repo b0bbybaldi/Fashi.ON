@@ -16,10 +16,11 @@ module.exports = {
     },
     findOne: function(req, res) {
 
-        User.findOne({email: req.params.email})
-            .populate("occasion")
+        User.find({_id: "5b43a6c06ae08e3dc4b9b315"})
+        .populate("occasions")
             .then(function(dbUser) { 
-                console.log(dbUser);
+                console.log("hi", dbUser);
+                // console.log("hello", dbUser[0].occasion[0]);
                 res.json(dbUser);
             })
             .catch(err => console.log(err));

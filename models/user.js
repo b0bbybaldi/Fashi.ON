@@ -33,10 +33,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    occasion: {
+    occasions: [{
         type: Schema.Types.ObjectId,
         ref: "Occasion"
-    }
+    }]
 
 });
 

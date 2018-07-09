@@ -109,7 +109,7 @@ class Signup extends Component {
         //   gender: ""
         // });
         console.log(response);
-        // window.location.href = "/survey";
+        window.location.href = "/survey";
       }).catch(err => console.log(err));
     }
     // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
