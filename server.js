@@ -5,11 +5,11 @@ const routes = require("./routes");
 const flash = require('express-flash-messages')
 const mongoose = require("mongoose");
 const session = require("express-session");
-const passport = require('passport')
-, LocalStrategy = require('passport-local').Strategy;
+// const passport = require('passport')
+// , LocalStrategy = require('passport-local').Strategy;
 const app = express();
-const passportSetup = require("./passport/passport");
-const PORT = process.env.PORT || 3002;
+const passport = require("./passport/passport");
+const PORT = process.env.PORT || 3000;
 
 // // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: true }));

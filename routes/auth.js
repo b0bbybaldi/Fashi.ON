@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("passport");
+// const passport = require("passport");
+
+const passport = require("../passport/passport");
+
 const User = require("../models/user.js");
 
 
@@ -12,7 +15,7 @@ router.get("/user", (req, res) => {
         // get username and email
         console.log("hellur", currentUser)
         db.User
-        .findOne({ _id: currentUser })
+            .findOne({ _id: currentUser })
             .then(dbUser => {
                 const user = {
                     loggedIn: true,
@@ -31,50 +34,46 @@ router.get("/user", (req, res) => {
             firstName: '',
             lastName: '',
             email: '',
-            gender:''
+            gender: ''
         }
         res.json(user);
     }
 });
-
 //local auth signup
 router.post("/signup", (req, res, next) => {
 
     console.log("43", req.body);
-    
-    passport.authenticate("local-signup", (err, user, info) => {
-            if (err) {
-                console.log(err)
-                return next(err);
-            }
 
-            console.log("49", info);
-    
-            if (!user) {
-                console.log("not a userr")
+    passport.authenticate("local-signup", (err, user, info) => {
+        if (err) {
+            console.log(err)
+            return next(err);
+        }
+
+        console.log("49", info);
+
+        if (!user) {
+            console.log("not a userr")
+            return res.redirect("/");
+        }
+
+        req.login(user, (err) => {
+            if (err) {
+                console.log("auth error")
+                return next(err);
+            } else {
+                res.cookie("firstName", req.user.firstName);
+                res.cookie("lastName", req.user.lastName);
+                res.cookie("email", req.body.email);
+                res.cookie("gender", req.user.gender);
+                res.cookie("user_id", req.user.id);
+                console.log("confrim")
                 return res.redirect("/");
             }
-    
-            req.login(user, (err) => {
-                if (err) {
-                    console.log("auth error")
-                    return next(err);
-                } else {
-                    res.cookie("firstName", req.user.firstName);
-                    res.cookie("lastName", req.user.lastName);
-                    res.cookie("email", req.body.email);
-                    res.cookie("gender", req.user.gender);
-                    res.cookie("user_id", req.user.id);
-                    console.log("confrim")
-                    return res.redirect("/");
-                }
-    
-            })
-        })(req, res, next);
-    });
 
-
-
+        })
+    })(req, res, next);
+});
 //local auth sign in
 router.post("/signin", (req, res, next) => {
 
@@ -128,7 +127,5 @@ router.get("/logout", function (req, res) {
         console.log("Hello from the other side.")
     });
 });
-
-
 
 module.exports = router;

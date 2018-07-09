@@ -31,23 +31,23 @@ class Occasion extends Component {
         return (
             <div>
                 <Navbar />
-                <div class="col-12 col-sm-12 col-md-4">
-                    <div class="card">
-                        <a href="assets/img/homepage.jpg" class="fancybox">
-                            <img class="card-img-top" src="assets/img/homepage.jpg" alt="Card image cap" />
+                <div className="col-12 col-sm-12 col-md-4">
+                    <div className="card">
+                        <a href="assets/img/homepage.jpg" className="fancybox">
+                            <img className="card-img-top" src="assets/img/homepage.jpg" alt="Card image cap" />
                         </a>
-                        <div class="card-body">
-                            <h5 class="card-title">Satiable Soiree</h5>
-                            <p class="card-text">Managing a food-gathering event can be easy now! Create your event, invite your friends and they decide which food to bring! Using modern tools like Node.js, Express, Handlebars and Sequelize, this group project was a great experience! </p>
+                        <div className="card-body">
+                            <h5 className="card-title"></h5>
+                            <p className="card-text"></p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">HTML5, CSS3, Bootstrap</li>
-                            <li class="list-group-item">Javascript, jQuery, Moment.js, Typer.js</li>
-                            <li class="list-group-item">Node.js, Express, Handlebars, Sequelize, MySQL</li>
+                        <ul className="list-group list-group-flush">
+                            <li className="list-group-item">searchTerm</li>
+                            <li className="list-group-item">products[0].name</li>
+                            <li className="list-group-item">products[0].price.current.text</li>
+                            <li className="list-group-item">products[0].brandName</li>
                         </ul>
-                        <div class="card-body">
-                            <a href="https://github.com/Blonded/Satiable-Soiree" target="_blank" class="card-link">Repository</a>
-                            <a href="https://warm-dusk-10926.herokuapp.com/" target="_blank" class="card-link">Project Website</a>
+                        <div className="card-body">
+                            <a href="" target="_blank" className="card-link">products[0].baseImageUrl</a>
                         </div>
                     </div>
                 </div>
