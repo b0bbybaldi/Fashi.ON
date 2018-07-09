@@ -5,8 +5,7 @@
         "name": "dresscode",
         "option1": "Formal",
         "option2": "Casual",
-        "option3": "Semi-Casual",
-        "option4": "Cocktail"
+        "option3": "Cocktail"
     },
     {
         "question": "My event will be in:",
