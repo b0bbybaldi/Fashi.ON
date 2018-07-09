@@ -45,8 +45,8 @@ class Dashboard extends Component {
             <div className="row d-flex justify-content-center">
 
               <OccasionCard />
-              <HowToCard />
               <OccasionCard />
+              <HowToCard />
 
 
             </div>

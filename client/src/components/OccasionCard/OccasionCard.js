@@ -43,7 +43,7 @@ class OccasionCard extends Component {
                 {/* <a href="assets/img/homepage.jpg" class="fancybox">
                     <img className="card-img-top" src="assets/img/homepage.jpg" alt="Card image cap" />
                 </a> */}
-                <img className="card-img-top responsive" src="https://images.unsplash.com/photo-1490707967831-1fd9b48e40e2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=749def5b21084e6ee01beca8e6bc73a9&auto=format&fit=crop&w=1350&q=80" alt="wedding-img" />
+                <img className="card-img-top responsive" id="occasion-card-img" src="https://images.unsplash.com/photo-1490707967831-1fd9b48e40e2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=749def5b21084e6ee01beca8e6bc73a9&auto=format&fit=crop&w=1350&q=80" alt="wedding-img" />
                 <div className="card-body">
                     <h3 className="card-title">Wedding</h3>
                 </div>
