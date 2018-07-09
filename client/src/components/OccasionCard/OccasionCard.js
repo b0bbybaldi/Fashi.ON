@@ -48,7 +48,7 @@ class OccasionCard extends Component {
                 </div>
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">Fall</li>
-                    <li className="list-group-item">$ 50,00</li>
+                    <li className="list-group-item">$ 50.00</li>
                     <li className="list-group-item">Magenta</li>
                 </ul>
             </div>
@@ -59,6 +59,3 @@ class OccasionCard extends Component {
 }
 
 export default OccasionCard;
-
-
-
