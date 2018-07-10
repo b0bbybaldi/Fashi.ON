@@ -4,7 +4,6 @@ import API from '../../utils/API';
 import Navbar from '../../components/Navbar/Navbar.js';
 import classNames from 'classnames';
 import IconButton from '@material-ui/core/IconButton';
-
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -17,6 +16,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '../../components/Button';
+import Footer from '../../components/Footer/Footer.js'
 
 
 class Login extends Component {
@@ -105,7 +105,9 @@ class Login extends Component {
           </div>
           </div>
         </div>
+        < Footer />
       </div>
+
     )
   }
 };
