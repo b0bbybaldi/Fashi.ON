@@ -5,7 +5,7 @@ class HowToCard extends Component {
 
   render() {
     return (
-        <div className="col-12 col-sm-12 col-md-4">
+        <div className="col-12 col-sm-12 col-md-4 howcard">
             <div className="card">
             <img className="card-img-top responsive" src="https://images.unsplash.com/photo-1506485338023-6ce5f36692df?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=361443dfa9b671620076cd18e12d060d&auto=format&fit=crop&w=1650&q=80" alt="How to img" />
                 <div className="card-body">

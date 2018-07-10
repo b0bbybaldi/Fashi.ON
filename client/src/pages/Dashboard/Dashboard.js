@@ -24,8 +24,9 @@ class Dashboard extends Component {
 
   loadOccasions = (email) => {
     API.getOccasions(email).then(res => {
-      this.setState({ occasions: res.data })
-      console.log(this.state.occasions );
+      // console.log("user data", res.data);
+      this.setState({ occasions: res.data[0].occasions })
+      // console.log(res.data[0].occasions);
       // window.location.href("/occasion")
     })
       .catch(err => console.log(err));
@@ -43,9 +44,15 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="row d-flex justify-content-center">
-
-              <OccasionCard />
-              <OccasionCard />
+              {this.state.occasions.map((occ) => (
+                <OccasionCard
+                  id={`/occasion/${occ._id}`}
+                  dresscode={occ.dresscode}
+                  season={occ.season}
+                  budget={occ.budget}
+                  items={occ.items}
+                />
+              ))}
               <HowToCard />
 
 

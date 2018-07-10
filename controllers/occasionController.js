@@ -21,7 +21,7 @@ module.exports = {
         db.Occasion.create(req.body).then(function(dbOccasion) {
             console.log("22", dbOccasion);
             return db.User.findOneAndUpdate(
-                {firstName: "sara"},
+                {firstName: "Gustavo"},
                 {$push: {occasions: dbOccasion._id} }, 
                 {new: true});
         })

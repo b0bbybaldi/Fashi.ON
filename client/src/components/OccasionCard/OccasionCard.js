@@ -45,12 +45,13 @@ class OccasionCard extends Component {
                 </a> */}
                 <img className="card-img-top responsive" id="occasion-card-img" src="https://images.unsplash.com/photo-1490707967831-1fd9b48e40e2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=749def5b21084e6ee01beca8e6bc73a9&auto=format&fit=crop&w=1350&q=80" alt="wedding-img" />
                 <div className="card-body">
-                    <h3 className="card-title">Wedding</h3>
+                    <h3 className="card-title">{this.props.dresscode}</h3>
                 </div>
                 <ul className="list-group list-group-flush">
-                    <li className="list-group-item">Fall</li>
-                    <li className="list-group-item">$ 50.00</li>
-                    <li className="list-group-item">Magenta</li>
+                    <li className="list-group-item">{this.props.season}</li>
+                    <li className="list-group-item">$ {this.props.budget}</li>
+                    <li className="list-group-item">{this.props.items}</li>
+                    <li className="list-group-item"><a href={this.props.id}>More details</a></li>
                 </ul>
             </div>
         </div>
