@@ -11,6 +11,7 @@ import Button from '../../components/Button';
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import Dashboard from "../Dashboard"
 import SweetAlert from 'react-bootstrap-sweetalert';
+import Footer from '../../components/Footer/Footer.js'
 
 const gender = [
   {
@@ -55,7 +56,7 @@ class Signup extends Component {
     });
   }
 
-  
+
   // componentWillMount() {
   //   API.getUser()
   //     .then(user => {
@@ -105,12 +106,12 @@ class Signup extends Component {
         //   gender: ""
         // });
         console.log(response);
-        // window.location.href = "/survey";
+        window.location.href = "/survey";
       }).catch(err => console.log(err));
     } else {
 
       this.getAlert();
-      
+
     }
 
 
@@ -200,6 +201,7 @@ renderModal(){
               {/* onclick of this button will create a new users account */}
               <Button onClick={this.handleFormSubmit} children='Sign Up' />
             </div>
+            <Footer />
           </div>
 
     )

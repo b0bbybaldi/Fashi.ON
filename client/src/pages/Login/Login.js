@@ -4,7 +4,6 @@ import API from '../../utils/API';
 import Navbar from '../../components/Navbar/Navbar.js';
 import classNames from 'classnames';
 import IconButton from '@material-ui/core/IconButton';
-
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -17,13 +16,27 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '../../components/Button';
+import Footer from '../../components/Footer/Footer.js'
 
 
 class Login extends Component {
 
   state = {
+    isLoggedIn: false,
     email: "",
     password: ""
+  }
+
+  componentWillMount(){
+    API.getUser()
+    .then(user=>{
+      console.log(user)
+      this.setState({
+        isLoggedIn: user.data.loggedIn,
+      });
+      console.log(this.state)
+    })
+
   }
 
   handleChange = event => {
@@ -54,6 +67,7 @@ class Login extends Component {
       <div className="login-page">
         <Navbar />
         <div className="d-flex justify-content-center">
+        <div className="w3-container w3-animate-opacity">
           <div className="login-card">
             <Card>
               <CardMedia
@@ -102,8 +116,11 @@ class Login extends Component {
               </CardContent>
             </Card>
           </div>
+          </div>
         </div>
+        < Footer />
       </div>
+
     )
   }
 };

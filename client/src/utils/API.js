@@ -3,29 +3,17 @@ import axios from "axios";
 export default {
     //user related functions
     //login
-    signin: function (data) {
-        return axios.get("/api/user/signin",data);
-    },
-    // Gets the user with the given id
-    getUser: function (id) {
-        return axios.get("/api/user/" + id);
+    getUser: function(){
+        return axios.get("/auth/user");
     },
     //update email and password for a user
     updateUser: function (id) {
         return axios.put("/api/user/" + id);
     },
     // Saves a new user to the database- Sign up
-    createUser: function (userData) {
-        console.log(userData);
-        return axios.post("/api/user/newuser", userData);
-    },
-    authenticateUser: function (userData) {
-        return axios.post("/api/user/signup", userData);
-    },
     logout: function () {
         return axios("api/auth/logout")
     },
-
     //occasion related functions
     //create new occasion
     createOccasion: function (occasionData) {
@@ -48,7 +36,7 @@ export default {
     },
     // Makes Ajax call to ASOS.com API and gets results for a searched item
     getSuggestions: function(data){
-        console.log(data)
+        console.log("axios data",data)
         return axios.get("/api/occasion/" + data);
     }
 };

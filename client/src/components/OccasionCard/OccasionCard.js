@@ -57,7 +57,6 @@ class OccasionCard extends Component {
         </div>
     )
   }
-
 }
 
 export default OccasionCard;
