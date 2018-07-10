@@ -54,6 +54,7 @@ class Login extends Component {
       <div className="login-page">
         <Navbar />
         <div className="d-flex justify-content-center">
+        <div className="w3-container w3-animate-opacity">
           <div className="login-card">
             <Card>
               <CardMedia
@@ -101,6 +102,7 @@ class Login extends Component {
                 </div>
               </CardContent>
             </Card>
+          </div>
           </div>
         </div>
       </div>
