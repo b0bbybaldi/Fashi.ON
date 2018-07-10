@@ -3,8 +3,8 @@ import axios from "axios";
 export default {
     //user related functions
     //login
-    signin: function () {
-        return axios.get("/signin");
+    signin: function (data) {
+        return axios.get("/api/user/signin",data);
     },
     // Gets the user with the given id
     getUser: function (id) {
