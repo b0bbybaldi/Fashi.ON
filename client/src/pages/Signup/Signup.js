@@ -55,7 +55,7 @@ class Signup extends Component {
     });
   }
 
-  
+
   // componentWillMount() {
   //   API.getUser()
   //     .then(user => {
@@ -110,7 +110,7 @@ class Signup extends Component {
     } else {
 
       this.getAlert();
-      
+
     }
 
 
