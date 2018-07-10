@@ -2,13 +2,37 @@ import React, { Component } from "react";
 import Footer from "../../components/Footer";
 import Sample from './video.mp4';
 import "./Home.css";
+import API from '../../utils/API';
 
 var dt = new Date();
 dt = (dt.getYear() + 1900) ;
 
 class Home extends Component {
 
+  state = {
+    isLoggedIn: false
+  }
+
+  componentWillMount(){
+    API.getUser()
+    .then(user=>{
+      console.log(user)
+      this.setState({
+        isLoggedIn: user.data.loggedIn,
+      });
+      console.log(this.state)
+    })
+
+  }
+
   render() {
+
+    if(this.state.isLoggedIn) {
+
+      window.location.href = "/dashboard";
+
+    }
+
     return (
       <div>
         <div className="App">
