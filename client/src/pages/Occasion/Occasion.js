@@ -8,6 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import OccasionCard from "../../components/OccasionCard";
 import API from '../../utils/API';
+import HowToCard from "../../components/HowToCard";
 
 class Occasion extends Component {
 
@@ -49,7 +50,6 @@ class Occasion extends Component {
                                     color={suggestions.color}
                                 />
                             ))}
-                            <HowToCard />
                         </div>
                     </div>
                 </div>
