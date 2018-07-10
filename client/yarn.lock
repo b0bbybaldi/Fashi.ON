@@ -5913,6 +5913,12 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-bootstrap-sweetalert@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-sweetalert/-/react-bootstrap-sweetalert-4.4.1.tgz#94410a79c6d6a1e7ce4ede810904c90d08f6a01a"
+  dependencies:
+    object-assign "^4.1.0"
+
 react-dev-utils@^4.1.0:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.1.tgz#9f2763e7bafa1a1b9c52254d2a479deec280f111"
@@ -6946,6 +6952,10 @@ sw-toolbox@^3.4.0:
   dependencies:
     path-to-regexp "^1.0.1"
     serviceworker-cache-polyfill "^4.0.0"
+
+sweetalert2-react-content@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/sweetalert2-react-content/-/sweetalert2-react-content-1.0.1.tgz#0403145a1af819504e394df0dfc6194df67068a0"
 
 symbol-observable@1.0.4:
   version "1.0.4"

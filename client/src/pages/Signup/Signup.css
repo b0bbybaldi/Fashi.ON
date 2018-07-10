@@ -13,3 +13,7 @@ Header{
   background-image: url(./signup-bg.jpg);
   background-size: cover;
 }
+
+.signup-box {
+  animation-duration: 2s;
+}
