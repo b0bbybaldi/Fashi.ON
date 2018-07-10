@@ -8,13 +8,14 @@ const User = require("../models/user.js");
 
 
 router.get("/user", (req, res) => {
+    console.log("11", req.user);
     if (req.isAuthenticated()) {
         const currentUser = req.session.passport.user;
 
         // call db and find user by currenUser which is user id
         // get username and email
         console.log("hellur", currentUser)
-        db.User
+        User
             .findOne({ _id: currentUser })
             .then(dbUser => {
                 const user = {
@@ -29,6 +30,7 @@ router.get("/user", (req, res) => {
             })
 
     } else {
+        console.log("33");
         const user = {
             loggedIn: false,
             firstName: '',
@@ -50,8 +52,6 @@ router.post("/signup", (req, res, next) => {
             return next(err);
         }
 
-        console.log("49", info);
-
         if (!user) {
             console.log("not a userr")
             return res.redirect("/");
@@ -68,7 +68,7 @@ router.post("/signup", (req, res, next) => {
                 res.cookie("gender", req.user.gender);
                 res.cookie("user_id", req.user.id);
                 console.log("confrim")
-                return res.redirect("/");
+                return res.redirect("/survey");
             }
 
         })
