@@ -112,7 +112,8 @@ class Signup extends Component {
       this.getAlert();
       
     }
-    
+
+
   }
 
 renderModal(){
