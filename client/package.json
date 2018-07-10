@@ -9,9 +9,11 @@
     "@material-ui/icons": "^1.1.0",
     "axios": "^0.18.0",
     "react": "^16.0.0",
+    "react-bootstrap-sweetalert": "^4.4.1",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "sweetalert2-react-content": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
