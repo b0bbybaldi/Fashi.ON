@@ -3,8 +3,8 @@ import axios from "axios";
 export default {
     //user related functions
     //login
-    signin: function () {
-        return axios.get("/signin");
+    signin: function (data) {
+        return axios.get("/api/user/signin",data);
     },
     // Gets the user with the given id
     getUser: function (id) {
@@ -48,7 +48,7 @@ export default {
     },
     // Makes Ajax call to ASOS.com API and gets results for a searched item
     getSuggestions: function(data){
-        return axios.get("https://api.asos.com/product/search/v1/?q=jeans&store=2&lang=en-US&sizeschema=US&currency=USD&sort=freshness&channel=mobile-app&offset=0&limit=10", data)
-        // return axios.get("/api/occasion/", data)
+        console.log(data)
+        return axios.get("/api/occasion/" + data);
     }
 };

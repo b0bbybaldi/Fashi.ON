@@ -16,7 +16,7 @@ module.exports = {
     },
     findOne: function(req, res) {
 
-        User.find({_id: "5b43a6c06ae08e3dc4b9b315"})
+        User.find({firstName: "Gustavo"})
         .populate("occasions")
             .then(function(dbUser) { 
                 console.log("hi", dbUser);

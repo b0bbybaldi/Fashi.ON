@@ -18,12 +18,12 @@ class Home extends Component {
               Your browser does not support the video tag.
           </video>
         </div>
-        <div className="content text-center">
+        <div className="content text-center w3-animate-opacity">
           <h1>Fashi.On</h1>
           <h2>Your Ultimate Clothing Guide!</h2>
           <br />
           <div className="buttons text-center">
-            <a className="btn btn-lg btn-success" href="/login">Login</a>
+            <a className="btn btn-lg btn-success" href="/signin">Login</a>
             &nbsp;
             <a className="btn btn-lg btn-primary" href="/signup">Sign up</a>
           </div>

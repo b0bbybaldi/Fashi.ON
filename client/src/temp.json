@@ -1,0 +1,74 @@
+ {
+    "0": {
+        "count": 7,
+        "id": "4",
+        "isSelected": true,
+        "name": "Black"
+    },
+"1": {
+        "count": 2,
+        "id": "3",
+        "isSelected": true,
+        "name": "Blue"
+    },
+"2": {
+        "count": 1,
+        "id": "20",
+        "isSelected": true,
+        "name": "Cream"
+    },
+"3": {
+        "count": 1,
+        "id": "16",
+        "isSelected": true,
+        "name": "Gray"
+    },
+"4": {
+        "count": 2,
+        "id": "2",
+        "isSelected": true,
+        "name": "Green"
+    },
+"5": {
+        "count": 9,
+        "id": "17",
+        "isSelected": true,
+        "name": "Multi"
+    },
+"6": {
+        "count": 1,
+        "id": "33",
+        "isSelected": true,
+        "name": "Navy"
+    },
+"7": {
+        "count": 1,
+        "id": "7",
+        "isSelected": true,
+        "name": "Orange"
+    },
+"8": {
+        "count": 1,
+        "id": "9",
+        "isSelected": true,
+        "name": "Pink"
+    },
+"9": {
+        "count": 1,
+        "id": "1",
+        "isSelected": true,
+        "name": "Red"
+    },
+"10": {
+        "count": 3,
+        "id": "5",
+        "isSelected": true,
+        "name": "White"
+    },
+"11": {
+        "count": 1,
+        "id": "6",
+        "isSelected": true,
+        "name": "Yellow"
+    }
+}
