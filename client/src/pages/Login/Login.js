@@ -4,7 +4,6 @@ import API from '../../utils/API';
 import Navbar from '../../components/Navbar/Navbar.js';
 import classNames from 'classnames';
 import IconButton from '@material-ui/core/IconButton';
-import Background from './signup-background.jpg';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -16,16 +15,28 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-
+import Button from '../../components/Button';
+import Footer from '../../components/Footer/Footer.js'
 
 
 class Login extends Component {
 
   state = {
+    isLoggedIn: false,
     email: "",
     password: ""
+  }
+
+  componentWillMount(){
+    API.getUser()
+    .then(user=>{
+      console.log(user)
+      this.setState({
+        isLoggedIn: user.data.loggedIn,
+      });
+      console.log(this.state)
+    })
+
   }
 
   handleChange = event => {
@@ -50,12 +61,13 @@ class Login extends Component {
     }
   };
   render() {
-    document.body.style.backgroundImage = `url(${Background})`
+    document.body.style.backgroundImage = `url(${'http://i63.tinypic.com/2v9oe1l.jpg'})`
     return (
 
       <div className="login-page">
         <Navbar />
         <div className="d-flex justify-content-center">
+        <div className="w3-container w3-animate-opacity">
           <div className="login-card">
             <Card>
               <CardMedia
@@ -63,14 +75,15 @@ class Login extends Component {
                 email="LoginPhoto"
               />
               <CardContent>
-                <Typography gutterBottom variant="headline" component="h2">
+              <h3 className= "welcomeText">
                   Glad to have you back!
-            </Typography>
-                <Typography component="p">
-                  Login to continue
-            </Typography>
+                  <br/>
+                  Please log-in to continue.
+              </h3>
                 <div id="login-field">
+                <div className="emailform-login">
                   <TextField
+                    fullWidth
                     id="email"
                     label="Email"
                     name="email"
@@ -78,9 +91,11 @@ class Login extends Component {
                     onChange={this.handleChange}
                     margin="normal"
                   />
+  <br />
                   <FormControl>
                     <InputLabel htmlFor="adornment-password">Password</InputLabel>
                     <Input
+                      margin=""
                       id="adornment-password"
                       name="password"
                       value={this.state.password}
@@ -88,19 +103,24 @@ class Login extends Component {
                       type={'password'}
                     />
                   </FormControl>
+                  </div>
+
+                  <br />
                   <Button
                     onClick={this.handleFormSubmit}
-                    color="primary"
-                    variant="contained"
-                  >
-                    Login
-                </Button>
+                    children= "Login"
+                    color="danger"
+                  />
+
                 </div>
               </CardContent>
             </Card>
           </div>
+          </div>
         </div>
+        < Footer />
       </div>
+
     )
   }
 };

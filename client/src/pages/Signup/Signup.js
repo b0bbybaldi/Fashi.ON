@@ -10,6 +10,8 @@ import Background from './signup-bg.jpg';
 import Button from '../../components/Button';
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import Dashboard from "../Dashboard"
+import SweetAlert from 'react-bootstrap-sweetalert';
+import Footer from '../../components/Footer/Footer.js'
 
 const gender = [
   {
@@ -35,9 +37,26 @@ class Signup extends Component {
     lastName: "",
     email: "",
     password: "",
-    gender: ""
+    gender: "",
+    alert: false,
+    done: null
 
   }
+
+  getAlert() {
+    this.setState({
+      alert: true
+    });
+  };
+
+  hideAlert() {
+    console.log('Hiding alert...');
+    this.setState({
+      alert: false
+    });
+  }
+
+
   // componentWillMount() {
   //   API.getUser()
   //     .then(user => {
@@ -59,28 +78,6 @@ class Signup extends Component {
     });
 
   };
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
-  //     //write function inside of API for loadSurvey
-  //     API.createUser({
-  //       firstName: this.state.firstName,
-  //       lastName: this.state.lastName,
-  //       email: this.state.email,
-  //       password: this.state.password,
-  //       gender: this.state.gender
-  //     })
-  //       .then(res => this.setState({ 
-  //         firstName: '',
-  //         lastName:'',
-  //         email: '',
-  //         password: '',
-  //         gender: ''
-  //       })) 
-
-  //       .catch(err => console.log(err));
-  //   }
-  // };
 
   handleFormSubmit = event => {
     event.preventDefault();
@@ -109,54 +106,27 @@ class Signup extends Component {
         //   gender: ""
         // });
         console.log(response);
-        // window.location.href = "/survey";
+        window.location.href = "/survey";
       }).catch(err => console.log(err));
+    } else {
+
+      this.getAlert();
+
     }
-    // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
 
-    //   //Use fetch here because it deals with cors more effectively than axios. This allows easy cookie storage
-    //   API.authenticateUser({          
-    //       firstName: this.state.firstName,
-    //       lastName:this.state.lastName,            
-    //       email: this.state.email,
-    //       password: this.state.password,
-    //       gender: this.state.gender
-    //   })
-    //   .then(response => {
-    //     console.log(response);
 
-    //     // window.location.href = "/survey";
-    //   }).catch(err => console.log(err));
-
-    //   this.setState({
-    //     firstName: "",
-    //     email: "",
-    //     password: "",
-    //     lastName: "",
-    //     gender:""
-    //   });
-
-    // }
   }
 
-
-  render() {
-    const cookie = document.cookie.split(";");
-    // const { classes } = this.props;
-    document.body.style.backgroundImage = `url(${Background})`
-    if (this.state.isLoggedIn) {
-      return (
-        <Router>
-          <div>
-            <Route exact path="/dashboard" component={Dashboard} firstName={this.state.firstName} lastName={this.state.lastName} />
-          </div>
-        </Router>
-      )
-    } else {
-      return (
-        <div className="signup-page">
-          <Navbar />
-          <div className="d-flex justify-content-center">
+renderModal(){
+  if(this.state.alert){
+    return(
+    <SweetAlert danger title="Error!"onConfirm={this.hideAlert.bind(this)}>
+      All fields are required!
+    </SweetAlert>
+    )
+  }else {
+    return(
+      <div className="d-flex justify-content-center w3-animate-top signup-box">
             <div className="form-signup">
               <Typography variant="headline" component="h3">
                 Were happy to have you here.
@@ -173,10 +143,12 @@ class Signup extends Component {
                 name="firstName"
                 value={this.state.firstName}
                 onChange={this.handleChange}
+                required
               />
               <br />
               <TextField
                 fullWidth
+                required
                 id="lastName"
                 label="Last Name"
                 name="lastName"
@@ -186,6 +158,7 @@ class Signup extends Component {
               <br />
               <TextField
                 fullWidth
+                required
                 id="email"
                 label="Email"
                 name="email"
@@ -195,6 +168,7 @@ class Signup extends Component {
               <br />
               <TextField
                 fullWidth
+                required
                 id="gender"
                 name="gender"
                 select
@@ -212,6 +186,7 @@ class Signup extends Component {
               <br />
               <TextField
                 fullWidth
+                required
                 id="password-input"
                 name="password"
                 label="Password"
@@ -226,7 +201,30 @@ class Signup extends Component {
               {/* onclick of this button will create a new users account */}
               <Button onClick={this.handleFormSubmit} children='Sign Up' />
             </div>
+            <Footer />
           </div>
+
+    )
+  }
+}
+
+  render() {
+    const cookie = document.cookie.split(";");
+    // const { classes } = this.props;
+    document.body.style.backgroundImage = `url(${Background})`
+    if (this.state.isLoggedIn) {
+      return (
+        <Router>
+          <div>
+            <Route exact path="/dashboard" component={Dashboard} firstName={this.state.firstName} lastName={this.state.lastName} />
+          </div>
+        </Router>
+      )
+    } else {
+      return (
+        <div className="signup-page">
+          <Navbar />
+         {this.renderModal()}
         </div>
       );
     }

@@ -14,21 +14,22 @@ const bCrypt = require("bcrypt-nodejs");
 
 // Passport session setup
 passport.serializeUser(function (user, done) {
-    console.log("user", user, "done", done)
-    done(null, user._id);
+    
+    done(null, user);
+    
 });
 
 // used to deserialize the user
-passport.deserializeUser(function (id, done) {
-    console.log("deserialize" + id);
-    db.User.findById(id).then(function (user) {
-        if (user) {
-            console.log("deserialize", user)
-            done(null, user);
-        } else {
-            done(user[0].errors, null);
-        }
-    });
+passport.deserializeUser(function (user, done) {
+    // console.log("deserialize" + id);
+    // db.User.findById(id).then(function (user) {
+    //     if (user) {
+    //         console.log("deserialize", user)
+        done(null, user);
+        // } else {
+        // done(user.errors, user);
+        // }
+    // });
 });
 
 //passport config for local signup
