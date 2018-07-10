@@ -23,7 +23,7 @@ class Home extends Component {
           <h2>Your Ultimate Clothing Guide!</h2>
           <br />
           <div className="buttons text-center">
-            <a className="btn btn-lg btn-success" href="/login">Login</a>
+            <a className="btn btn-lg btn-success" href="/signin">Login</a>
             &nbsp;
             <a className="btn btn-lg btn-primary" href="/signup">Sign up</a>
           </div>

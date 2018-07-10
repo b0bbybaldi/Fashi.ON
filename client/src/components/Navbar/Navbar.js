@@ -10,8 +10,10 @@ class Navbar extends Component {
     isLoggedIn: false
   }
   logout = () => {
-    API.logout().then(res => {
-    })
+    API.logout()
+    .then(res => this.setState({ isLoggedIn: false}) ,
+      window.location.href= "/logout"
+    )
   }
 
   render() {
@@ -30,7 +32,6 @@ class Navbar extends Component {
         <div className="p-2 bd-highlight align-self-center">
           <a className="btn btn-primary" href="/logout" onClick={this.logout}>Log out</a>
         </div>
-
       </header>
     )
   }
