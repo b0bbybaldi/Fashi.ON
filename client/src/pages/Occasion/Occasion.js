@@ -12,13 +12,14 @@ import API from '../../utils/API';
 class Occasion extends Component {
 
     state = {
-        suggestions: []
+        suggestions: [],
+        searchTerm: "jeans"
     };
     componentDidMount() {
         this.asosAjaxCall();
     }
     asosAjaxCall = () => {
-        API.getSuggestions()
+        API.getSuggestions(this.state.searchTerm)
             .then(res => {
                 this.setState({ suggestions: res.data })
                 console.log(this.state.suggestions)
