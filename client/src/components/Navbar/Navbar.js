@@ -29,12 +29,13 @@ class Navbar extends Component {
   }
 
   logout = () => {
-    API.logout().then(res => {
-    })
+    API.logout()
+    .then(res => this.setState({ isLoggedIn: false}) ,
+      window.location.href= "/logout"
+    )
   }
 
   render() {
-
     if(this.state.isLoggedIn) {
 
       return (
