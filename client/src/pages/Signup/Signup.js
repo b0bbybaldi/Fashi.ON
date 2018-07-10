@@ -70,13 +70,13 @@ class Signup extends Component {
   //       password: this.state.password,
   //       gender: this.state.gender
   //     })
-  //       .then(res => this.setState({ 
+  //       .then(res => this.setState({
   //         firstName: '',
   //         lastName:'',
   //         email: '',
   //         password: '',
   //         gender: ''
-  //       })) 
+  //       }))
 
   //       .catch(err => console.log(err));
   //   }
@@ -115,9 +115,9 @@ class Signup extends Component {
     // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password && this.state.gender) {
 
     //   //Use fetch here because it deals with cors more effectively than axios. This allows easy cookie storage
-    //   API.authenticateUser({          
+    //   API.authenticateUser({
     //       firstName: this.state.firstName,
-    //       lastName:this.state.lastName,            
+    //       lastName:this.state.lastName,
     //       email: this.state.email,
     //       password: this.state.password,
     //       gender: this.state.gender
