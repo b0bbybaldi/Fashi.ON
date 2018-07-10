@@ -22,8 +22,21 @@ import Footer from '../../components/Footer/Footer.js'
 class Login extends Component {
 
   state = {
+    isLoggedIn: false,
     email: "",
     password: ""
+  }
+
+  componentWillMount(){
+    API.getUser()
+    .then(user=>{
+      console.log(user)
+      this.setState({
+        isLoggedIn: user.data.loggedIn,
+      });
+      console.log(this.state)
+    })
+
   }
 
   handleChange = event => {
