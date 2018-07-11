@@ -54,7 +54,8 @@ router.post("/signup", (req, res, next) => {
         }
 
         if (!user) {
-            console.log("not a userr")
+            console.log("not a userr");
+            console.log("58", info);
             return res.redirect("/");
         }
 
@@ -63,11 +64,12 @@ router.post("/signup", (req, res, next) => {
                 console.log("auth error")
                 return next(err);
             } else {
-                res.cookie("firstName", req.user.firstName);
-                res.cookie("lastName", req.user.lastName);
-                res.cookie("email", req.body.email);
-                res.cookie("gender", req.user.gender);
-                res.cookie("user_id", req.user.id);
+                // res.cookie("firstName", req.user.firstName);
+                // res.cookie("lastName", req.user.lastName);
+                // res.cookie("email", req.body.email);
+                // res.cookie("gender", req.user.gender);
+                // res.cookie("user_id", req.user.id);
+                res.cookie("isLoggedIn", true);
                 console.log("confrim")
                 return res.redirect("/survey");
             }
@@ -77,7 +79,6 @@ router.post("/signup", (req, res, next) => {
 });
 //local auth sign in
 router.post("/signin", (req, res, next) => {
-
     passport.authenticate("local-signin", (err, user, info) => {
         if (err) {
             console.log("41", err)
@@ -87,7 +88,17 @@ router.post("/signin", (req, res, next) => {
         if (!user) {
             console.log("not a user")
             req.flash('notify', 'This is a test notification.')
-            return res.redirect("/");
+            console.log("91", info);
+            message = info.message
+            myobj = {
+                message: message
+            }
+           return res.json(myobj)
+            // return res.redirect("/");
+           
+        }
+        else {
+            message= "you're fine"
         }
 
         req.login(user, (err) => {
@@ -95,16 +106,19 @@ router.post("/signin", (req, res, next) => {
                 return next(err);
             }
 
-            res.cookie("firstName", user[0].firstName);
-            res.cookie("lastName", user[0].lastName);
-            res.cookie("email", user[0].email);
-            res.cookie("gender", user[0].gender);
-            res.cookie("user_id", user[0]._id);
+            // res.cookie("firstName", user[0].firstName);
+            // res.cookie("lastName", user[0].lastName);
+            // res.cookie("email", user[0].email);
+            // res.cookie("gender", user[0].gender);
+            // res.cookie("user_id", user[0]._id);
+            res.cookie("isLoggedIn", true);
+            console.log("109", message)
             var userI = {
                 firstName: user[0].firstName,
                 lastName: user[0].lastName,
                 email: user[0].email,
-                gender: user[0].gender
+                gender: user[0].gender,
+                message: message
             }
             //redirect to path containing user id2
             return res.json(userI)

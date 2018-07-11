@@ -39,5 +39,8 @@ export default {
     getSuggestions: function(data){
         console.log("axios data",data)
         return axios.get("/api/occasion/" + data);
+    },
+    signIn: function(data) {
+        return axios.post("/auth/signin", data)
     }
 };

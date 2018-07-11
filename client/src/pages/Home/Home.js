@@ -3,33 +3,51 @@ import Footer from "../../components/Footer";
 import Sample from './video.mp4';
 import "./Home.css";
 import API from '../../utils/API';
+import Dashboard from "../Dashboard/Dashboard"
 
 var dt = new Date();
 dt = (dt.getYear() + 1900) ;
 
+
+
 class Home extends Component {
 
   state = {
-    isLoggedIn: false
+    isLoggedIn: true
   }
 
-  componentWillMount(){
+  componentDidMount(){
     API.getUser()
     .then(user=>{
-      console.log(user)
+      
+      if(user.data.loggedIn) {
+
+        window.location.href = "/dashboard";
+
+      }
+
       this.setState({
         isLoggedIn: user.data.loggedIn,
       });
-      console.log(this.state)
+
     })
 
   }
 
   render() {
 
-    if(this.state.isLoggedIn) {
+    // var cookie = document.cookie("isLoggedIn");
 
-      window.location.href = "/dashboard";
+    var cookie =  document.cookie.split(";");
+    cookie = cookie[0].split("=");
+    cookie = cookie[1];
+    
+    if(document.cookie.length >0 || this.state.isLoggedIn) {
+
+          // window.location.href = "/dashboard";
+          return (
+            <Dashboard />
+          )
 
     }
 
