@@ -13,14 +13,38 @@ class Dashboard extends Component {
 
   state = {
     occasions: [],
-    email: "gustavo.gibo@gmail.com",
-    firstName: ""
+    isLoggedIn: false,
+    email: "",
+    id: ""
 
   };
 
   componentDidMount() {
-    this.loadOccasions(this.state.email);
+    API.getUser()
+      .then(user => {
+        this.setState({
+          isLoggedIn: user.data.loggedIn,
+          email: user.data.email,
+          id: user.data._id
+        });
+
+        if(this.state.isLoggedIn) {
+
+          this.loadOccasions(this.state.email)
+
+        } else {
+
+          window.location.href = "/";
+          
+        }
+
+        console.log(this.state)
+      })
   }
+
+  // componentWillMount() {
+  //   this.loadOccasions(this.state.email);
+  // }
 
   loadOccasions = (email) => {
     API.getOccasions(email).then(res => {
@@ -33,6 +57,7 @@ class Dashboard extends Component {
   };
 
   render() {
+
     return (
       <div>
         <Navbar />

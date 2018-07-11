@@ -17,6 +17,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '../../components/Button';
 import Footer from '../../components/Footer/Footer.js'
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 
 class Login extends Component {
@@ -24,18 +25,19 @@ class Login extends Component {
   state = {
     isLoggedIn: false,
     email: "",
-    password: ""
+    password: "",
+    alert: null
   }
 
-  componentWillMount(){
+  componentWillMount() {
     API.getUser()
-    .then(user=>{
-      console.log(user)
-      this.setState({
-        isLoggedIn: user.data.loggedIn,
-      });
-      console.log(this.state)
-    })
+      .then(user => {
+        console.log(user)
+        this.setState({
+          isLoggedIn: user.data.loggedIn,
+        });
+        console.log(this.state)
+      })
 
   }
 
@@ -46,82 +48,130 @@ class Login extends Component {
     });
   };
 
+  showAlert(title, message, callBack, style) {
+    this.setState({
+      alert: (
+        <SweetAlert
+          warning
+          title="test"
+          onConfirm={this.hideAlert}
+        >
+          Test
+        </SweetAlert>
+      )
+    });
+  }
+
+  hideAlert = () => {
+    this.setState({
+      alert: null
+    });
+  }
+
   handleFormSubmit = event => {
+
     event.preventDefault();
-    if (this.state.email && this.state.password) {
-      API.signin({
-        email: this.state.email,
-        password: this.state.password
-      })
-        .then(res => {
-          this.setState({ email: "", password: "" })
-          window.location.href = "/dashboard";
+    if (this.state.password && this.state.email) {
+      fetch("/auth/signin", {
+        method: "POST",
+        credentials: "include",
+        mode: "cors",
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password
+        }),
+        headers: new Headers({
+          "Content-Type": "application/json"
         })
-        .catch(err => console.log(err))
+      }).then(response => {
+        console.log(response);
+        //Will redirect to root route no matter what. Successful signin will create cookies. If cookies are detected, root route will redirect to Home, otherwise, to Landing
+        window.location.href = "/dashboard";
+      }).catch(err => {
+        console.log("91", err);
+      })
+
+    } else {
+
+
+
     }
+
+    this.setState({
+      email: "",
+      password: ""
+    });
   };
   render() {
-    document.body.style.backgroundImage = `url(${'http://i63.tinypic.com/2v9oe1l.jpg'})`
-    return (
 
-      <div className="login-page">
-        <Navbar />
-        <div className="d-flex justify-content-center">
-        <div className="w3-container w3-animate-opacity">
-          <div className="login-card">
-            <Card>
-              <CardMedia
-                image=""
-                email="LoginPhoto"
-              />
-              <CardContent>
-              <h3 className= "welcomeText">
-                  Glad to have you back!
-                  <br/>
-                  Please log-in to continue.
-              </h3>
-                <div id="login-field">
-                <div className="emailform-login">
-                  <TextField
-                    fullWidth
-                    id="email"
-                    label="Email"
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    margin="normal"
+    if (this.state.isLoggedIn) {
+
+      window.location.href = "/dashboard";
+
+    } else {
+
+      document.body.style.backgroundImage = `url(${'http://i63.tinypic.com/2v9oe1l.jpg'})`
+      return (
+
+        <div className="login-page">
+          <Navbar />
+          <div className="d-flex justify-content-center">
+            <div className="w3-container w3-animate-opacity">
+              <div className="login-card">
+                <Card>
+                  <CardMedia
+                    image=""
+                    email="LoginPhoto"
                   />
-  <br />
-                  <FormControl>
-                    <InputLabel htmlFor="adornment-password">Password</InputLabel>
-                    <Input
-                      margin=""
-                      id="adornment-password"
-                      name="password"
-                      value={this.state.password}
-                      onChange={this.handleChange}
-                      type={'password'}
-                    />
-                  </FormControl>
-                  </div>
-
+                  <CardContent>
+                    <h3 className="welcomeText">
+                      Glad to have you back!
                   <br />
-                  <Button
-                    onClick={this.handleFormSubmit}
-                    children= "Login"
-                    color="danger"
-                  />
+                      Please log-in to continue.
+              </h3>
+                    <div id="login-field">
+                      <div className="emailform-login">
+                        <TextField
+                          fullWidth
+                          id="email"
+                          label="Email"
+                          name="email"
+                          value={this.state.email}
+                          onChange={this.handleChange}
+                          margin="normal"
+                        />
+                        <br />
+                        <FormControl>
+                          <InputLabel htmlFor="adornment-password">Password</InputLabel>
+                          <Input
+                            margin=""
+                            id="adornment-password"
+                            name="password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            type={'password'}
+                          />
+                        </FormControl>
+                      </div>
 
-                </div>
-              </CardContent>
-            </Card>
+                      <br />
+                      <Button
+                        onClick={this.handleFormSubmit}
+                        children="Login"
+                        color="danger"
+                      />
+
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
-          </div>
+          < Footer />
         </div>
-        < Footer />
-      </div>
 
-    )
+      )
+    }
   }
 };
 

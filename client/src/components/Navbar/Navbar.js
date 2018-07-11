@@ -10,7 +10,8 @@ class Navbar extends Component {
     isLoggedIn: false,
     firstName: "",
     id:"",
-    email: ""
+    email: "",
+    countOccasions: 0
   }
 
   componentWillMount(){
@@ -21,7 +22,8 @@ class Navbar extends Component {
         isLoggedIn: user.data.loggedIn,
         firstName: user.data.firstName,
         lastName: user.data.lastName,
-        email: user.data.email
+        email: user.data.email,
+        countOccasions: user.data.occasions
       });
       console.log(this.state)
     })
@@ -29,10 +31,13 @@ class Navbar extends Component {
   }
 
   logout = () => {
-    API.logout()
-    .then(res => this.setState({ isLoggedIn: false}) ,
-      window.location.href= "/logout"
-    )
+
+    API.logout().then(res => {
+
+      window.location.href = "/";
+
+    })
+
   }
 
   render() {
@@ -45,13 +50,16 @@ class Navbar extends Component {
             <img src={Logo} alt="Fashi.On" />
           </a>
           <div className="p-2 bd-highlight align-self-center">
-            <span className="alert alert-primary">Welcome, {this.state.firstName} {this.state.lastName}</span>
+            <span className="text-white">Welcome, <b>{this.state.firstName} {this.state.lastName}</b></span>
           </div>
           <div className="p-2 bd-highlight align-self-center">
-            <a className="btn btn-primary" href="/dashboard">Your Occasions</a>
+            <a className="btn btn-primary" href="/dashboard">Your Occasions ({this.state.countOccasions})</a>
           </div>
           <div className="p-2 bd-highlight align-self-center">
-            <a className="btn btn-danger" href="/logout" onClick={this.logout}>Log out</a>
+            <a className="btn btn-info" href="/userprofile">Your Profile</a>
+          </div>
+          <div className="p-2 bd-highlight align-self-center">
+            <a className="btn btn-danger text-white" onClick={this.logout}>Log out</a>
           </div>
   
         </header>

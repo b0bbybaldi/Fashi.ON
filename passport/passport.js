@@ -4,7 +4,7 @@
 // const LocalStrategy = require("passport-local");
 
 const passport = require('passport')
-, LocalStrategy = require('passport-local').Strategy;
+    , LocalStrategy = require('passport-local').Strategy;
 
 
 // const User = require("../models");
@@ -14,9 +14,9 @@ const bCrypt = require("bcrypt-nodejs");
 
 // Passport session setup
 passport.serializeUser(function (user, done) {
-    
+
     done(null, user);
-    
+
 });
 
 // used to deserialize the user
@@ -25,10 +25,10 @@ passport.deserializeUser(function (user, done) {
     // db.User.findById(id).then(function (user) {
     //     if (user) {
     //         console.log("deserialize", user)
-        done(null, user);
-        // } else {
-        // done(user.errors, user);
-        // }
+    done(null, user);
+    // } else {
+    // done(user.errors, user);
+    // }
     // });
 });
 
