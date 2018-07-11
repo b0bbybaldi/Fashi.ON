@@ -9,7 +9,8 @@ class SuggestionCard extends Component {
         brandName: "",
         price: "",
         colour: "",
-        baseImageUrl: ""
+        baseImageUrl: "",
+        url: ""
     };
     render() {
         return (
@@ -23,10 +24,10 @@ class SuggestionCard extends Component {
                         <h3 className="card-title">{this.props.name}</h3>
                     </div>
                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item">{this.props.searchTerm}</li>
                         <li className="list-group-item">{this.props.brandName}</li>
                         <li className="list-group-item">{this.props.price}</li>
                         <li className="list-group-item">{this.props.colour}</li>
+                        <li className="list-group-item"><a href={this.props.url}>Url</a></li>
                     </ul>
                 </div>
             </div>
