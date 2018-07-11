@@ -72,23 +72,31 @@ class Login extends Component {
 
     event.preventDefault();
     if (this.state.password && this.state.email) {
-      fetch("/auth/signin", {
-        method: "POST",
-        credentials: "include",
-        mode: "cors",
-        body: JSON.stringify({
-          email: this.state.email,
-          password: this.state.password
-        }),
-        headers: new Headers({
-          "Content-Type": "application/json"
-        })
-      }).then(response => {
-        console.log(response);
-        //Will redirect to root route no matter what. Successful signin will create cookies. If cookies are detected, root route will redirect to Home, otherwise, to Landing
+      // fetch("/auth/signin", {
+      //   method: "POST",
+      //   credentials: "include",
+      //   mode: "cors",
+      //   body: JSON.stringify({
+      //     email: this.state.email,
+      //     password: this.state.password
+      //   }),
+      //   headers: new Headers({
+      //     "Content-Type": "application/json"
+      //   })
+      // }).then(response => {
+      //   console.log(response);
+      //   // console.log(response.message)
+      //   //Will redirect to root route no matter what. Successful signin will create cookies. If cookies are detected, root route will redirect to Home, otherwise, to Landing
+      //   // window.location.href = "/dashboard";
+      // }).catch(err => {
+      //   console.log("91", err);
+      // })
+      API.signIn({
+        email: this.state.email,
+        password: this.state.password
+      }).then(res => {
+        console.log(res)
         window.location.href = "/dashboard";
-      }).catch(err => {
-        console.log("91", err);
       })
 
     } else {
