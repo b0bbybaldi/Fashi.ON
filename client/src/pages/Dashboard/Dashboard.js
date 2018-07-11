@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import OccasionCard from "../../components/OccasionCard";
 import HowToCard from "../../components/HowToCard";
 import API from '../../utils/API';
-import axios from "axios";
 class Dashboard extends Component {
 
   state = {
@@ -79,8 +78,6 @@ class Dashboard extends Component {
                 />
               ))}
               <HowToCard />
-
-
             </div>
           </div>
         </div>

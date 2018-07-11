@@ -6,15 +6,20 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import OccasionCard from "../../components/OccasionCard";
+import SuggestionCard from "../../components/SuggestionCard";
 import API from '../../utils/API';
-import HowToCard from "../../components/HowToCard";
 
 class Occasion extends Component {
 
     state = {
         suggestions: [],
-        searchTerm: "jeans"
+        searchTerm: "jeans",
+        name: "",
+        brandName: "",
+        price: "",
+        colour: "",
+        baseImageUrl: ""
+
     };
     componentDidMount() {
         this.asosAjaxCall();
@@ -42,12 +47,14 @@ class Occasion extends Component {
                             </div>
                         </div>
                         <div className="row d-flex justify-content-center">
-                            {this.state.suggestions.map((suggestions) => (
-                                <OccasionCard
+                            {this.state.suggestions.map((suggestions,key) => (
+                                <SuggestionCard
+                                key={key}
                                     name={suggestions.name}
                                     brandName={suggestions.brandName}
-                                    price={suggestions.price}
-                                    color={suggestions.color}
+                                    price={suggestions.price.current.text}
+                                    colour={suggestions.colour}
+                                    baseImageUrl={suggestions.baseImageUrl}
                                 />
                             ))}
                         </div>
