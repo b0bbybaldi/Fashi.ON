@@ -7,7 +7,7 @@ import API from '../../utils/API';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import arrow from '../../imgs/arrow.png';
-
+import Dashboard from "../Dashboard/Dashboard"
 
 
 var dt = new Date();
