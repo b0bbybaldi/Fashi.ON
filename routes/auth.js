@@ -23,7 +23,8 @@ router.get("/user", (req, res) => {
                     firstName: dbUser.firstName,
                     lastName: dbUser.lastName,
                     email: dbUser.email,
-                    gender: dbUser.gender
+                    gender: dbUser.gender,
+                    occasions: dbUser.occasions.length
                 }
                 console.log("25", user)
                 res.json(user);

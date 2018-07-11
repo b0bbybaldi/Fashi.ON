@@ -16,7 +16,7 @@ module.exports = {
     },
     findOne: function(req, res) {
 
-        User.find({firstName: "Gustavo"})
+        User.find({email: req.params.email})
         .populate("occasions")
             .then(function(dbUser) { 
                 console.log("hi", dbUser);
