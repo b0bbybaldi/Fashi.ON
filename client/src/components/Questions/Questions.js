@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Form from "../Form";
+
 class Questions extends Component {
     render() {
         return (

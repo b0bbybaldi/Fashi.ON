@@ -4,11 +4,11 @@ import Navbar from '../../components/Navbar/Navbar.js';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Background from './signup-bg.jpg';
 import Button from '../../components/Button';
-import { BrowserRouter as Router, Route } from "react-router-dom"
-import Dashboard from "../Dashboard"
+// import { BrowserRouter as Router, Route } from "react-router-dom"
+// import Dashboard from "../Dashboard"
 import SweetAlert from 'react-bootstrap-sweetalert';
 import Footer from '../../components/Footer/Footer.js'
 import "./UserProfile.css";
