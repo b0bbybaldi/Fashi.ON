@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import Navbar from '../../components/Navbar/Navbar.js';
 import Footer from '../../components/Footer/Footer.js';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Typography from '@material-ui/core/Typography';
+// import PropTypes from 'prop-types';
+// import { withStyles } from '@material-ui/core/styles';
+// import ButtonBase from '@material-ui/core/ButtonBase';
+// import Typography from '@material-ui/core/Typography';
 import OccasionCard from "../../components/OccasionCard";
 import HowToCard from "../../components/HowToCard";
 import API from '../../utils/API';
-import axios from "axios";
 class Dashboard extends Component {
 
   state = {
@@ -79,8 +78,6 @@ class Dashboard extends Component {
                 />
               ))}
               <HowToCard />
-
-
             </div>
           </div>
         </div>

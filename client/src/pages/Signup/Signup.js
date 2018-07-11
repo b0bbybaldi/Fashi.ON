@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./Signup.css";
-import API from '../../utils/API';
+// import API from '../../utils/API';
 import Navbar from '../../components/Navbar/Navbar.js';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Background from './signup-bg.jpg';
 import Button from '../../components/Button';
 import { BrowserRouter as Router, Route } from "react-router-dom"
@@ -209,7 +209,7 @@ renderModal(){
 }
 
   render() {
-    const cookie = document.cookie.split(";");
+    // const cookie = document.cookie.split(";");
     // const { classes } = this.props;
     document.body.style.backgroundImage = `url(${Background})`
     if (this.state.isLoggedIn) {
