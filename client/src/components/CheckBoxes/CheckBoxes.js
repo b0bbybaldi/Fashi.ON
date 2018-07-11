@@ -10,7 +10,7 @@ class CheckBoxes extends Component {
                 <div>
                     <div className="form-row align-items-center">
                         <div className="col-auto my-1">
-                            <p>My color preferrences:</p>
+                            <p><strong>My color preferrences:</strong></p>
                             {colors.map((op) => (
                                 <div className="form-check form-check-inline">
                                     <input
@@ -34,7 +34,7 @@ class CheckBoxes extends Component {
                 <div>
                     <div className="form-row align-items-center">
                         <div className="col-auto my-1">
-                            <p>Items I'm looking for:</p>
+                            <p><strong>Items I'm looking for:</strong></p>
                             {items.map((op) => (
                                 <div className="form-check form-check-inline">
                                     <input

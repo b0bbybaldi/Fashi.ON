@@ -46,7 +46,7 @@ class Navbar extends Component {
       return (
         <header className="d-flex bd-highlight mb-3">
   
-          <a className="mr-auto p-2 bd-highlight align-self-center p-2 bd-highlight" href="/">
+          <a className="mr-auto p-2 bd-highlight align-self-center p-2 bd-highlight" href="/dashboard">
             <img src={Logo} alt="Fashi.On" />
           </a>
           <div className="p-2 bd-highlight align-self-center">
