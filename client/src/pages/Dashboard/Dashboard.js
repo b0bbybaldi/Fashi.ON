@@ -63,7 +63,7 @@ class Dashboard extends Component {
         <div className="paral paralsec3" id="paralsec3">
           <div className="container-fluid">
             <div className="row d-flex justify-content-center">
-              <div className="col-12 text-center">
+              <div className="col-8 text-center">
                 <h3 className="display-3">Your Occasions</h3>
               </div>
             </div>
