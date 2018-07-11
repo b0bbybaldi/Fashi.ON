@@ -13,12 +13,13 @@ class Occasion extends Component {
 
     state = {
         suggestions: [],
-        searchTerm: "jeans",
+        searchTerm: "dress",
         name: "",
         brandName: "",
         price: "",
         colour: "",
-        baseImageUrl: ""
+        baseImageUrl: "",
+        url: ""
 
     };
     componentDidMount() {
@@ -49,12 +50,13 @@ class Occasion extends Component {
                         <div className="row d-flex justify-content-center">
                             {this.state.suggestions.map((suggestions,key) => (
                                 <SuggestionCard
-                                key={key}
+                                    key={key}
                                     name={suggestions.name}
                                     brandName={suggestions.brandName}
                                     price={suggestions.price.current.text}
                                     colour={suggestions.colour}
                                     baseImageUrl={suggestions.baseImageUrl}
+                                    url="http://us.asos.com/search/?q=dress&page=1&store=2&lang=en-US&sizeschema=US&currency=USD&sort=freshness"
                                 />
                             ))}
                         </div>
