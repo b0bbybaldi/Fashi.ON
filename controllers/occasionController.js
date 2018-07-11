@@ -10,7 +10,7 @@ module.exports = {
         console.log("req.params.dataaaaaa",req.params.data);
         const searchTerm = req.params.data;
         // console.log(searchTerm)
-        axios.get(`https://api.asos.com/product/search/v1/?q=${searchTerm}&store=2&lang=en-US&sizeschema=US&currency=USD&sort=freshness&channel=mobile-app&offset=0&limit=9`)
+        axios.get(`https://api.asos.com/product/search/v1/?q=${searchTerm}&store=2&lang=en-US&sizeschema=US&currency=USD&sort=freshness&channel=mobile-app&offset=0&limit=12`)
         .then(response=>{
             console.log(response.data.products)
             // response = JSON.parse(response);
