@@ -13,7 +13,7 @@ module.exports = {
         axios.get(`https://api.asos.com/product/search/v1/?q=${searchTerm}&store=2&lang=en-US&sizeschema=US&currency=USD&sort=freshness&channel=mobile-app&offset=0&limit=10`)
         .then(response=>{
             console.log(response.data.products)
-            response = JSON.parse(response);
+            // response = JSON.parse(response);
             res.json(response.data.products);
         })
         .catch(err=> console.log("err", err))
