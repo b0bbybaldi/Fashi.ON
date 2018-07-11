@@ -129,7 +129,7 @@ class Survey extends Component {
                 <Navbar />
                 <div className="d-flex justify-content-center bg-survey">
                     <form className="budget-form">
-                        <h2 className="text-center">Alright {this.state.firstName}, let's get some information about your next occasion!</h2>
+                        <h3 className="text-center">Alright {this.state.firstName}, let's get some information about your next occasion!</h3>
                         {options.map((op, key) => (
                             <Questions
                                 question={op.question}
@@ -157,7 +157,7 @@ class Survey extends Component {
                             click={this.handleClick}
                         />
                         <div className="form-group">
-                            <label for="formControlRange">My budget range:</label>
+                            <label for="formControlRange"><strong>My budget range:</strong></label>
                             <p id="budget-value">$ 10</p>
                             <input
                                 type="range"
