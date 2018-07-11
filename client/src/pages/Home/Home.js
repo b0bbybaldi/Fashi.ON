@@ -13,7 +13,7 @@ dt = (dt.getYear() + 1900) ;
 class Home extends Component {
 
   state = {
-    isLoggedIn: true
+    isLoggedIn: false
   }
 
   componentDidMount(){
@@ -41,9 +41,9 @@ class Home extends Component {
     var cookie =  document.cookie.split(";");
     cookie = cookie[0].split("=");
     cookie = cookie[1];
-    
-    if(document.cookie.length > 0 ) {
-
+    console.log(document.cookie.length)
+    if(this.state.isLoggedIn) {
+      // document.cookie.length == "true" || 
           // window.location.href = "/dashboard";
           return (
             <Dashboard />
