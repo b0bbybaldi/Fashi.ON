@@ -11,6 +11,9 @@ import Background from './survey-bg.jpg';
 class Survey extends Component {
 
     state = {
+        isLoggedIn: false,
+        email: "",
+        firstName: "User",
         dresscode: "",
         season: "",
         budget: 10,
@@ -18,6 +21,26 @@ class Survey extends Component {
         items: [],
         checked: this.props.checked || false
     }
+
+    componentWillMount() {
+        API.getUser()
+          .then(user => {
+            console.log(user)
+            this.setState({
+              isLoggedIn: user.data.loggedIn,
+              firstName: user.data.firstName,
+              email: user.data.email
+            });
+            
+            if(this.state.isLoggedIn === false) {
+
+                window.location.href = "/";
+
+            }
+
+          })
+    
+      }
 
     handleInputChangeRange = event => {
         const { name, value } = event.target;
@@ -87,7 +110,7 @@ class Survey extends Component {
                 budget: this.state.budget,
                 colors: this.state.colors,
                 items: this.state.items,
-                id: "5b3fae866249ea09212c275f"
+                email: this.state.email
             })
                 .then(res => {
                     this.setState({ dresscode: "", season: "", budget: "", colors: "" })
@@ -106,7 +129,7 @@ class Survey extends Component {
                 <Navbar />
                 <div className="d-flex justify-content-center bg-survey">
                     <form className="budget-form">
-                        <h2 className="text-center">Let's get some information about your next occasion!</h2>
+                        <h2 className="text-center">Alright {this.state.firstName}, let's get some information about your next occasion!</h2>
                         {options.map((op, key) => (
                             <Questions
                                 question={op.question}

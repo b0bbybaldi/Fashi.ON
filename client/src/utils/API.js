@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
     //user related functions
     //login
-    getUser: function(){
+    getUser: function () {
         return axios.get("/auth/user");
     },
     //update email and password for a user
@@ -12,7 +12,7 @@ export default {
     },
     // Saves a new user to the database- Sign up
     logout: function () {
-        return axios("api/auth/logout")
+        return axios("/auth/logout")
     },
 
     //occasion related functions
@@ -36,7 +36,7 @@ export default {
         return axios.delete("/api/occasion/" + id);
     },
     // Makes Ajax call to ASOS.com API and gets results for a searched item
-    getSuggestions: function(data){
+    getSuggestions: function (data) {
         console.log(data)
         return axios.get("/api/occasion/" + data);
     }

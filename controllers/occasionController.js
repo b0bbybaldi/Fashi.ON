@@ -26,11 +26,11 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     create: function(req,res){
-        console.log("11", req.body);
+    
         db.Occasion.create(req.body).then(function(dbOccasion) {
-            console.log("22", dbOccasion);
+            
             return db.User.findOneAndUpdate(
-                {firstName: "Gustavo"},
+                {email: req.body.email},
                 {$push: {occasions: dbOccasion._id} }, 
                 {new: true});
         })
