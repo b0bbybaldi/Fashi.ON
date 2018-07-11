@@ -155,7 +155,7 @@ class UserProfile extends Component {
                 <div className="d-flex justify-content-center w3-animate-top signup-box">
                     <div className="form-signup">
                     <div className="alert alert-danger text-center" id="error-msg">
-                        <p>There are some missing fields</p>
+                        <span>There are some missing fields</span>
                     </div>
                         <Typography variant="headline" component="h3">
                             Welcome to your profile

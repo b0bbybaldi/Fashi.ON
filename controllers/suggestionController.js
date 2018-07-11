@@ -17,11 +17,6 @@ module.exports = {
             res.json(response.data.products);
         })
         .catch(err=> console.log("err", err))
-        function(err, response, body){
-            console.log("response", response);
-            console.log("body", body);
-            
-        })
     }
     
 };
