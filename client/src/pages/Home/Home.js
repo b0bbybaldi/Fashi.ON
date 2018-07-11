@@ -42,7 +42,7 @@ class Home extends Component {
     cookie = cookie[0].split("=");
     cookie = cookie[1];
     
-    if(document.cookie.length >0 || this.state.isLoggedIn) {
+    if(document.cookie.length > 0 ) {
 
           // window.location.href = "/dashboard";
           return (
