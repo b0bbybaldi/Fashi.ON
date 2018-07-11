@@ -4,3 +4,10 @@
     height: 200px;   
    /* border-bottom: 0;  */
 }
+.list-group{
+    font-family:  'Gentium Basic', serif;
+}
+.card{
+    font-size: 15px;
+    font-family:  'Gentium Basic', serif;
+}

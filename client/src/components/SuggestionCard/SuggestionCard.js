@@ -11,18 +11,15 @@ class SuggestionCard extends Component {
         colour: "",
         baseImageUrl: "",
         url: "",
-        proId:""
+        proId: ""
     };
     render() {
         return (
             <div className="col-12 col-sm-12 col-md-2 w3-animate-top">
                 <div className="card">
-                    {/* <a href="assets/img/homepage.jpg" class="fancybox">
-                      <img className="card-img-top" src="assets/img/homepage.jpg" alt="Card image cap" />
-                  </a> */}
-                    <img className="card-img-top img-fluid" id="suggestion-card-img" src={this.props.baseImageUrl} alt="wedding-img" />
+                    <a href={this.props.url}><img className="card-img-top img-fluid" id="suggestion-card-img" src={this.props.baseImageUrl} alt="wedding-img" /></a>
                     <div className="card-body">
-                        <h3 className="card-title">{this.props.brandName}</h3>
+                        <p className="card-title">{this.props.brandName}</p>
                     </div>
                     <ul className="list-group list-group-flush">
                         <li className="list-group-item">{this.props.name}</li>
