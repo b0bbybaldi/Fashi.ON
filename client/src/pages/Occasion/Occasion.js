@@ -8,6 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import OccasionCard from "../../components/OccasionCard";
 import API from '../../utils/API';
+import HowToCard from "../../components/HowToCard";
 
 class Occasion extends Component {
 
@@ -19,12 +20,13 @@ class Occasion extends Component {
         this.asosAjaxCall();
     }
     asosAjaxCall = () => {
+        console.log("function called");
         API.getSuggestions(this.state.searchTerm)
             .then(res => {
                 this.setState({ suggestions: res.data })
-                console.log(this.state.suggestions)
-
+                console.log("25", res.data);
             })
+
             .catch(err => console.log(err));
     }
 
@@ -32,26 +34,26 @@ class Occasion extends Component {
         return (
             <div>
                 <Navbar />
-                <div className="col-12 col-sm-12 col-md-4">
-                    <div className="card">
-                        <a href="assets/img/homepage.jpg" className="fancybox">
-                            <img className="card-img-top" src="assets/img/homepage.jpg" alt="Card image cap" />
-                        </a>
-                        <div className="card-body">
-                            <h5 className="card-title"></h5>
-                            <p className="card-text"></p>
+                <div className="paral paralsec3" id="paralsec3">
+                    <div className="container-fluid">
+                        <div className="row d-flex justify-content-center">
+                            <div className="col-12 text-center">
+                                <h3 className="display-3">Your Occasions</h3>
+                            </div>
                         </div>
-                        <ul className="list-group list-group-flush">
-                            <li className="list-group-item">searchTerm</li>
-                            <li className="list-group-item">products[0].name</li>
-                            <li className="list-group-item">products[0].price.current.text</li>
-                            <li className="list-group-item">products[0].brandName</li>
-                        </ul>
-                        <div className="card-body">
-                            <a href="" target="_blank" className="card-link">products[0].baseImageUrl</a>
+                        <div className="row d-flex justify-content-center">
+                            {this.state.suggestions.map((suggestions) => (
+                                <OccasionCard
+                                    name={suggestions.name}
+                                    brandName={suggestions.brandName}
+                                    price={suggestions.price}
+                                    color={suggestions.color}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
+
                 <Footer />
             </div>
         );

@@ -31,15 +31,16 @@ class Navbar extends Component {
   }
 
   logout = () => {
+
     API.logout().then(res => {
 
       window.location.href = "/";
 
     })
+
   }
 
   render() {
-
     if(this.state.isLoggedIn) {
 
       return (

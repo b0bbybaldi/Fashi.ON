@@ -14,7 +14,6 @@ export default {
     logout: function () {
         return axios("/auth/logout")
     },
-
     //occasion related functions
     //create new occasion
     createOccasion: function (occasionData) {
@@ -36,8 +35,9 @@ export default {
         return axios.delete("/api/occasion/" + id);
     },
     // Makes Ajax call to ASOS.com API and gets results for a searched item
-    getSuggestions: function (data) {
-        console.log(data)
+
+    getSuggestions: function(data){
+        console.log("axios data",data)
         return axios.get("/api/occasion/" + data);
     }
 };
