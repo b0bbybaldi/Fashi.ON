@@ -9,7 +9,7 @@ router.route("/:id")
 .put(occasionController.update)
 .delete(occasionController.remove);
 
-router.route("suggestions/:data")
-.get(occasionController.getSuggestions);
+// router.route("suggestions/:data")
+// .get(occasionController.getSuggestions);
 
 module.exports = router;
