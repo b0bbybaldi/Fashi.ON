@@ -1,1 +1,58 @@
-["Skirts", "Coats", "Jackets", "t-shirts", "short Dresses", "long dresses", "Jeans", "Jumpsuits", "Rampers", "Suits", "Gowns", "shirts","tops", "pants"]
+[
+    {
+        "name": "Skirts",
+        "code": "skirts"
+    },
+    {
+        "name": "Coats",
+        "code": "coats"
+    },
+    {
+        "name": "Jackets",
+        "code": "jackets"
+    },
+    {
+        "name": "T-Shirts",
+        "code": "t-shirts"
+    },
+    {
+        "name": "Short Dresses",
+        "code": "short+dresses"
+    },
+    {
+        "name": "Long Dresses",
+        "code": "long+dresses"
+    },
+    {
+        "name": "Jeans",
+        "code": "jeans"
+    },
+    {
+        "name": "Jumpsuits",
+        "code": "jumpsuits"
+    },
+    {
+        "name": "Rampers",
+        "code": "rampers"
+    },
+    {
+        "name": "Suits",
+        "code": "suits"
+    },
+    {
+        "name": "Gowns",
+        "code": "gowns"
+    },
+    {
+        "name": "Shirts",
+        "code": "shirts"
+    },
+    {
+        "name": "Tops",
+        "code": "tops"
+    },
+    {
+        "name": "Pants",
+        "code": "pants"
+    }
+]
