@@ -8,7 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import SuggestionCard from "../../components/SuggestionCard";
 import API from '../../utils/API';
-
+import outfit from "../../items.json";
 var occasionId = window.location.pathname;
 occasionId = occasionId.split("/");
 occasionId = occasionId[2];
@@ -19,7 +19,6 @@ class Occasion extends Component {
 
     state = {
         suggestions: [],
-        searchTerm: "dress",
         name: "",
         brandName: "",
         price: "",
@@ -29,49 +28,41 @@ class Occasion extends Component {
         proId: "",
         dresscode: "",
         season: "",
-        items:"",
-        colors:"",
-        budget:""
+        items: "",
+        colors: "",
+        budget: ""
 
     };
     componentDidMount() {
-        // this.asosAjaxCall();
         this.bringOccasion(occasionId);
     }
 
     bringOccasion = () => {
         API.getOccasion(occasionId)
-        .then(response => {
+            .then(response => {
+                this.setState({
+                    dresscode: response.data.dresscode,
+                    season: response.data.season,
+                    items: response.data.items,
+                    colors: response.data.colors,
+                    budget: response.data.budget
+                })
 
-            this.setState({
-                dresscode: response.data.dresscode,
-                season: response.data.season,
-                items: response.data.items,
-                colors: response.data.colors,
-                budget: response.data.budget
             })
-
-        })
     }
-    asosAjaxCall = (item) => {
+    asosAjaxCall = () => {
         // event.preventDefault();
-        var terms = {
-            dresscode: this.state.dresscode,
-            season: this.state.season,
-            items: item,
-            colors: this.state.colors,
-            budget: this.state.budget
-        };
-
-        // var terms ="test";
-                
-        console.log("function called");
-        API.getSuggestions(terms)
+        const queryParam = `${this.state.dresscode}+${this.state.season}+${this.state.items}+${this.state.colors}`;
+        // dresscode: this.state.dresscode,
+        // season: this.state.season,
+        // items: this.state.items,
+        // colors: this.state.colors,
+        // budget: this.state.budget
+        API.getSuggestions(queryParam)
             .then(res => {
                 this.setState({ suggestions: res.data })
                 console.log("25", res.data);
             })
-
             .catch(err => console.log(err));
     }
 
@@ -87,12 +78,12 @@ class Occasion extends Component {
                             </div>
                         </div>
                         <div className="row d-flex justify-content-center">
-                            <button className="btn btn-success" onClick={ () => this.asosAjaxCall("coats")}>
+                            <button className="btn btn-success" onClick={() => this.asosAjaxCall()}>
                                 Coats
                             </button>
                         </div>
                         <div className="row d-flex justify-content-center">
-                            {this.state.suggestions.map((suggestions,key) => (
+                            {this.state.suggestions.map((suggestions, key) => (
                                 <SuggestionCard
                                     key={key}
                                     name={suggestions.name}
