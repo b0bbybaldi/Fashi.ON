@@ -1,31 +1,154 @@
+html {
+ /* overflow: visible; */
+ /* overflow: hidden; */
+}
+
+html, body{
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+.logo-text{
+  /* font-family: 'Rajdhani', sans-serif; */
+  /* font-weight: 700; */
+  font-family: Abril Fatface;
+  font-size: 7rem;
+
+
+}
+
+.tagline{
+  margin-top: -2.0rem;
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 4rem;
+}
+
+
+.about{
+  padding-bottom: 15rem;
+}
+
+#about:target {
+  /* transition: 12s; */  
+
+}
+
+
+.about-card {
+  margin: 0 2px;
+  transform: scale(0.8);
+  min-width: 275;
+  margin: 3rem auto;
+  height:95rem;
+  width:95rem;
+  background-color: black;
+  border-radius: 100%;
+  box-shadow: 0 1rem 4rem rgba(0,0,0,.7);
+  padding: 17rem;
+  /* <Card className="about-card">
+         <CardContent>
+         </CardContent>
+       </Card> */
+}
+
+.about-header{
+  color: white;
+  font-family: Abril Fatface;
+  font-size: 4rem;
+  text-align:center;
+  text-decoration: underline;
+}
+
+.about-header2{
+  color: white;
+  font-family: Abril Fatface;
+  font-size: 4rem;
+  text-align:left;
+  text-decoration: underline;
+}
+
+.about-des{
+  color: white;
+  text-align:center;
+  font-size: 1.6rem;
+}
+
+.about-des2{
+  color: white;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+
+.line{
+  color: white;
+  text-align: center;
+
+}
+
+.parallax {
+    /* The image used */
+    /* background-image: url("http://i63.tinypic.com/30nc96u.jpg"); */
+
+    /* Set a specific height */
+    height: 50rem;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* mask: linear-gradient(to top, black 80%, transparent); */
+
+}
+
+.quote{
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  font-stretch: expanded;
+  /* font-family: Cedarville Cursive; */
+  letter-spacing: 3px;
+  font-family: La Belle Aurore;
+}
+
+
 .App {
     text-align: center;
     background: rgba(0, 0, 0, 0.5);
+    height: 90rem;
   }
-  
+
   .App-header {
     background-color: #898;
-    height: 150px;
-    font-size: 40px;
-    padding: 20px;
+    height: 15rem;
+    font-size: 4rem;
+    padding: 2rem;
     color: white;
   }
-  
+
   .App-intro {
     font-size: large;
   }
 
   #background-video {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
     width: auto;
     height: auto;
     z-index: -100;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%, -1px) scale(2);
     object-fit: cover;
+}
+
+.blurme {
+  /* filter: ; */
+  filter: grayscale(100%) blur(1rem);
+  transition: .6s;
+
 }
 
 .content {
@@ -35,6 +158,13 @@
     background: rgba(0, 0, 0, 0.5);
     color: #f1f1f1;
     width: 100%;
-    padding: 55px 0px;
+    padding: 5.5rem 0;
 }
-  
+
+
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}

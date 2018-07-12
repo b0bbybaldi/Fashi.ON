@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
+// const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
 
-    firstname: {
+    firstName: {
         type: String,
         required: true
     },
-    lastname: {
+    lastName: {
         type: String,
         required: true
     },
@@ -32,25 +33,14 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    occasion: {
+    occasions: [{
         type: Schema.Types.ObjectId,
         ref: "Occasion"
-    }
+    }]
 
 });
 
 
-
-//This will check if an unhashed password entered by the 
-    //user can be compared to the hashed password stored in our database
-    userSchema.methods.validPassword = function (password) {
-        return bcrypt.compareSync(password, this.password);
-    };
-    // Hooks are automatic methods that run during various phases of the User Model lifecycle
-    // In this case, before a User is created, we will automatically hash their password
-    userSchema.hook("beforeCreate", function (user) {
-        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-    });
-    const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

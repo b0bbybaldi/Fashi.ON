@@ -1,122 +1,238 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Signup.css";
-import Header from '../../components/Header/Header.js';
-import Paper from '@material-ui/core/Paper';
+// import API from '../../utils/API';
+import Navbar from '../../components/Navbar/Navbar.js';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import FormControl from '@material-ui/core/FormControl';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import classNames from 'classnames';
-import {Button as signUpBtn} from '../../components/Button';
+// import PropTypes from 'prop-types';
+import Background from './signup-bg.jpg';
+import Button from '../../components/Button';
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import Dashboard from "../Dashboard"
+import SweetAlert from 'react-bootstrap-sweetalert';
+import Footer from '../../components/Footer/Footer.js'
+
+const gender = [
+  {
+    value: 'Male',
+    label: 'Male',
+  },
+  {
+    value: 'Female',
+    label: 'Female',
+  },
+  {
+    value: 'Other',
+    label: 'Other',
+  }
+];
 
 
 class Signup extends Component {
 
   state = {
+    isLoggedIn: false,
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
+    gender: "",
+    alert: false,
+    done: null
 
   }
+
+  getAlert() {
+    this.setState({
+      alert: true
+    });
+  };
+
+  hideAlert() {
+    console.log('Hiding alert...');
+    this.setState({
+      alert: false
+    });
+  }
+
+
+  // componentWillMount() {
+  //   API.getUser()
+  //     .then(user => {
+  //       console.log(user)
+  //       this.setState({
+  //         isLoggedIn: this.state.isLoggedIn,
+  //         firstName: this.state.firstName,
+  //         lastName: this.state.lastName,
+  //         email: this.state.email,
+  //         gender: this.state.gender
+  //       });
+  //     })
+  // }
 
   handleChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  };
 
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.firstName && this.state.lastName && this.state.email && this.state.password) {
-    //   //write function inside of API for loadSurvey
-    //   API.({
-    //     firstName: this.state.firstName,
-    //     lastName: this.state.lastName,
-    //     email: this.state.email,
-    //     password: this.state.password
-    //   })
-    //     .then(res => this.loadSurvey())
-    //     .catch(err => console.log(err));
-    // }
-  };
+    console.log(this.state);
+    if (this.state.email && this.state.password && this.state.firstName && this.state.lastName && this.state.gender) {
+      fetch("auth/signup", {
+        method: "POST",
+        credentials: "include",
+        mode: "cors",
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+          gender: this.state.gender,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName
+        }),
+        headers: new Headers({
+          "Content-Type": "application/json"
+        })
+      }).then(response => {
+        // this.setState({
+        //   firstName: "",
+        //   email: "",
+        //   password: "",
+        //   lastName: "",
+        //   gender: ""
+        // });
+        console.log(response);
+        window.location.href = "/survey";
+      }).catch(err => console.log(err));
+    } else {
+
+      this.getAlert();
+
+    }
 
 
-render(){
-  document.body.style.backgroundImage = `url("https://images.unsplash.com/photo-1485518882345-15568b007407?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9de002b94630e160d9e33c36decc06f3&auto=format&fit=crop&w=681&q=80")`
-  return (
-  <div className= "signup-page">
-  <Header />
-  <div className="signup-form">
-        <Typography variant="headline" component="h3">
-          Were happy to have you here.
-        </Typography>
-        <Typography component="p">
-          Please fill out the form below in order to continue to your personalized
-          profile.
-        </Typography>
+  }
 
-        <TextField
-            id="firstName"
-            label="firstName"
-            name = "firstName"
-            value={this.state.firstName}
-            onChange={this.handleChange}
-          />
+renderModal(){
+  if(this.state.alert){
+    return(
+    <SweetAlert danger title="Error!"onConfirm={this.hideAlert.bind(this)}>
+      All fields are required!
+    </SweetAlert>
+    )
+  }else {
+    return(
+      <div className="d-flex justify-content-center w3-animate-top signup-box">
+            <div className="form-signup">
+              <Typography variant="headline" component="h3">
+                Were happy to have you here.
+          </Typography>
+              <Typography component="p">
+                Please fill out the form below in order to continue to your personalized
+                profile.
+          </Typography>
 
-        <TextField
-            id="lastName"
-            label="Last Name"
-            name = "lastName"
-            value={this.state.lastName}
-            onChange={this.handleChange}
-          />
+              <TextField
+                fullWidth
+                id="firstName"
+                label="First Name"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+                required
+              />
+              <br />
+              <TextField
+                fullWidth
+                required
+                id="lastName"
+                label="Last Name"
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleChange}
+              />
+              <br />
+              <TextField
+                fullWidth
+                required
+                id="email"
+                label="Email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <br />
+              <TextField
+                fullWidth
+                required
+                id="gender"
+                name="gender"
+                select
+                label="Gender"
+                value={this.state.gender}
+                margin="normal"
+                onChange={this.handleChange}
+              >
+                {gender.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+              <br />
+              <TextField
+                fullWidth
+                required
+                id="password-input"
+                name="password"
+                label="Password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                type="password"
+                autoComplete="current-password"
+                margin="normal"
+              />
+              <br />
+              <br />
+              {/* onclick of this button will create a new users account */}
+              <Button onClick={this.handleFormSubmit} children='Sign Up' />
+            </div>
+            <Footer />
+          </div>
 
-          <TextField
-              id="email"
-              label="Email"
-              name= "email"
-              value={this.state.email}
-              onChange={this.handleChange}
-          />
+    )
+  }
+}
 
-          <FormControl className={classNames()}>
-               <InputLabel htmlFor="adornment-password">Password</InputLabel>
-               <Input
-                 id="adornment-password"
-                 name="password"
-                 type={this.state.showPassword ? 'text' : 'password'}
-                 value={this.state.password}
-                 onChange={this.handleChange}
-                 endAdornment={
-                   <InputAdornment position="end">
-                     <IconButton
-                       aria-label="Toggle password visibility"
-                       onClick={this.handleClickShowPassword}
-                       onMouseDown={this.handleMouseDownPassword}
-                     >
-                       {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                     </IconButton>
-                   </InputAdornment>
-                 }
-               />
-             </FormControl>
+  render() {
+    // const cookie = document.cookie.split(";");
+    // const { classes } = this.props;
+    document.body.style.backgroundImage = `url(${Background})`
+    if (this.state.isLoggedIn) {
+      return (
+        <Router>
+          <div>
+            <Route exact path="/dashboard" component={Dashboard} firstName={this.state.firstName} lastName={this.state.lastName} />
+          </div>
+        </Router>
+      )
+    } else {
+      return (
+        <div className="signup-page">
+          <Navbar />
+         {this.renderModal()}
         </div>
+      );
+    }
+  }
+}
 
-// onclick of this button will create a new users account
-      //  <signUpBtn onClick={ () => this.createUser(article.headline.main, article.web_url)} children='Save' />
-    </div>
-
-);
-}}
-
+// Signup.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default Signup;

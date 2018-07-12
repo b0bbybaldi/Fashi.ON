@@ -1,0 +1,46 @@
+[
+    {
+        "color": "Red",
+        "code": 1
+    },
+    {
+        "color": "Blue",
+        "code": 3
+    },
+    {
+        "color": "Green",
+        "code": 2
+    },
+    {
+        "color": "Yellow",
+        "code": 6
+    },
+    {
+        "color": "White",
+        "code": 5
+    },
+    {
+        "color": "Black",
+        "code": 4
+    },
+    {
+        "color": "Pink",
+        "code": 9
+    },
+    {
+        "color": "Purple",
+        "code": 8
+    },
+    {
+        "color": "Orange",
+        "code": 7
+    },
+    {
+        "color": "Gray",
+        "code": 16
+    },
+    {
+        "color": "Beige",
+        "code": 25
+    }
+]

@@ -2,16 +2,16 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Will add the Currency type to the Mongoose Schema types
-require('mongoose-currency').loadType(mongoose);
-var Currency = mongoose.Types.Currency;
+// require('mongoose-currency').loadType(mongoose);
+// var Currency = mongoose.Types.Currency;
 
 const occasionSchema = new Schema({
 
     dresscode: {
         type: String,
-        required: false
+        required: true
     },
-    color: {
+    colors: {
         type: String,
         required: true
     },
@@ -20,13 +20,14 @@ const occasionSchema = new Schema({
         required: true
     },
     budget: {
-        type: Currency,
+        type: Number,
         required: true
     },
-    fit: {
+    items: {
         type: String,
         required: true
     }
+
 });
 
 const Occasion = mongoose.model("Occasion", occasionSchema);

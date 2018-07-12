@@ -1,10 +1,21 @@
 /* navbar */
-.navbar {
-  background-color: #white;
+
+body {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center fixed;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
 }
 
 /* navbar links */
-.navbar-brand{
-  align-items: left;
+header a {
+  font-size: 18px;
   color: #777;
 }

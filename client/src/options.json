@@ -1,0 +1,21 @@
+[
+    {
+        "question": "Occasion type or Dresscode that I'm looking for:",
+        "id" : 1,
+        "name": "dresscode",
+        "option1": "Formal",
+        "option2": "Casual",
+        "option3": "Cocktail"
+    },
+    {
+        "question": "My event will be in:",
+        "id" : 2,
+        "name": "season",
+        "option1": "Spring",
+        "option2": "Summer",
+        "option3": "Fall",
+        "option4": "Winter"
+    }
+
+]
+
