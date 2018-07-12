@@ -16,8 +16,8 @@ class CheckBoxes extends Component {
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
-                                        id={op.color}
-                                        value={op.color}
+                                        id={op.colors}
+                                        value={op.code}
                                         name="colors"
                                         onChange={this.props.change}
                                         onClick={this.props.click}

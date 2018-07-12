@@ -54,13 +54,20 @@ class Occasion extends Component {
     }
     asosAjaxCall = () => {
         // event.preventDefault();
-        const queryParam = `${this.state.dresscode}+${this.state.season}+${this.state.items}+${this.state.colors}`;
-        // dresscode: this.state.dresscode,
-        // season: this.state.season,
-        // items: this.state.items,
-        // colors: this.state.colors,
-        // budget: this.state.budget
-        API.getSuggestions(queryParam)
+        // const queryParam = `${this.state.dresscode}+${this.state.season}+${this.state.items}`;
+        const cOlors = this.state.colors;
+        const bUdget = this.state.budget;
+        const dressCode = this.state.dresscode;
+        const iTems = this.state.items;
+        const sEason = this.state.season;
+        var queryObj = [
+            dressCode,
+            sEason,
+            bUdget,
+            iTems,
+            cOlors
+        ]
+        API.getSuggestions(queryObj)
             .then(res => {
                 this.setState({ suggestions: res.data })
             })
