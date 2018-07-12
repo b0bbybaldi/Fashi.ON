@@ -106,19 +106,44 @@ handleScroll(event) {
           />
           </a>
         </div>
-<div className="parallax">
+        <div className="parallax">
 
-        <div className="about" >
+        <div className="about">
           <div className="about-card" id="about">
+          <h1 className= "about-header">
+
+          About us
+          </h1>
+          <br />
           <p className= "about-des">
-          This is the about section......
+          Be the boldest you can be. Fashi.On is here to take the stress off the busy, the indecisive, the men, the women - who enjoy the social factors of events but just dont know what to wear!
           </p>
+          <br />
+          <h1 className= "about-header2">
+          How to:
+          </h1>
+          <br />
+          <p className= "about-des2">
+          Curious on how to get started? Simply sign-up for a username, you will then be re-directed to a survey where you will inform us of what your needs are. Afterwards, you will see your created occasion displayed on your profile - giving you the results youve specified based off of each individual survey. There on, choose from the items displayed and youre ready to go! Feel better yet? Start today!
+          </p>
+        <h1 className="line">
+        ____________________________________________
+        </h1>
+
+
+
+
           </div>
 
+        <div className="quote">
+          <p> “You can have anything you want in life, if you dress for it.” — Edith Head
+          </p>
         </div>
 
 
-</div>
+
+        </div>
+        </div>
 
         <Footer year={dt}/>
       </div>
