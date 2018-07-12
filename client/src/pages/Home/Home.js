@@ -26,7 +26,7 @@ class Home extends Component {
   componentDidMount(){
     API.getUser()
     .then(user=>{
-      
+
       if(user.data.loggedIn) {
 
         window.location.href = "/dashboard";
@@ -81,7 +81,7 @@ handleScroll(event) {
     cookie = cookie[1];
     console.log(document.cookie.length)
     if(this.state.isLoggedIn) {
-      // document.cookie.length == "true" || 
+      // document.cookie.length == "true" ||
           // window.location.href = "/dashboard";
           return (
             <Dashboard />
