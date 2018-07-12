@@ -200,6 +200,15 @@ i:hover {
     padding: 5.5rem 0;
 }
 
+.arrow-trans .fas {
+  color:#fff !important;
+  font-size: 40px;
+}
+
+.buttons .btn {
+  margin: 5px;
+}
+
 
 
 @media only screen and (max-device-width: 1366px) {
