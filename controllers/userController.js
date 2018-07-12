@@ -62,7 +62,11 @@ module.exports = {
             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
 
-        req.body.password = generateHash(req.body.password);
+        if(req.body.password) {
+
+            req.body.password = generateHash(req.body.password);
+
+        }
       
         db.User
             .findOneAndUpdate({ email: req.body.email }, req.body)
