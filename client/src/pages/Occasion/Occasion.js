@@ -55,13 +55,13 @@ class Occasion extends Component {
 
             })
     }
-    asosAjaxCall = () => {
+    asosAjaxCall = (item) => {
         // event.preventDefault();
         // const queryParam = `${this.state.dresscode}+${this.state.season}+${this.state.items}`;
         const cOlors = this.state.colors;
         const bUdget = this.state.budget;
         const dressCode = this.state.dresscode;
-        const iTems = this.state.items;
+        const iTems = item.suggestion;
         const sEason = this.state.season;
         var queryObj = [
             dressCode,
