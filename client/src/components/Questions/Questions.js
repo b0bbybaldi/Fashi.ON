@@ -6,7 +6,7 @@ class Questions extends Component {
             <div>
                 <div className="form-row align-items-center">
                     <div className="col-auto my-1">
-                        <label className="mr-sm-2" for="inlineFormCustomSelect">{this.props.question}</label>
+                        <label className="mr-sm-2" for="inlineFormCustomSelect"><strong>{this.props.question}</strong></label>
                         <select className="custom-select mr-sm-2" name={this.props.name} id="inlineFormCustomSelect" onChange={this.props.change}>
                             <option selected>Choose...</option>
                             <option value={this.props.option1}>{this.props.option1}</option>

@@ -3,13 +3,17 @@ import Footer from "../../components/Footer";
 import Sample from './video.mp4';
 import "./Home.css";
 import API from '../../utils/API';
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import arrow from '../../imgs/arrow.png';
+import Dashboard from "../Dashboard/Dashboard"
 
 
 var dt = new Date();
 dt = (dt.getYear() + 1900) ;
+
+
 
 class Home extends Component {
 
@@ -19,14 +23,20 @@ class Home extends Component {
     blur: ""
   }
 
-  componentWillMount(){
+  componentDidMount(){
     API.getUser()
     .then(user=>{
-      console.log(user)
+      
+      if(user.data.loggedIn) {
+
+        window.location.href = "/dashboard";
+
+      }
+
       this.setState({
         isLoggedIn: user.data.loggedIn,
       });
-      console.log(this.state)
+
     })
 
   }
@@ -64,9 +74,18 @@ handleScroll(event) {
     }
   render() {
 
-    if(this.state.isLoggedIn) {
+    // var cookie = document.cookie("isLoggedIn");
 
-      window.location.href = "/dashboard";
+    var cookie =  document.cookie.split(";");
+    cookie = cookie[0].split("=");
+    cookie = cookie[1];
+    console.log(document.cookie.length)
+    if(this.state.isLoggedIn) {
+      // document.cookie.length == "true" || 
+          // window.location.href = "/dashboard";
+          return (
+            <Dashboard />
+          )
 
     }
 

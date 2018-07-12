@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 // import PropTypes from 'prop-types';
-import Background from './signup-bg.jpg';
+import Background from './user-profile-bg.jpg';
 import Button from '../../components/Button';
 // import { BrowserRouter as Router, Route } from "react-router-dom"
 // import Dashboard from "../Dashboard"
@@ -73,7 +73,7 @@ class UserProfile extends Component {
 
                 if (this.state.isLoggedIn === false) {
 
-                    window.location.href="/";
+                    window.location.href = "/";
 
                 }
             })
@@ -88,9 +88,26 @@ class UserProfile extends Component {
     };
 
     handleFormSubmit = event => {
+        var errorElement = document.getElementsByClassName("alert-danger")[0];
+        errorElement.id="error-msg";
         event.preventDefault();
         console.log(this.state);
-        if (this.state.email && this.state.password && this.state.firstName && this.state.lastName && this.state.gender) {
+        if (this.state.email && this.state.firstName && this.state.lastName && this.state.gender && this.state.password) {
+            API.updateUser({
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                email: this.state.email,
+                gender: this.state.gender,
+                password: this.state.password
+            })
+                .then(res => {
+
+
+
+                })
+
+                .catch(err => console.log(err));
+
             fetch("auth/signup", {
                 method: "POST",
                 credentials: "include",
@@ -116,10 +133,11 @@ class UserProfile extends Component {
                 console.log(response);
                 window.location.href = "/survey";
             }).catch(err => console.log(err));
-        } else {
+        }
+        else {
 
-            this.getAlert();
-
+            document.getElementById("error-msg").removeAttribute("id");
+            console.log("errro");
         }
 
 
@@ -136,13 +154,16 @@ class UserProfile extends Component {
             return (
                 <div className="d-flex justify-content-center w3-animate-top signup-box">
                     <div className="form-signup">
+                    <div className="alert alert-danger text-center" id="error-msg">
+                        <span>There are some missing fields</span>
+                    </div>
                         <Typography variant="headline" component="h3">
                             Welcome to your profile
-            </Typography>
+                        </Typography>
                         <Typography component="p">
                             If you don't want to change your password, leave it blank.
             </Typography>
-
+                        <br />
                         <TextField
                             fullWidth
                             id="firstName"
@@ -166,6 +187,7 @@ class UserProfile extends Component {
                         <TextField
                             fullWidth
                             required
+                            disabled
                             id="email"
                             label="Email"
                             name="email"
