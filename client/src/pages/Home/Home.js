@@ -74,7 +74,11 @@ handleScroll(event) {
     }
   render() {
 
+    // document.getElementsByTagName("html").style.fontSize = "62.5%";
     // var cookie = document.cookie("isLoggedIn");
+
+    // var element = document.getElementById("html");
+    // element.setAttribute( 'class', 'home' );
 
     var cookie =  document.cookie.split(";");
     cookie = cookie[0].split("=");
@@ -101,7 +105,7 @@ handleScroll(event) {
     }
 
     return (
-      <div>
+      <div className="home">
         <div className="App">
           <video id="background-video" className={this.state.blur} loop autoPlay muted>
             <source src={Sample} type="video/mp4" />

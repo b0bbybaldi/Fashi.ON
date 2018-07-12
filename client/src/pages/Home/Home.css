@@ -1,7 +1,7 @@
 
-html {
+.home, html{
  /* this makes it a lot easier to calcute rem. 62.5 is 10/16 so our defualt fontsize is relative to user settings. defines what 1 rem is */
-font-size: 62.5%;
+/* font-size: 62.5%; */
 }
 
 html, body{
@@ -189,9 +189,14 @@ i:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    /* right: 50%; */
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    /* background: rgba(0, 0, 0, 0.1); */
     color: #f1f1f1;
-    width: 100%;
+    /* width: 100%; */
     padding: 5.5rem 0;
 }
 
