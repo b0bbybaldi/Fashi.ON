@@ -146,7 +146,7 @@ class Survey extends Component {
                         ))}
                         <CheckBoxes
                             change={this.handleInputChangeCheckBox}
-                            value={this.state.colors}
+                            value={this.state.code}
                             type="colors"
                             click={this.handleClick}
                         />

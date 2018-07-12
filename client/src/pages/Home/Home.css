@@ -10,13 +10,38 @@ html, body{
 }
 
 .logo-text{
-  /* font-family: 'Rajdhani', sans-serif; */
-  /* font-weight: 700; */
   font-family: Abril Fatface;
   font-size: 7rem;
+}
 
+/* glyphyicons */
+
+.gyphyicons {
+    /* align-items: center; */
+  /* justify-content: center; */
+  text-align: center;
 
 }
+
+.far {
+    color:teal;
+    font-size: 6rem;
+    align-items: center;
+    text-align: center;
+}
+
+.fas {
+  color:teal;
+  font-size: 6rem;
+  text-align: center;
+}
+
+.fab{
+  color:teal;
+  font-size: 6rem;
+  text-align: center;
+}
+
 
 .tagline{
   margin-top: -2.0rem;
@@ -30,7 +55,7 @@ html, body{
 }
 
 #about:target {
-  /* transition: 12s; */  
+  /* transition: 12s; */
 
 }
 
@@ -46,10 +71,7 @@ html, body{
   border-radius: 100%;
   box-shadow: 0 1rem 4rem rgba(0,0,0,.7);
   padding: 17rem;
-  /* <Card className="about-card">
-         <CardContent>
-         </CardContent>
-       </Card> */
+
 }
 
 .about-header{
@@ -71,13 +93,13 @@ html, body{
 .about-des{
   color: white;
   text-align:center;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .about-des2{
   color: white;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 

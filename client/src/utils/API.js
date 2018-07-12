@@ -39,7 +39,7 @@ export default {
     // Makes Ajax call to ASOS.com API and gets results for a searched item
 
     getSuggestions: function(data){
-        // console.log("axios data",data)
+        console.log("axios data",data)
         return axios.get("/api/suggestion/" + data);
     },
     signIn: function(data) {
