@@ -74,15 +74,9 @@ i:hover {
 .about-card {
   margin: 0 2px;
   transform: scale(0.8);
-  min-width: 275;
   margin: 3rem auto;
-  height:95rem;
-  width:95rem;
   background-color: black;
-  border-radius: 100%;
   box-shadow: 0 1rem 4rem rgba(0,0,0,.7);
-  padding: 17rem;
-
 }
 
 .about-header{
@@ -117,6 +111,7 @@ i:hover {
 .line{
   color: white;
   text-align: center;
+  border-bottom: 2px solid #ffffff;
 
 }
 
@@ -209,10 +204,35 @@ i:hover {
   margin: 5px;
 }
 
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .about-card {
+    padding: 15px;
+    border-radius: 10px;
+  }
+}
 
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .about-card {
+      width: 100%;
+      height: auto;
+      padding: 15px;
+      border-radius: 0;
+      border-radius: 10px;
 
-@media only screen and (max-device-width: 1366px) {
+  }
+}
+
+@media (min-width: 1200px) {
     .parallax {
         background-attachment: scroll;
+    }
+
+    .about-card {
+      height:95rem;
+      width:95rem;
+      border-radius: 100%;
+      padding: 17rem;
+      
+    
     }
 }

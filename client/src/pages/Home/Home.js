@@ -148,7 +148,7 @@ handleScroll(event) {
           Curious on how to get started? Simply sign-up for a username, you will then be re-directed to a survey where you will inform us of what your needs are. Afterwards, you will see your created occasion displayed on your profile - giving you the results youve specified based off of each individual survey. There on, choose from the items displayed and youre ready to go! Feel better yet? Start today!
           </p>
         <h1 className="line">
-        ____________________________________________
+        
         </h1>
         <br />
         <br />
@@ -185,7 +185,7 @@ handleScroll(event) {
         </div>
         <br/>
           <h1 className="line">
-            ______________________________
+            
           </h1>
           </div>
         <div className="quote">
