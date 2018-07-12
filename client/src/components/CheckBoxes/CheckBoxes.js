@@ -40,13 +40,13 @@ class CheckBoxes extends Component {
                                     <input
                                         className="form-check-input"
                                         type="checkbox"
-                                        id={op}
-                                        value={op}
+                                        id={op.code}
+                                        value={op.code}
                                         name="items"
                                         onChange={this.props.change}
                                         onClick={this.props.click}
                                     />
-                                    <label className="form-check-label" for={op}>{op}</label>
+                                    <label className="form-check-label" for={op.code}>{op.name}</label>
                                 </div>
                             ))}
                         </div>
