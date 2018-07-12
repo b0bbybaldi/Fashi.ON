@@ -5,18 +5,20 @@ html {
 
 html, body{
   height: 100%;
-scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .logo-text{
-  font-family: 'Rajdhani', sans-serif;
+  /* font-family: 'Rajdhani', sans-serif; */
+  /* font-weight: 700; */
+  font-family: Abril Fatface;
   font-size: 7rem;
-  font-weight: 700;
+
 
 }
 
 .tagline{
-  margin-top: -2.3rem;
+  margin-top: -2.0rem;
   font-family: 'Libre Barcode 128 Text', cursive;
   font-size: 4rem;
 }
@@ -49,8 +51,39 @@ scroll-behavior: smooth;
        </Card> */
 }
 
+.about-header{
+  color: white;
+  font-family: Abril Fatface;
+  font-size: 4rem;
+  text-align:center;
+  text-decoration: underline;
+}
+
+.about-header2{
+  color: white;
+  font-family: Abril Fatface;
+  font-size: 4rem;
+  text-align:left;
+  text-decoration: underline;
+}
+
 .about-des{
   color: white;
+  text-align:center;
+  font-size: 1.6rem;
+}
+
+.about-des2{
+  color: white;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+
+.line{
+  color: white;
+  text-align: center;
+
 }
 
 .parallax {
@@ -67,6 +100,16 @@ scroll-behavior: smooth;
     background-size: cover;
     /* mask: linear-gradient(to top, black 80%, transparent); */
 
+}
+
+.quote{
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  font-stretch: expanded;
+  /* font-family: Cedarville Cursive; */
+  letter-spacing: 3px;
+  font-family: La Belle Aurore;
 }
 
 
