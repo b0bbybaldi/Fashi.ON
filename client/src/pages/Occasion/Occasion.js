@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import SuggestionCard from "../../components/SuggestionCard";
 import API from '../../utils/API';
 import outfit from "../../items.json";
+import Button from "../../components/Button";
+
 var occasionId = window.location.pathname;
 occasionId = occasionId.split("/");
 occasionId = occasionId[2];
@@ -61,11 +63,9 @@ class Occasion extends Component {
         API.getSuggestions(queryParam)
             .then(res => {
                 this.setState({ suggestions: res.data })
-                console.log("25", res.data);
             })
             .catch(err => console.log(err));
     }
-
     render() {
         return (
             <div>
@@ -78,9 +78,8 @@ class Occasion extends Component {
                             </div>
                         </div>
                         <div className="row d-flex justify-content-center">
-                            <button className="btn btn-success" onClick={() => this.asosAjaxCall()}>
-                                Coats
-                            </button>
+                            <Button className="btn btn-success" onClick={() => this.asosAjaxCall()} children={this.state.items}
+                            />
                         </div>
                         <div className="row d-flex justify-content-center">
                             {this.state.suggestions.map((suggestions, key) => (
