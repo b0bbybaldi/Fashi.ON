@@ -1,0 +1,22 @@
+.errorText {
+  text-align: center;
+  color: black;
+  font-weight: 2rem;
+  font-size: 3rem;
+  font-family: 'Russo One', sans-serif;
+}
+
+
+.error {
+  max-width: 60rem;
+  max-height: 60rem;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 10%;
+  padding: 2rem;
+  border-radius: 125px;
+}
+
+.icon-exp{
+  font-size: 1.2rem;
+}

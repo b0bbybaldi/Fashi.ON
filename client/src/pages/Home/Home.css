@@ -17,10 +17,21 @@ html, body{
 /* glyphyicons */
 
 .gyphyicons {
-    /* align-items: center; */
-  /* justify-content: center; */
   text-align: center;
 
+}
+
+/* icon hover effect */
+i:hover {
+    color: orange;
+}
+
+/* Icon explanation */
+.icon-ex{
+  color: white;
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
 }
 
 .far {
