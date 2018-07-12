@@ -148,7 +148,32 @@ handleScroll(event) {
         <h1 className="line">
         ____________________________________________
         </h1>
-
+        <br />
+        <br />
+        <br />
+        <div className="gyphyicons">
+          <div className="row">
+            <div className="col-md-4">
+                <a href="https://github.com/saranasr83/Fashi.ON" target="_blank" alt="github-repo"> <i className="fab fa-github"></i></a>
+              </div>
+              <div className="col-md-4">
+                  <a href="/NoMatch" target="_blank" alt="contact">
+                    <i className="far fa-envelope"></i>
+                  </a>
+                </div>
+                <div className="col-md-4">
+                  <a href="/signup" target="_blank" alt="CreateUser">
+                    <i className="fas fa-user-plus"></i>
+                  </a>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <br />
+        <br />
+        <h1 className="line">
+        __________________________________
+        </h1>
 
 
 
