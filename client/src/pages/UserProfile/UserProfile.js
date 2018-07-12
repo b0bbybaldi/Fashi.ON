@@ -92,47 +92,40 @@ class UserProfile extends Component {
         errorElement.id="error-msg";
         event.preventDefault();
         console.log(this.state);
-        if (this.state.email && this.state.firstName && this.state.lastName && this.state.gender && this.state.password) {
-            API.updateUser({
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                email: this.state.email,
-                gender: this.state.gender,
-                password: this.state.password
-            })
+        if (this.state.email && this.state.firstName && this.state.lastName && this.state.gender) {
+        
+
+            if(this.state.password) {
+                
+                var updateData = {
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    gender: this.state.gender,
+                    email: this.state.email,
+                    password: this.state.password
+                }
+
+            } else {
+
+                var updateData = {
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    email: this.state.email,
+                    gender: this.state.gender
+                }
+            }
+
+            API.updateUser(updateData)
                 .then(res => {
 
-
+                    console.log("success", res);
+                    
+                    window.location.href = "/dashboard";
 
                 })
 
                 .catch(err => console.log(err));
-
-            fetch("auth/signup", {
-                method: "POST",
-                credentials: "include",
-                mode: "cors",
-                body: JSON.stringify({
-                    email: this.state.email,
-                    password: this.state.password,
-                    gender: this.state.gender,
-                    firstName: this.state.firstName,
-                    lastName: this.state.lastName
-                }),
-                headers: new Headers({
-                    "Content-Type": "application/json"
-                })
-            }).then(response => {
-                // this.setState({
-                //   firstName: "",
-                //   email: "",
-                //   password: "",
-                //   lastName: "",
-                //   gender: ""
-                // });
-                console.log(response);
-                window.location.href = "/survey";
-            }).catch(err => console.log(err));
+                
         }
         else {
 
@@ -155,7 +148,7 @@ class UserProfile extends Component {
                 <div className="d-flex justify-content-center w3-animate-top signup-box">
                     <div className="form-signup">
                     <div className="alert alert-danger text-center" id="error-msg">
-                        <span>There are some missing fields</span>
+                        <span>There are some missing fields!</span>
                     </div>
                         <Typography variant="headline" component="h3">
                             Welcome to your profile

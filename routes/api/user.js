@@ -14,8 +14,8 @@ router.route("/occasions/:email")
     .get(userController.findOne);
     
 //login specific to the user by id for profile page
-router.route('/user/:id')
-    .get(userController.findById)
+router.route('/update')
+    // .get(userController.findById)
     .put(userController.update);
 
 router.route('/signup')
