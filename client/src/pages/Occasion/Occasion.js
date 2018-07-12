@@ -33,8 +33,8 @@ class Occasion extends Component {
         items: "",
         colors: "",
         budget: "",
-        itemsArr:""
-
+        itemsArr:[],
+        test: []
     };
     componentDidMount() {
         this.bringOccasion(occasionId);
@@ -82,12 +82,14 @@ class Occasion extends Component {
             console.log("arr", arr);
         }
         this.setState({
-            itemsArr : arr 
+            itemsArr : arr
         })
 
-        console.log(this.state.itemsArr)
+        console.log("89", this.state.itemsArr)
         
     }
+
+
     render() {
         return (
             <div>
@@ -100,11 +102,11 @@ class Occasion extends Component {
                             </div>
                         </div>
                         <div className="row d-flex justify-content-center">
-                            {/* {this.state.itemsArr.map((suggestion) => (
-                                <Button className="btn btn-success" onClick={() => this.asosAjaxCall({suggestion})} children={suggestion.replace("+"," ")} />
-                            ))} */}
-                            {this.state.itemsArr}
-                            {/* {this.state.items} */}
+                            {this.state.itemsArr.map((suggestion, index) => (
+                                <Button className="btn btn-success" onClick={() => this.asosAjaxCall({suggestion})} children={suggestion} />
+                                
+                            ))}
+                            {/* {this.state.itemsArr} */}
                             
                         </div>
                         <div className="row d-flex justify-content-center">
