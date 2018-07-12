@@ -32,7 +32,8 @@ class Occasion extends Component {
         season: "",
         items: "",
         colors: "",
-        budget: ""
+        budget: "",
+        itemsArr:""
 
     };
     componentDidMount() {
@@ -50,6 +51,8 @@ class Occasion extends Component {
                     budget: response.data.budget
                 })
 
+                this.getItemsArr();
+
             })
     }
     asosAjaxCall = () => {
@@ -66,6 +69,25 @@ class Occasion extends Component {
             })
             .catch(err => console.log(err));
     }
+
+    getItemsArr = ()=> {
+        var arr = [];
+        if (this.state.items.includes(",")) {
+
+            arr = this.state.items.split(",");
+            
+        } else {
+
+            arr.push(this.state.items);
+            console.log("arr", arr);
+        }
+        this.setState({
+            itemsArr : arr 
+        })
+
+        console.log(this.state.itemsArr)
+        
+    }
     render() {
         return (
             <div>
@@ -78,8 +100,12 @@ class Occasion extends Component {
                             </div>
                         </div>
                         <div className="row d-flex justify-content-center">
-                            <Button className="btn btn-success" onClick={() => this.asosAjaxCall()} children={this.state.items}
-                            />
+                            {/* {this.state.itemsArr.map((suggestion) => (
+                                <Button className="btn btn-success" onClick={() => this.asosAjaxCall({suggestion})} children={suggestion.replace("+"," ")} />
+                            ))} */}
+                            {this.state.itemsArr}
+                            {/* {this.state.items} */}
+                            
                         </div>
                         <div className="row d-flex justify-content-center">
                             {this.state.suggestions.map((suggestions, key) => (
