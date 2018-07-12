@@ -150,35 +150,42 @@ handleScroll(event) {
         </h1>
         <br />
         <br />
-        <br />
         <div className="gyphyicons">
           <div className="row">
             <div className="col-md-4">
-                <a href="https://github.com/saranasr83/Fashi.ON" target="_blank" alt="github-repo"> <i className="fab fa-github"></i></a>
+                <a href="https://github.com/saranasr83/Fashi.ON" target="_blank" alt="github-repo">
+                  <i className="fab fa-github"></i>
+                </a>
+                <br/>
+                <p className= 'icon-ex'>
+                Github
+                </p>
               </div>
               <div className="col-md-4">
                   <a href="/NoMatch" target="_blank" alt="contact">
                     <i className="far fa-envelope"></i>
                   </a>
-                </div>
-                <div className="col-md-4">
+                  <br/>
+                  <p className= 'icon-ex'>
+                  Contact
+                  </p>
+              </div>
+              <div className="col-md-4">
                   <a href="/signup" target="_blank" alt="CreateUser">
                     <i className="fas fa-user-plus"></i>
                   </a>
-                </div>
+                  <br/>
+                  <p className= 'icon-ex'>
+                    Signup
+                  </p>
+              </div>
             </div>
         </div>
         <br/>
-        <br />
-        <br />
-        <h1 className="line">
-        __________________________________
-        </h1>
-
-
-
+          <h1 className="line">
+            ______________________________
+          </h1>
           </div>
-
         <div className="quote">
           <p> “You can have anything you want in life, if you dress for it.” — Edith Head
           </p>
