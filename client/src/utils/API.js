@@ -7,8 +7,9 @@ export default {
         return axios.get("/auth/user");
     },
     //update email and password for a user
-    updateUser: function (id) {
-        return axios.put("/api/user/" + id);
+    updateUser: function (data) {
+        console.log(data);
+        return axios.put("/api/user/update", data);
     },
     // Saves a new user to the database- Sign up
     logout: function () {

@@ -1,6 +1,7 @@
 const db = require('../models');
 const User = require('../models/user');
 const passport = require('passport')
+const bCrypt = require("bcrypt-nodejs");
 
 module.exports = {
     findById: function (req, res) {
@@ -56,8 +57,15 @@ module.exports = {
         })(req, res, next);
     },
     update: function (req, res) {
+
+        function generateHash(password) {
+            return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+        };
+
+        req.body.password = generateHash(req.body.password);
+      
         db.User
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .findOneAndUpdate({ email: req.body.email }, req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     }
