@@ -118,15 +118,13 @@ handleScroll(event) {
           <h2 className="tagline">Your Ultimate Clothing Guide</h2>
 
           <div className="buttons text-center">
-            <a className="btn btn-lg btn-success" href="/signin">Login</a>
+            <a className="btn btn-lg btn-success" href="/signin">Sign in</a>
             &nbsp;
             <a className="btn btn-lg btn-primary" href="/signup">Sign up</a>
           </div>
           <br />
           <a href="#about" className="arrow-trans">
-          <img className="arrow-down"
-          src={arrow}
-          />
+            <i className="fas fa-arrow-circle-down"></i>
           </a>
         </div>
         <div className="parallax">
