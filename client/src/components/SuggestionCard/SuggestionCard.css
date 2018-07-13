@@ -1,13 +1,18 @@
 #suggestion-card-img {
-    border-radius: 10%;
-    width: 200px;
-    height: 200px;   
+    /* border-radius: 10%; */
+    width: 250px;
+    height: 250px;   
    /* border-bottom: 0;  */
 }
 .list-group{
     font-family:  'Gentium Basic', serif;
+    overflow: scroll;
+    font-size: 18px;
+   
 }
 .card{
-    font-size: 15px;
+    font-size: 18px;
     font-family:  'Gentium Basic', serif;
+    overflow: scroll;
+    font-weight: bold;
 }

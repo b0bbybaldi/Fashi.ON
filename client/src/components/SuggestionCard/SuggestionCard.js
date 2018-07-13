@@ -15,7 +15,7 @@ class SuggestionCard extends Component {
     };
     render() {
         return (
-            <div className="col-12 col-sm-12 col-md-2 w3-animate-top">
+            <div className="col-12 col-sm-10 col-md-2 w3-animate-top">
                 <div className="card">
                     <a href={this.props.url}><img className="card-img-top img-fluid" id="suggestion-card-img" src={this.props.baseImageUrl} alt="wedding-img" /></a>
                     <div className="card-body">
