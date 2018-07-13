@@ -54,10 +54,10 @@ This is a Full Stack web-app using React JS.
 
 
 ## Authors:
-* **Lena Martinson** [Github]("https://github.com/Blonded")
-* **Gustavo Gibo** [Github]("https://github.com/gustavogibo")
-* **Sara Khosravinasr** [Github]("https://github.com/saranasr83")
-* **Mridula Shankar** [Github]("https://github.com/MridulaUdayaShankar")
+* **Lena Martinson** [https://github.com/Blonded]("Github")
+* **Gustavo Gibo** [https://github.com/gustavogibo]("Github")
+* **Sara Khosravinasr** [https://github.com/saranasr83]("Github")
+* **Mridula Shankar** [https://github.com/MridulaUdayaShankar]("Github")
 
 ## Acknowledgements:
-** Amber Boroughs, Sasha Patsel, Ricky Feng, Dani Roxberry, Medium Posts, Stack Overflow **
+ Our teaching staff Amber Boroughs, Sasha Patsel, Ricky Feng, Dani Roxberry & Web libraries of medium.com, Stack Overflow 
