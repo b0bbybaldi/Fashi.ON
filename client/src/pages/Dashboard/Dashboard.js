@@ -67,7 +67,9 @@ class Dashboard extends Component {
                 <h3 className="display-3"></h3>
               </div>
             </div>
+           
             <div className="row d-flex justify-content-center">
+            <HowToCard />
               {this.state.occasions.map((occ) => (
                 <OccasionCard
                   id={`/occasion/${occ._id}`}
@@ -77,7 +79,7 @@ class Dashboard extends Component {
                   items={occ.items}
                 />
               ))}
-              <HowToCard />
+              
             </div>
           </div>
         </div>
