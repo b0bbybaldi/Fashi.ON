@@ -3,7 +3,7 @@ import "./OccasionCard.css";
 
 // const images = [
 //     {
-//       url: 'http://i68.tinypic.com/2jb1nvs.jpg',
+//       url: 'https://i68.tinypic.com/2jb1nvs.jpg',
 //       title: 'Casual Apparel',
 //       width: '30%',
 //     },
@@ -13,7 +13,7 @@ import "./OccasionCard.css";
 //       width: '40%',
 //     },
 //     {
-//       url: 'http://i65.tinypic.com/oq8zm1.jpg',
+//       url: 'https://i65.tinypic.com/oq8zm1.jpg',
 //       title: 'Everyday',
 //       width: '30%',
 //     },

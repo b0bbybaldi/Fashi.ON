@@ -126,7 +126,7 @@ class Occasion extends Component {
                                     colour={suggestions.colour}
                                     baseImageUrl={suggestions.baseImageUrl}
                                     proId={suggestions.id}
-                                    // url="http://us.asos.com/search/?q=dress&page=1&store=2&lang=en-US&sizeschema=US&currency=USD&sort=freshness"
+                                    // url="https://us.asos.com/search/?q=dress&page=1&store=2&lang=en-US&sizeschema=US&currency=USD&sort=freshness"
                                     url={`https://us.asos.com/${suggestions.name}/prd/${suggestions.id}?clr=${suggestions.colour}&SearchQuery=dress&gridcolumn=2&gridrow=1&gridsize=4&pge=1&pgesize=72&`}
                                 />
                             ))}
