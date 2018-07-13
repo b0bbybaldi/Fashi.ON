@@ -114,7 +114,7 @@ handleScroll(event) {
           </video>
         </div>
         <div className="content text-center w3-animate-opacity">
-          <h1 className= "logo-text">Fashi.On</h1>
+          <h1 className= "logo-text">Fashi.ON</h1>
           <h2 className="tagline">Your Ultimate Clothing Guide</h2>
 
           <div className="buttons text-center">

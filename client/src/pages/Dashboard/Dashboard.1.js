@@ -91,7 +91,7 @@ const images = [
     width: '40%',
   },
   {
-    url: 'https://i65.tinypic.com/oq8zm1.jpg',
+    url: 'http://i65.tinypic.com/oq8zm1.jpg',
     title: 'Everyday',
     width: '30%',
   },
