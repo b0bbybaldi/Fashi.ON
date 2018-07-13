@@ -41,7 +41,7 @@ cookie: {
 
 mongoose.Promise = Promise;
 //change this to your own mongo collection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/fashiondb");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/fashiondb");
 
 // Init passport authentication 
 app.use(passport.initialize());
