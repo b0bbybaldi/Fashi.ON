@@ -10,6 +10,7 @@ import SuggestionCard from "../../components/SuggestionCard";
 import API from '../../utils/API';
 import outfit from "../../items.json";
 import Button from "../../components/Button";
+import Home from "../Home/Home";
 
 var occasionId = window.location.pathname;
 occasionId = occasionId.split("/");
@@ -20,6 +21,8 @@ console.log(occasionId);
 class Occasion extends Component {
 
     state = {
+        isLoggedIn: false,
+        gender:"",
         suggestions: [],
         name: "",
         brandName: "",
@@ -37,6 +40,13 @@ class Occasion extends Component {
         test: []
     };
     componentDidMount() {
+        API.getUser()
+        .then(user => {
+            this.setState({
+            isLoggedIn: true,
+            gender: user.data.gender,
+            });
+        })
         this.bringOccasion(occasionId);
     }
 
@@ -60,6 +70,7 @@ class Occasion extends Component {
         // const queryParam = `${this.state.dresscode}+${this.state.season}+${this.state.items}`;
         const cOlors = this.state.colors;
         const bUdget = this.state.budget;
+        const Gender = this.state.gender;
         const dressCode = this.state.dresscode;
         const iTems = item.suggestion;
         const sEason = this.state.season;
@@ -68,6 +79,7 @@ class Occasion extends Component {
             sEason,
             bUdget,
             iTems,
+            Gender,
             cOlors
         ]
         API.getSuggestions(queryObj)
@@ -98,6 +110,12 @@ class Occasion extends Component {
 
 
     render() {
+
+        if(this.state.isLoggedIn === false) {
+            return (
+                <Home />
+            )
+        }
         return (
             <div>
                 <Navbar />
