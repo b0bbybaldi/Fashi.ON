@@ -1,19 +1,27 @@
-#suggestion-card-img {
+.card-suggestion {
+    margin-bottom: 20px;
+}
+.suggestion-card-img {
     /* border-radius: 10%; */
-    width: 250px;
-    height: 250px;   
+    /* width: 250px; */
+    max-height: 250px;   
    /* border-bottom: 0;  */
 }
 .list-group{
     font-family:  'Gentium Basic', serif;
-    overflow: scroll;
+    /* overflow: scroll; */
     font-size: 18px;
    
 }
 .card{
     font-size: 18px;
     font-family:  'Gentium Basic', serif;
-    overflow: scroll;
+    /* overflow: scroll; */
     font-weight: bold;
     border: solid grey 1px;
 }
+
+.btn-items {
+    text-transform: capitalize;
+}
+
