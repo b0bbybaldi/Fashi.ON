@@ -19,12 +19,12 @@ class SuggestionCard extends Component {
                 <div className="card">
                     <a href={this.props.url}><img className="card-img-top img-fluid" id="suggestion-card-img" src={this.props.baseImageUrl} alt="wedding-img" /></a>
                     <div className="card-body">
-                        <p className="card-title">{this.props.brandName}</p>
+                        <p className="card-title">Brand: {this.props.brandName}</p>
                     </div>
                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item">{this.props.name}</li>
-                        <li className="list-group-item">{this.props.price}</li>
-                        <li className="list-group-item">{this.props.colour}</li>
+                        <li className="list-group-item">Name: {this.props.name}</li>
+                        <li className="list-group-item">Price: {this.props.price}</li>
+                        <li className="list-group-item">Colour: {this.props.colour}</li>
                         <li className="list-group-item"><a href={this.props.url} target="_blank">Go To Website</a></li>
                     </ul>
                 </div>

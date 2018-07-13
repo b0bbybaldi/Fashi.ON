@@ -15,4 +15,5 @@
     font-family:  'Gentium Basic', serif;
     overflow: scroll;
     font-weight: bold;
+    border: solid grey 1px;
 }

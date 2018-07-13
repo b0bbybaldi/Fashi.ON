@@ -106,6 +106,7 @@ class Occasion extends Component {
                         <div className="row d-flex justify-content-center">
                             <div className="col-12 text-center">
                                 <h4 className="display-3">Here are some of the Hand-picked styles for you!</h4>
+                                <p>Click on the button(s) to load the surprise</p>
                             </div>
                         </div>
                         <div className="row d-flex justify-content-center">
