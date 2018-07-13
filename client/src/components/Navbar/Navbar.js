@@ -56,7 +56,7 @@ class Navbar extends Component {
             <a className="btn btn-primary" href="/dashboard">Your Occasions ({this.state.countOccasions})</a>
           </div>
           <div className="p-2 bd-highlight align-self-center">
-            <a className="btn btn-info" href="/userprofile">Your Profile</a>
+            <a className="btn btn-info" href="/userprofile">Update Profile</a>
           </div>
           <div className="p-2 bd-highlight align-self-center">
             <a className="btn btn-danger text-white" onClick={this.logout}>Log out</a>

@@ -105,7 +105,7 @@ class Occasion extends Component {
                     <div className="container-fluid">
                         <div className="row d-flex justify-content-center">
                             <div className="col-12 text-center">
-                                <h4 className="display-3">Your Occasions</h4>
+                                <h4 className="display-3">Your Search Results</h4>
                             </div>
                         </div>
                         <div className="row d-flex justify-content-center">

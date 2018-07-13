@@ -64,7 +64,7 @@ class Dashboard extends Component {
           <div className="container-fluid">
             <div className="row d-flex justify-content-center">
               <div className="col-8 text-center">
-                <h3 className="display-3">Your Occasions</h3>
+                <h3 className="display-3"></h3>
               </div>
             </div>
             <div className="row d-flex justify-content-center">
